@@ -28,7 +28,7 @@ const outConfig: OutputOptions = {
 }
 
 export default series(
-  taskWithName('bundleVuesiumMars3D', async ()=> {
+  taskWithName('bundleFullEntry', async ()=> {
 
     const bundle = await rollup(inputConfig)
     return bundle.write(outConfig)
