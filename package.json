@@ -26,6 +26,8 @@
 		"typescript": "^4.4.4"
 	},
 	"dependencies": {
-		"vue": "^3.2.22"
+		"vue": "^3.2.22",
+		"@[LIB_NAME]/components": "workspace:^1.0.0",
+    "@[LIB_NAME]/shared": "workspace:*"
 	}
 }

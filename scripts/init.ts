@@ -4,7 +4,8 @@ import mri from 'mri'
 import {sync} from 'fast-glob'
 import { workRoot } from '../config/path'
 import fs from 'fs/promises'
-import { green } from '../utils/log'
+import path from 'path'
+import { green, red } from '../utils/log'
 // 获取参数
 const argv = process.argv.slice(2)
 type MriProperties = {
@@ -18,19 +19,24 @@ export default series(
     const files = sync('**/*', {
       cwd: workRoot,
       onlyFiles: true,
+      absolute: true,
+      ignore: ['node_modules', '**/node_modules'],
     })
     // 
     files.forEach((file) => {
+      if (path.resolve(file) === path.resolve(__filename)) return
       fs.readFile(file, {
         encoding: 'utf8',
       }).then(res => {
+        const hasTemp = res.includes('[LIB_NAME]')
+        if (!hasTemp) return
         const nData = res.replaceAll('[LIB_NAME]', mriData.name)
-        return fs.writeFile(file, nData)
-      }).then(() => {
-        green(file + ':LIB_NAME renamed')
+        return Promise.all([fs.writeFile(file, nData)]) 
+      }).then((res) => {
+        if (res) green(file + ':LIB_NAME renamed')
       })
-    })
 
+    })
   
   }),
 )
