@@ -1,0 +1,26 @@
+{
+  "name": "vite-app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
+    "build:skzz": "vue-tsc --noEmit --skipLibCheck && vite build --mode skzz",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "qs": "^6.10.1",
+    "vue": "^3.2.20",
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.0",
+    "@types/qs": "^6.9.7",
+    "@vitejs/plugin-vue": "^1.9.3",
+    "@vitejs/plugin-vue-jsx": "^1.2.0",
+    "@vue/compiler-sfc": "^3.2.20",
+    "vite": "^2.5.6",
+    "vite-plugin-svg-icons": "^1.0.5",
+    "vue-tsc": "^0.3.0"
+  }
+}

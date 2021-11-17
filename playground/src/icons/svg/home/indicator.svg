@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="32px" viewBox="0 0 34 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>箭头1</title>
+    <defs>
+        <polygon id="path-1" points="2 0 16 0 9 12"></polygon>
+        <filter x="-107.1%" y="-125.0%" width="314.3%" height="350.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.121420144   0 0 0 0 0.495022632   0 0 0 0 0.842985734  0 0 0 0.04 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-31.6%" y="-300.0%" width="163.2%" height="700.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="2" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="未来社区-行政区浮窗" transform="translate(-697.000000, -548.000000)">
+            <g id="小区其他备份-6" transform="translate(665.000000, 506.000000)">
+                <g id="箭头1" transform="translate(40.000000, 52.000000)">
+                    <g id="路径-2">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#3AA0FF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <ellipse id="椭圆形" fill="#1383EF" opacity="0.5" filter="url(#filter-3)" cx="9.5" cy="15" rx="9.5" ry="1"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "name": "@[LIB_NAME]/components",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp -f gulpfile.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@vue/compiler-sfc": "3.2.20",
+    "chalk": "^4.1.2",
+    "fast-glob": "^3.2.7"
+  }
+}

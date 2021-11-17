@@ -1,0 +1,38 @@
+:root{
+  font-size: calc(1vw + .5em);
+  --f-xxxl: 1.8rem;
+  --f-xxl: 1.4rem;
+  --f-xl: 1.2rem;
+  --f-l: .75rem;
+  --f-m: .6rem;
+  --f-s: .55rem;
+  --f-xs: .5rem;
+  --f-xxs: .4rem;
+  --f-xxxs: .3rem;
+}
+body{
+  font-size: var(--f-m);
+}
+h1{
+  font-size: var(--f-l);
+  
+}
+h2{
+  font-size: var(--f-s);
+}
+.f-l{
+  font-size: var(--f-l);
+}
+.f-xs{
+  font-size: var(--f-xs);
+}
+.f-xxs{
+  font-size: var(--f-xxs);
+}
+.f-xxxs{
+  font-size: var(--f-xxxs);
+}
+
+.bold{
+  font-weight: bold;
+}

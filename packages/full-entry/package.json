@@ -1,0 +1,19 @@
+{
+  "name": "[LIB_NAME]",
+  "version": "0.0.0-alpha.0",
+  "description": "",
+  "module": "index.esm.js",
+  "scripts": {
+    "build": "gulp -f gulpfile.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.2",
+    "rollup": "^2.53.2",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "ts-morph": "^12.2.0"
+  }
+}

@@ -1,0 +1,116 @@
+/* 
+Flex容器(AMCSS)
+
+  使用[sk-flex]为属性命名空间
+
+  该规则将flexbox常用属性分成三段 ①-②-③
+
+  ①、主副轴方向（flex-direction）
+    col: column; row: row
+
+  ②、主轴方向布局（justify-content）
+    可忽略, 即为默认；
+    center: center;
+    between: space-between;
+    around: space-around;
+    end: flex-end;
+
+  ③、副轴方向布局（align-items）
+    可忽略, 即为默认；
+    center: center;
+    start: start;
+    end: flex-end;
+    baseline: baseline;
+
+
+  尾部属性不设置, 属性值为 ① 或 ①-②；
+
+  中间属性不设置, -②-用占位符_表示 ,属性值为 ①_②；
+
+  ②、③属性相同, 属性值为①-②2
+
+  
+Markup:
+<div sk-flex="{{modifier_class}}" style="height: 180px;background: gray;">
+  <section  style="width: 30px;height: 30px;background: red;" sk-flex="center2">11</section>
+  <section  style="width: 40px;height: 40px;background: yellow;" sk-flex="center2">22</section>
+  <section  style="width: 50px;height: 50px;background: blue;" sk-flex="center2">33</section>
+</div>
+
+Weight: 1
+
+row - 主轴默认
+col - 主轴向下
+row-around - 1
+row-end - rowend
+row-center - rowcenter
+col-center - colcenter
+row_baseline - bbb
+col-around - 2
+row-around-baseline - b
+row-around-center - c
+row-between - b1
+row-around-baseline - a
+row-center2 - c2
+col-around-end - xxx
+
+
+Styleguide Layout.amFlex
+*/
+
+[sk-flex]{
+  display: flex;
+}
+[sk-flex^="col"]{
+  flex-direction: column;
+}
+
+[sk-flex*="-between-"],
+[sk-flex~="col-between"], [sk-flex~="row-between"], [sk-flex~="between"]
+{
+  justify-content: space-between;
+}
+[sk-flex*="-around-"],
+[sk-flex~="col-around"], [sk-flex~="row-around"], [sk-flex~="around"]
+{
+  justify-content: space-around;
+}
+[sk-flex*="-center-"],[sk-flex$="center2"],
+[sk-flex~="col-center"], [sk-flex~="row-center"], [sk-flex~="center"]
+{
+  justify-content: center;
+}
+[sk-flex*="-end-"], [sk-flex$="end2"],
+[sk-flex~="col-end"], [sk-flex~="row-end"], [sk-flex~="end"]
+{
+  justify-content: flex-end;
+}
+
+[sk-flex$="_center"],[sk-flex$="center2"]{
+  align-items: center;
+}
+[sk-flex$="_end"],[sk-flex$="end2"]{
+  align-items: flex-end;
+}
+[sk-flex$="_start"],[sk-flex$="start"]{
+  align-items: flex-start;
+}
+[sk-flex$="baseline"]{
+  align-items: baseline;
+}
+
+[sk-flex$="-center"]:not([sk-flex~="col-center"]):not([sk-flex~="row-center"]){
+  align-items: center;
+}
+[sk-flex$="-end"]:not([sk-flex~="col-end"]):not([sk-flex~="row-end"]){
+  align-items: flex-end;
+}
+[sk-flex$="-start"]:not([sk-flex~="col-start"]):not([sk-flex~="row-start"]){
+  align-items: flex-start;
+}
+
+[sk-flex-grow]{
+  display: inherit;
+  flex-direction: inherit;
+  flex: 1;
+}

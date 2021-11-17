@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "noUnusedLocals": true,
+    "module": "ESNext",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "noLib": false,
+    "target": "ESNext",
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "lib": [
+      "ESNext", "DOM",
+    ],
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": [
+    "packages/**/*.ts",
+    "packages/**/*.vue",
+    "typings/**/*.d.ts",
+    "config/**/*.ts",
+    "utils/**/*.ts"
+  ],
+  "exclude": [
+    "playground/typings/**/*.d.ts",
+    "dist"
+  ]
+ }
+ 
