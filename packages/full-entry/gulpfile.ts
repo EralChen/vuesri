@@ -10,6 +10,7 @@ import esbuild from 'rollup-plugin-esbuild'
 import {Project} from 'ts-morph'
 import fs from 'fs/promises'
 import { LIB_NAME } from '../../config/project'
+import css from 'rollup-plugin-css-only'
 
 // 使用 rollup 整体打包
 const inputConfig = {
@@ -17,6 +18,9 @@ const inputConfig = {
   plugins: [
     nodeResolve({
       extensions: ['.js', '.json', '.ts'],
+    }),
+    css({
+      output: 'index.css',
     }),
     vue(),
     esbuild(), 

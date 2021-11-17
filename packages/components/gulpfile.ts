@@ -92,7 +92,7 @@ async function genTypes () { // 生成一个 .d.ts
     cwd: path.resolve(__dirname, './'),
     onlyFiles: true,
     absolute: true,
-    ignore: ['gulpfile.ts', 'package.json', 'node_modules'],
+    ignore: ['gulpfile.ts', 'package.json', 'node_modules', '**/README.md'],
   })
 
   // 添加全局类型
