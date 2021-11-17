@@ -9,6 +9,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import esbuild from 'rollup-plugin-esbuild'
 import {Project} from 'ts-morph'
 import fs from 'fs/promises'
+import { LIB_NAME } from '../../config/project'
 
 // 使用 rollup 整体打包
 const inputConfig = {
@@ -54,7 +55,7 @@ export default series(
       })
       const emitOutput = sourceFile.getEmitOutput()
       for (const outputFile of emitOutput.getOutputFiles()) {
-        await fs.writeFile(outMainPath, outputFile.getText().replaceAll('@vuesium-mars3d', '.'), 'utf8')
+        await fs.writeFile(outMainPath, outputFile.getText().replaceAll(`@${LIB_NAME}`, '.'), 'utf8')
       }
   
     }),

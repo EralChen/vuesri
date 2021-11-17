@@ -22,7 +22,8 @@
     "packages/**/*.vue",
     "typings/**/*.d.ts",
     "config/**/*.ts",
-    "utils/**/*.ts"
+    "utils/**/*.ts",
+    "scripts/**/*.ts"
   ],
   "exclude": [
     "playground/typings/**/*.d.ts",
