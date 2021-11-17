@@ -4,7 +4,7 @@ import { libExternal } from '../../config/build'
 import { green, red, yellow } from '../../utils/log'
 import glob, { sync } from 'fast-glob'
 import path from 'path'
-import { outDir, workRoot } from '../../config/path'
+import { mainRoot, outDir, workRoot } from '../../config/path'
 import { rollup, InputOptions, OutputOptions } from 'rollup'
 import vue from 'rollup-plugin-vue'
 import css from 'rollup-plugin-css-only'
@@ -86,7 +86,6 @@ async function genTypes () { // 生成一个 .d.ts
     },
     tsConfigFilePath: path.resolve(workRoot, 'tsconfig.json'),
     skipAddingFilesFromTsConfig: true,
-    skipFileDependencyResolution: true,
   })
 
   const filePaths = await glob('**/*', {
@@ -98,6 +97,10 @@ async function genTypes () { // 生成一个 .d.ts
 
   // 添加全局类型
   project.addSourceFilesAtPaths(path.resolve(workRoot, 'typings', './**/*{.d.ts,.ts}'))
+
+  /* [TODO]固定.d.ts文件输入路径的临时解决方案，令outDir中目录结构于packages相同 */
+  project.addSourceFilesAtPaths(path.resolve(mainRoot,  './main.ts'))
+
   const sourceFiles: SourceFile[] = []
   await Promise.all([
     ...filePaths.map(async (file) => {
@@ -120,13 +123,16 @@ async function genTypes () { // 生成一个 .d.ts
             content += compiled.content
             if (scriptSetup.lang === 'ts') isTS = true
           }
+          const _file =  path.resolve(workRoot, file) + (isTS ? '.ts' : '.js')
           const sourceFile = project.createSourceFile(
-            path.relative(process.cwd(), file) + (isTS ? '.ts' : '.js'),
+            _file,
             content,
           )
           sourceFiles.push(sourceFile)
+          yellow('添加的文件：' + _file)
         }
       } else if (file.endsWith('.ts')) {
+        yellow('添加的文件：' + file)
         const sourceFile = project.addSourceFileAtPath(file)
         sourceFiles.push(sourceFile)
       }
@@ -142,20 +148,22 @@ async function genTypes () { // 生成一个 .d.ts
   })
 
   const tasks = sourceFiles.map(async (sourceFile) => {
+   
     const relativePath = path.relative(workRoot, sourceFile.getFilePath())
-    yellow(`Generating definition for file: ${bold(relativePath)}`)
-
+    yellow(`生成文件的相对路径: ${bold(relativePath)}`)
     // 获取发射的内存中的文件
     const emitOutput = sourceFile.getEmitOutput()
     const emitFiles = emitOutput.getOutputFiles()
     if (emitFiles.length === 0) {
-      red(`Emit no file: ${bold(relativePath)}`)
+      red(`没有找到要输出的文件: ${bold(relativePath)}`)
       return
     }
 
     // 生成实体文件
     const tasks = emitFiles.map(async (outputFile) => {
       const filepath = outputFile.getFilePath()
+      /* [TODO]有没有方法能够固定输入的文件路径 */
+      yellow(`写入文件的路径: ${bold(filepath)}`)
       await fs.mkdir(path.dirname(filepath), {
         recursive: true,
       })
@@ -166,7 +174,6 @@ async function genTypes () { // 生成一个 .d.ts
         'utf8',
       )
 
-      green(`Definition for file: ${bold(relativePath)} generated`)
     })
 
     await Promise.all(tasks)
