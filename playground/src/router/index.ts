@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import EXAMPLE from './_demo-components'
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -8,10 +9,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/home',
     component: () => import('_v/home.vue'),
   },
-  {
-    path: '/_demo-master',
-    component: () => import('_v/_demo-master/index.vue'),
-  },
+  ...EXAMPLE,
 ]
 
 const router = createRouter({

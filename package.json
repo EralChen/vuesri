@@ -5,7 +5,8 @@
 		"build": "gulp -f build/gulpfile.ts",
 		"build:playground": "pnpm -C playground build",
 		"init": "gulp -f scripts/init.ts",
-		"publish": "gulp -f scripts/publish.ts"
+		"publish": "gulp -f scripts/publish.ts",
+		"cc": "gulp -f scripts/create/index.ts"
 	},
 	"devDependencies": {
 		"@rollup/plugin-node-resolve": "^13.0.6",
