@@ -27,7 +27,7 @@ export const createVueStr = (capName:string, tsStart = '', setupStart = '') => `
 ${tsStart}
 import props from './props'
 import { LoadEvent } from './types'
-import { defineComponent, inject } from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'Vum${capName}',
   emits: {

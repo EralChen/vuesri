@@ -1,1 +1,1 @@
-export * from '@--lib-name--/components/button'
+export * from '@--lib-name--/shared'
