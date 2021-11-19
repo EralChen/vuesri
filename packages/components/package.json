@@ -1,5 +1,5 @@
 {
-  "name": "@__LIB_NAME__/components",
+  "name": "@--lib-name--/components",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

@@ -1,1 +1,1 @@
-export * from '@__LIB_NAME__/components/button'
+export * from '@--lib-name--/components/button'

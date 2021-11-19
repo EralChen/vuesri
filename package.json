@@ -28,8 +28,8 @@
 		"typescript": "^4.5.2"
 	},
 	"dependencies": {
-		"@__LIB_NAME__/components": "workspace:^1.0.0",
-		"@__LIB_NAME__/shared": "workspace:*",
+		"@--lib-name--/components": "workspace:^1.0.0",
+		"@--lib-name--/shared": "workspace:*",
 		"vue": "^3.2.22"
 	}
 }
