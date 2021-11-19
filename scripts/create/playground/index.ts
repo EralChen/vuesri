@@ -7,6 +7,7 @@ import path from 'path'
 import { playgroundRoot } from '../../../config/path'
 import fsPromises from 'fs/promises'
 import { createVueStr } from './temp'
+import { camelize, capitalize } from '../../../utils/string'
 const argv = process.argv.slice(2)
 const mriData = mri<{
   name: string,
@@ -15,7 +16,7 @@ const mriData = mri<{
 const playgroundSrc = path.resolve(playgroundRoot, './src')
 const playgroundViews = path.resolve(playgroundRoot, './src/views')
 const DEMODIR = '_demo-components'
-
+const capName = capitalize(camelize(mriData.name))
 export default series(
   parallel(
     taskWithName('playground:addRoute', async () => {
@@ -37,7 +38,7 @@ export default series(
       const componentsDemoRoot = path.resolve(playgroundViews, DEMODIR)
       const componentPath = path.resolve(componentsDemoRoot, `./${mriData.name}`)
       await fsPromises.mkdir(componentPath, {recursive: true})
-      await fsPromises.writeFile(path.resolve(componentPath, './index.vue'), createVueStr())
+      await fsPromises.writeFile(path.resolve(componentPath, './index.vue'), createVueStr(capName))
     }),
   ),
   taskWithName('playground:addRouteEntryForHome', async () => {
