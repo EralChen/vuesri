@@ -29,7 +29,7 @@ import props from './props'
 import { LoadEvent } from './types'
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'Vum${capName}',
+  name: '${pre}${capName}',
   emits: {
     load: (e: LoadEvent) => e,
   },
@@ -43,6 +43,6 @@ export default defineComponent({
 })
 </script>
 <template>
-  <slot></slot>
+  <div>${capName}</div>
 </template>
 `
