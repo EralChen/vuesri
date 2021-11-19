@@ -45,9 +45,9 @@ export default series(
     let data = await fsPromises.readFile(viewsComponentsJson, { encoding: 'utf8' })
     const dataJson: {title: string, data: {to: string, label: string}[]}[] = JSON.parse(data)
     const ground = mriData.ground || '#'
-    const routeItem = dataJson.find(item => item.title === ground)
-    if (!routeItem) dataJson.push({title: ground, data: []})
-    routeItem?.data.push({
+    let routeItem = dataJson.find(item => item.title === ground)
+    if (!routeItem) dataJson.push((routeItem = {title: ground, data: []}, routeItem))
+    routeItem.data.push({
       label: mriData.name,
       to: `/${DEMODIR}/${mriData.name}`,
     })
