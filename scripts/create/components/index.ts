@@ -54,6 +54,7 @@ export default series(
     let mainStr = await fsPromises.readFile(mainPath, {
       encoding: 'utf8',
     })
+    if (/\S$/.test(mainPath)) mainStr += '\n'
     mainStr = mainStr + `export * from '@${LIB_NAME}/components/${mriData.name}'${'\n'}`
     await fsPromises.writeFile(mainPath, mainStr)
   }),
