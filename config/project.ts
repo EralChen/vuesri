@@ -1,2 +1,2 @@
-export const LIB_NAME = '[LIB_NAME]'
+export const LIB_NAME = '__LIB_NAME__'
 export const LIB_PRE = '[LIB_PRE]'

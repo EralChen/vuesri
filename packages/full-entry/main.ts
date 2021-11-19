@@ -1,1 +1,1 @@
-export * from '@[LIB_NAME]/components/button'
+export * from '@__LIB_NAME__/components/button'

@@ -32,9 +32,9 @@ export default series(
       return fs.readFile(file, {
         encoding: 'utf8',
       }).then(res => {
-        const hasTemp = res.includes('[LIB_NAME]')
+        const hasTemp = res.includes('__LIB_NAME__')
         if (!hasTemp) return
-        const nData = res.replaceAll('[LIB_NAME]', mriData.name)
+        const nData = res.replaceAll('__LIB_NAME__', mriData.name)
         return Promise.all([fs.writeFile(file, nData)]) 
       }).then((res) => {
         if (res) green(file + ':LIB_NAME renamed')

@@ -1,5 +1,5 @@
 {
-  "name": "@[LIB_NAME]/shared",
+  "name": "@__LIB_NAME__/shared",
   "version": "1.0.0",
   "private": true,
   "description": "一些lib中共享的东西可以放在这个包下，这个包不会被打包输出",
