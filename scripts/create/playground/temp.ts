@@ -6,19 +6,15 @@ import { defineComponent } from 'vue'
 import { ${pre}${capName} } from '@${LIB_NAME}/components/${hyphenate(capName)}'
 export default defineComponent({
   components: {
-    VumViewer,
     ${pre}${capName},
   },
   setup () {
     return {
-      VumViewer,
     }
   },
 })
 </script>
 <template>
-  <VumViewer>
-    <${pre}${capName}></${pre}${capName}>
-  </VumViewer>
+  <${pre}${capName}></${pre}${capName}>
 </template>
 `
