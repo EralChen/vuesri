@@ -28,7 +28,7 @@ export default series(
     })
     // 
     return files.map((file) => {
-      // if (path.resolve(file) === path.resolve(__filename)) return
+      if (path.resolve(file) === path.resolve(__filename)) return
       return fs.readFile(file, {
         encoding: 'utf8',
       }).then(res => {
