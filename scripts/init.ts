@@ -27,7 +27,7 @@ export default series(
       ignore: ['node_modules', '**/node_modules'],
     })
     // 
-    return files.map((file) => {
+    return Promise.all(files.map((file) => {
       if (path.resolve(file) === path.resolve(__filename)) return
       return fs.readFile(file, {
         encoding: 'utf8',
@@ -39,7 +39,7 @@ export default series(
       }).then((res) => {
         if (res) green(file + ':LIB_NAME renamed')
       })
-    })
+    })) 
   }),
   taskWithName('setPre', async () => {
     if (!mriData.pre) return
