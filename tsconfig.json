@@ -23,7 +23,8 @@
     "typings/**/*.d.ts",
     "config/**/*.ts",
     "utils/**/*.ts",
-    "scripts/**/*.ts"
+    "scripts/**/*.ts",
+    "press/**/*.ts"
   ],
   "exclude": [
     "playground/typings/**/*.d.ts",
