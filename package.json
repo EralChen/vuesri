@@ -2,9 +2,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "pnpm -C playground dev",
-		"dev:press": "pnpm -C press dev",
+		"dev:docs": "pnpm -C docs dev",
 		"build": "gulp -f build/gulpfile.ts",
-		"build:press": "pnpm -C press build",
+		"build:docs": "pnpm -C docs build",
 		"build:playground": "pnpm -C playground build",
 		"init": "gulp -f scripts/init.ts",
 		"publish": "gulp -f scripts/publish.ts",
