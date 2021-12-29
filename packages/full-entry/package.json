@@ -8,12 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.0.2",
-    "rollup": "^2.53.2",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-vue": "^6.0.0",
-    "ts-morph": "^12.2.0"
-  }
+  "license": "ISC"
 }

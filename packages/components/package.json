@@ -8,10 +8,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@vue/compiler-sfc": "3.2.20",
-    "chalk": "^4.1.2",
-    "fast-glob": "^3.2.7"
-  }
+  "description": ""
 }
