@@ -1,30 +1,15 @@
-import type { ActionTree } from 'vuex'
-
-type UserInfo = {
-  username: string,
-}
-export interface State {
-  userInfo: UserInfo
-}
-
-export const state: State = {
-  userInfo: {
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+export const useUserStore =  defineStore('user', () => {
+  const userInfo = ref({
     username: '未知',
-  },
-}
-
-export const actions: ActionTree<State, State> = {
-  async getUserInfo ({ state }) {
-    const userInfo = await Promise.resolve({
+  })
+  async function getUserInfo () {
+    const res = await Promise.resolve({
       username: '',
     })
-    state.userInfo = userInfo
+    userInfo.value = res
     return userInfo
-  },
-}
-
-declare module 'vuex' {
-  export interface Dispatch {
-    (type: 'getUserInfo'): Promise<string>
   }
-}
+  return { userInfo, getUserInfo }
+})

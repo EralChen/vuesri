@@ -29,6 +29,7 @@
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", 
     "typings/**/*.d.ts",
     "config/**/*.ts",
+    "utils/**/*.ts",
     "vite.config.ts"
   ],
   "exclude": [

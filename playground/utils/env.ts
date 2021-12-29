@@ -1,13 +1,8 @@
-
-import { join } from 'path'
-import { readFileSync } from 'fs'
-
-export function getPath (url:string):string {
-  return join(__dirname, '../', url)
-}
-
+import path from 'path'
+import {readFileSync} from 'fs'
+import { workRoot } from '../config/path'
 export function getEnv (mode: string): ImportMetaEnv {
-  const envFilePath = getPath(`/.env.${mode}`)
+  const envFilePath = path.resolve(workRoot, `./.env.${mode}`)
   const data = readFileSync(envFilePath).toString()
   const res = {} as ImportMetaEnv
   data.split('\n').forEach((line) => {

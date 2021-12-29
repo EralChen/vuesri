@@ -1,5 +1,5 @@
 import { PluginOption } from 'vite'
-import { getEnv } from '../utils'
+import { getEnv } from '../../utils/env'
 export default function windowEnv ():PluginOption {
   let mode = ''
   
@@ -9,7 +9,7 @@ export default function windowEnv ():PluginOption {
       mode = resolvedConfig.mode
     },
 
-    name: 'window-env-plugin', // 必须的，将会在 warning 和 error 中显示
+    name: 'window-env-plugin',
     transform (code) {
       if (code.includes('import.meta.env.')) {
         code = code.replace(/import\.meta\.env\./g, 'window.__env__.')
@@ -19,7 +19,7 @@ export default function windowEnv ():PluginOption {
     transformIndexHtml (html) {
       return html.replace(`<script id="env"></script>`,
         `<script id="env">
-          ${'window.__env__ =' + JSON.stringify(getEnv(mode))}
+          ${'window.__env__ =' + JSON.stringify(getEnv(mode), null, 2)}
         </script>`)
     },
   }
