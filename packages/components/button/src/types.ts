@@ -1,4 +1,4 @@
-import { ReturnVoid } from '@--lib-name--/shared'
+import { ReturnVoid } from '@vunk/shared'
 export type LoadEvent = {
 
 }

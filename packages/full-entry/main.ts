@@ -1,2 +1,2 @@
-export * from '@--lib-name--/shared'
-export * from '@--lib-name--/components/button'
+export * from '@vunk/shared'
+export * from '@vunk/components/button'

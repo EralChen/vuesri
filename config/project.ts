@@ -1,2 +1,2 @@
-export const LIB_NAME = '--lib-name--'
-export const LIB_PRE = 'cx'
+export const LIB_NAME = 'vunk'
+export const LIB_PRE = 'vk'

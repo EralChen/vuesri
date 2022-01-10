@@ -4,8 +4,8 @@ importers:
 
   .:
     specifiers:
-      '@--lib-name--/components': workspace:^1.0.0
-      '@--lib-name--/shared': workspace:*
+      '@vunk/components': workspace:^1.0.0
+      '@vunk/shared': workspace:*
       '@rollup/plugin-node-resolve': ^13.0.6
       '@types/gulp': ^4.0.9
       '@typescript-eslint/eslint-plugin': ^5.4.0
@@ -27,8 +27,8 @@ importers:
       typescript: ^4.5.2
       vue: ^3.2.26
     dependencies:
-      '@--lib-name--/components': link:packages/components
-      '@--lib-name--/shared': link:packages/shared
+      '@vunk/components': link:packages/components
+      '@vunk/shared': link:packages/shared
       vue: 3.2.26
     devDependencies:
       '@rollup/plugin-node-resolve': 13.0.6_rollup@2.60.0

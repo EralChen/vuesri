@@ -32,8 +32,8 @@
 		"@vue/compiler-sfc": "^3.2.26"
 	},
 	"dependencies": {
-		"@--lib-name--/components": "workspace:^1.0.0",
-		"@--lib-name--/shared": "workspace:*",
+		"@vunk/components": "workspace:^1.0.0",
+		"@vunk/shared": "workspace:*",
 		"vue": "^3.2.26"
 	}
 }
