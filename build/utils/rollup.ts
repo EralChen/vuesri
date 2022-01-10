@@ -7,6 +7,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import esbuild from 'rollup-plugin-esbuild'
 import {LIB_NAME} from '../../config/project'
 import {libExternal} from '../../config/build'
+import commonjs from '@rollup/plugin-commonjs'
 
 export function rollupComponents (opts: {
   files: string[],
@@ -44,4 +45,31 @@ export function rollupComponents (opts: {
     await bundle.write(outputConfig)
   })
   return Promise.all(builds)
+}
+
+export async function rollupFile (opts: {
+  file: string,
+  outputFile: string
+  external: string[]
+}) {
+  // 使用 rollup 整体打包
+  const inputConfig = {
+    input: opts.file,
+    plugins: [
+      nodeResolve({
+        extensions: ['.js', '.json', '.ts'],
+      }),
+      commonjs(),
+      vue(),
+      esbuild(), 
+    ],
+    external: opts.external,
+  }
+  const outConfig: OutputOptions = {
+    format: 'esm',
+    file: opts.outputFile,
+  } 
+  const bundle = await rollup(inputConfig)
+  return bundle.write(outConfig)
+
 }

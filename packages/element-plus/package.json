@@ -4,6 +4,7 @@
   "description": "",
   "module": "index.esm.js",
   "scripts": {
+    "build": "gulp -f gulpfile.ts"
   },
   "keywords": [],
   "author": "",

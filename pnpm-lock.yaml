@@ -4,8 +4,10 @@ importers:
 
   .:
     specifiers:
+      '@rollup/plugin-commonjs': ^21.0.1
       '@rollup/plugin-node-resolve': ^13.0.6
       '@types/gulp': ^4.0.9
+      '@types/qs': ^6.9.7
       '@typescript-eslint/eslint-plugin': ^5.4.0
       '@typescript-eslint/parser': ^5.4.0
       '@vue/compiler-sfc': ^3.2.26
@@ -19,6 +21,7 @@ importers:
       fast-glob: ^3.2.7
       gulp: ^4.0.2
       mri: ^1.2.0
+      qs: ^6.10.2
       rollup: ^2.60.0
       rollup-plugin-css-only: ^3.1.0
       rollup-plugin-esbuild: ^4.7.2
@@ -31,10 +34,13 @@ importers:
       '@vunk/components': link:packages/components
       '@vunk/element-plus': link:packages/element-plus
       '@vunk/shared': link:packages/shared
+      qs: 6.10.2
       vue: 3.2.26
     devDependencies:
+      '@rollup/plugin-commonjs': 21.0.1_rollup@2.60.0
       '@rollup/plugin-node-resolve': 13.0.6_rollup@2.60.0
       '@types/gulp': 4.0.9
+      '@types/qs': 6.9.7
       '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
       '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
       '@vue/compiler-sfc': 3.2.26
@@ -535,6 +541,22 @@ packages:
 
   /@popperjs/core/2.11.2:
     resolution: {integrity: sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==}
+    dev: true
+
+  /@rollup/plugin-commonjs/21.0.1_rollup@2.60.0:
+    resolution: {integrity: sha512-EA+g22lbNJ8p5kuZJUYyhhDK7WgJckW5g4pNN7n4mAFUM96VuwUnNT3xr2Db2iCZPI1pJPbGyfT5mS9T1dHfMg==}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      rollup: ^2.38.3
+    dependencies:
+      '@rollup/pluginutils': 3.1.0_rollup@2.60.0
+      commondir: 1.0.1
+      estree-walker: 2.0.2
+      glob: 7.2.0
+      is-reference: 1.2.1
+      magic-string: 0.25.7
+      resolve: 1.20.0
+      rollup: 2.60.0
     dev: true
 
   /@rollup/plugin-node-resolve/13.0.6_rollup@2.60.0:
@@ -1696,6 +1718,10 @@ packages:
   /commander/7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
+    dev: true
+
+  /commondir/1.0.1:
+    resolution: {integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=}
     dev: true
 
   /component-emitter/1.3.0:
@@ -3453,6 +3479,12 @@ packages:
 
   /is-promise/2.2.2:
     resolution: {integrity: sha512-+lP4/6lKUBfQjZ2pdxThZvLUAafmZb8OAxFb8XXtiQmS35INgr85hdOGoEs124ez1FCnZJt6jau/T+alh58QFQ==}
+    dev: true
+
+  /is-reference/1.2.1:
+    resolution: {integrity: sha512-U82MsXXiFIrjCK4otLT+o2NA2Cd2g5MLoOVXUZjIOhLurrRxpEXzI8O0KZHr3IjLvlAH1kTPYSuqer5T9ZVBKQ==}
+    dependencies:
+      '@types/estree': 0.0.39
     dev: true
 
   /is-regex/1.1.4:

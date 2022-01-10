@@ -1,6 +1,7 @@
-import RestFetch, { RequestOptions } from '@vunk/shared/utils/request/RestFetch'
+import RestFetch from '@vunk/shared/utils/request/RestFetch'
 import { ElMessage, ElLoadingService } from 'element-plus'
 import type { LoadingOptions } from 'element-plus'
+import type { RequestOptions } from '@vunk/shared/utils/request/RestFetch'
 
 export const restFetch = new RestFetch({
   baseURL: '',

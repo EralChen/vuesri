@@ -1,37 +1,27 @@
 import {series} from 'gulp'
 import {taskWithName} from '../../utils/task'
-import {libExternal} from '../../config/build'
 import path from 'path'
-import {outDir} from '../../config/path'
-import {rollup,OutputOptions} from 'rollup'
-import vue from 'rollup-plugin-vue'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
-import esbuild from 'rollup-plugin-esbuild'
-import css from 'rollup-plugin-css-only'
+import { outDir } from '../../config/path'
+import { rollupFile } from '../../build/utils/rollup'
+import { libExternal } from '../../config/build'
+import { genTypes } from '../../build/utils/ts-morph'
 
-// 使用 rollup 整体打包
-const inputConfig = {
-  input: path.resolve(__dirname, './main.ts'),
-  plugins: [
-    nodeResolve({
-      extensions: ['.js', '.json', '.ts'],
-    }),
-    css({
-      output: 'index.css',
-    }),
-    vue(),
-    esbuild(), 
-  ],
-  external: [...libExternal, 'element-plus'],
-}
-const outConfig: OutputOptions = {
-  format: 'esm',
-  file: path.resolve(outDir, './element-plus/index.esm.js'),
-}
+
+const OUT_DIRNAME = 'element-plus'
+const ENTRY_FILE = path.resolve(__dirname, './main.ts')
+const OUT_FILE = path.resolve(outDir, `./${OUT_DIRNAME}/index.esm.js`)
 
 export default series(
-  taskWithName('bundleFullEntry', async ()=> {
-    const bundle = await rollup(inputConfig)
-    return bundle.write(outConfig)
+  taskWithName('bundleElementPlusPlugin', async ()=> {
+    await rollupFile({
+      file: ENTRY_FILE,
+      outputFile: OUT_FILE,
+      external: [...libExternal, 'element-plus'],
+    })
+  }),
+  taskWithName('genElementPlusPluginType', async () => {
+    genTypes({
+      filesRoot: path.resolve(__dirname, './'),
+    })
   }),
 )

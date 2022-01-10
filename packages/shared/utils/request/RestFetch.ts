@@ -6,7 +6,7 @@ interface ConstructorOptions {
   baseURL: string;
   setRequestInit?: (config: RequestInit) => RequestInit;
 }
-interface RequestOptions {
+export interface RequestOptions {
   url: string;
   baseURL?: string;
   method: 'POST' | 'GET' | 'PUT' | 'DELETE';
@@ -98,7 +98,4 @@ class RestFetch {
 
 }
 
-export {
-  RequestOptions,
-}
 export default RestFetch
