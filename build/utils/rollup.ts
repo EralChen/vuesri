@@ -48,20 +48,22 @@ export function rollupComponents (opts: {
 }
 
 export async function rollupFile (opts: {
-  file: string,
+  inputFile: string,
   outputFile: string
   external: string[]
 }) {
-  // 使用 rollup 整体打包
   const inputConfig = {
-    input: opts.file,
+    input: opts.inputFile,
     plugins: [
       nodeResolve({
         extensions: ['.js', '.json', '.ts'],
       }),
-      commonjs(),
+      css({
+        output: 'index.css',
+      }),
       vue(),
       esbuild(), 
+      commonjs(),
     ],
     external: opts.external,
   }
@@ -73,3 +75,4 @@ export async function rollupFile (opts: {
   return bundle.write(outConfig)
 
 }
+

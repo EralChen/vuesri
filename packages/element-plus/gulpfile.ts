@@ -14,7 +14,7 @@ const OUT_FILE = path.resolve(outDir, `./${OUT_DIRNAME}/index.esm.js`)
 export default series(
   taskWithName('bundleElementPlusPlugin', async ()=> {
     await rollupFile({
-      file: ENTRY_FILE,
+      inputFile: ENTRY_FILE,
       outputFile: OUT_FILE,
       external: [...libExternal, 'element-plus'],
     })
