@@ -61,7 +61,7 @@ export default series(
       for (const outputFile of emitOutput.getOutputFiles()) {
         await fs.writeFile(outMainPath, outputFile.getText().replaceAll(`@${LIB_NAME}`, '.'), 'utf8')
       }
-  
+
     }),
 
   ),
