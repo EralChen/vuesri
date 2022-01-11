@@ -1,9 +1,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { VkCard } from '@vunk/components/card'
+import { VkTabGroup } from '@vunk/components/tab-group'
 export default defineComponent({
   components: {
-    VkCard,
+    VkTabGroup,
   },
   setup () {
     return {
@@ -12,10 +12,5 @@ export default defineComponent({
 })
 </script>
 <template>
-  <VkCard :tag="'h2'">
-    <template #title>
-      12321
-    </template>
-    body
-  </VkCard>
+  <VkTabGroup></VkTabGroup>
 </template>
