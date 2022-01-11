@@ -8,8 +8,8 @@ import { genTypes } from '../../build/utils/ts-morph'
 
 
 const OUT_DIRNAME = 'element-plus'
-const ENTRY_FILE = path.resolve(__dirname, './main.ts')
-const OUT_FILE = path.resolve(outDir, `./${OUT_DIRNAME}/index.esm.js`)
+const ENTRY_FILE = path.resolve(__dirname, './index.ts')
+const OUT_FILE = path.resolve(outDir, `./${OUT_DIRNAME}/index.js`)
 
 export default series(
   taskWithName('bundleElementPlusPlugin', async ()=> {
