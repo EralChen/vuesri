@@ -16,6 +16,7 @@ export default series(
       external: libExternal,
       inputFile: path.resolve(mainRoot, './main.ts'),
       outputFile: path.resolve(outDir, './index.esm.js'),
+      format: 'esm',
     })
   }),
   parallel(

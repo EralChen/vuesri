@@ -17,6 +17,7 @@ export default series(
       inputFile: ENTRY_FILE,
       outputFile: OUT_FILE,
       external: [...libExternal, 'element-plus'],
+      format: 'umd',
     })
   }),
   taskWithName('genElementPlusPluginType', async () => {

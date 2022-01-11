@@ -51,12 +51,15 @@ export async function rollupFile (opts: {
   inputFile: string,
   outputFile: string
   external: string[]
+  format: 'umd'|'esm'
 }) {
   const inputConfig = {
     input: opts.inputFile,
+    
     plugins: [
       nodeResolve({
         extensions: ['.js', '.json', '.ts'],
+        browser: true,
       }),
       css({
         output: 'index.css',
@@ -68,6 +71,7 @@ export async function rollupFile (opts: {
     external: opts.external,
   }
   const outConfig: OutputOptions = {
+    
     format: 'esm',
     file: opts.outputFile,
   } 
