@@ -7,20 +7,20 @@ import { libExternal } from '../../config/build'
 import { genTypes } from '../../build/utils/ts-morph'
 
 
-const OUT_DIRNAME = 'element-plus'
+const OUT_DIRNAME = 'echarts'
 const ENTRY_FILE = path.resolve(__dirname, './index.ts')
 const OUT_FILE = path.resolve(outDir, `./${OUT_DIRNAME}/index.js`)
 
 export default series(
-  taskWithName('bundleElementPlusPlugin', async ()=> {
+  taskWithName('bundleEchartsPlugin', async ()=> {
     await rollupFile({
       inputFile: ENTRY_FILE,
       outputFile: OUT_FILE,
-      external: [...libExternal, 'element-plus'],
+      external: [...libExternal, 'echarts'],
       format: 'esm',
     })
   }),
-  taskWithName('genElementPlusPluginType', async () => {
+  taskWithName('genEchartsPluginType', async () => {
     genTypes({
       filesRoot: path.resolve(__dirname, './'),
     })

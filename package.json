@@ -37,6 +37,7 @@
 		"@vunk/components": "workspace:^1.0.0",
 		"@vunk/element-plus": "workspace:*",
 		"@vunk/shared": "workspace:*",
+		"@vunk/echarts": "workspace:*",
 		"qs": "^6.10.2",
 		"vue": "^3.2.26"
 	}
