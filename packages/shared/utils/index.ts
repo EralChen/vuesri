@@ -1,6 +1,11 @@
 import Deferred from './Deferred'
-export * from './load'
-export * from './string'
+import RestFetch from './request/RestFetch'
+
 export {
   Deferred,
+  RestFetch,
 }
+
+export * from './load'
+export * from './string'
+export * from './request/RestFetch'
