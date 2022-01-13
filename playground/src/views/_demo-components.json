@@ -17,6 +17,10 @@
       {
         "label": "card",
         "to": "/_demo-components/card"
+      },
+      {
+        "label": "collapse",
+        "to": "/_demo-components/collapse"
       }
     ]
   }

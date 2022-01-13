@@ -17,4 +17,8 @@ export default [
     path: '/_demo-components/card',
     component: () => import('_v/_demo-components/card/index.vue'),
   },
+  {
+    path: '/_demo-components/collapse',
+    component: () => import('_v/_demo-components/collapse/index.vue'),
+  },
 ] as RouteRecordRaw[]
