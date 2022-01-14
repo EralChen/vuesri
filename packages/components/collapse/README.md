@@ -14,4 +14,5 @@
 | v-model/modelValue | Boolean          | false   | `body`显隐                                       |
 | headerClass        | [String, Object] | ''      | `header`自定义class                              |
 | bodyClass          | [String, Object] | ''      | `body` 自定义class                               |
+| hiddenBody         | Boolean          | true    | `body` v-if                                      |
 
