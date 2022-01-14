@@ -15,6 +15,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    headerClass: {
+      type: [String, Object],
+      default: '',
+    },
+    bodyClass: {
+      type: [String, Object],
+      default: '',
+    },
   },
   setup () {
     return {}
@@ -28,11 +36,11 @@ export default defineComponent({
 </script>
 <template>
   <div class="vk-collapse">
-    <div class="vk-collapse-header-x" @[event]="toggle">
-      <slot name="header" :toggle="toggle">header</slot>
+    <div class="vk-collapse-header-x" :class="headerClass" @[event]="toggle">
+      <slot name="header" :toggle="toggle"></slot>
     </div>
-    <div class="vk-collapse-body-x" v-show="modelValue">
-      <slot name="body">body</slot>
+    <div class="vk-collapse-body-x" :class="bodyClass" v-if="$slots.body" v-show="modelValue">
+      <slot name="body"></slot>
     </div>
   </div>
 </template>
