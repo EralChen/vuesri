@@ -25,7 +25,7 @@ export default defineComponent({
     },
     hiddenBody: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   setup () {
@@ -43,7 +43,7 @@ export default defineComponent({
     <div class="vk-collapse-header-x" :class="headerClass" @[event]="toggle">
       <slot name="header" :toggle="toggle"></slot>
     </div>
-    <div class="vk-collapse-body-x" v-if="hiddenBody" :class="bodyClass" v-show="modelValue">
+    <div class="vk-collapse-body-x" v-if="!hiddenBody" :class="bodyClass" v-show="modelValue">
       <slot name="body"></slot>
     </div>
   </div>
