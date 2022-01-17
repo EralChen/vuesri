@@ -38,6 +38,8 @@ const config = {
     'no-whitespace-before-property': 'error',
     'key-spacing': ['error', { 'afterColon': true }],
     // for ts
+    // for vue
+    'vue/multi-word-component-names': 'off',
   },
 }
 module.exports = config

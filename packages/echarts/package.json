@@ -2,7 +2,7 @@
   "name": "@vunk/echarts",
   "version": "0.0.0-alpha.0",
   "description": "",
-  "module": "index.esm.js",
+  "module": "index.ts",
   "scripts": {
     "build": "gulp -f gulpfile.ts"
   },

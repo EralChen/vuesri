@@ -35,9 +35,10 @@
 	},
 	"dependencies": {
 		"@vunk/components": "workspace:^1.0.0",
+		"@vunk/echarts": "workspace:*",
 		"@vunk/element-plus": "workspace:*",
 		"@vunk/shared": "workspace:*",
-		"@vunk/echarts": "workspace:*",
+		"echarts-gl": "^2.0.8",
 		"qs": "^6.10.2",
 		"vue": "^3.2.26"
 	}
