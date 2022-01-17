@@ -5,6 +5,13 @@ import chinaGeoJson from './chinaGeo.json'
 import * as echarts from 'echarts'
 import 'echarts-gl'
 echarts.registerMap('china', {geoJSON: chinaGeoJson } as any)
+function getRandomColor (){
+  const r = Math.floor(Math.random() * 255)
+  const g = Math.floor(Math.random() * 255)
+  const  b = Math.floor(Math.random() * 255)
+  const color = 'rgba(' + r + ',' + g + ',' + b + ',0.4)'
+  return color
+}
 export default defineComponent({
   setup () {
     const echart = inject<ECharts>('echart')
@@ -22,36 +29,20 @@ export default defineComponent({
             panMouseButton: 'left',
             rotateMouseButton: 'right',
           },
-          label: {
-            show: true,
-            color: 'red',
-          },
-          itemStyle: {
-            areaColor: '#666',
-            borderColor: '#222',
-            borderWidth: 1,
-          },
-  
-          regions: [
-            {   // 可对单个地图区域进行设置
-              name: '浙江省',    // 所对应的地图区域的名称
-              regionHeight: '10', // 区域的高度，可以设置不同的高度用来表达数据的大小。当 GeoJSON 为建筑的数据时，也可以通过这个值表示简直的高度。
-              itemStyle: {    // 单个区域的样式设置
-                color: '#00FF00',
-                opacity: 1,
-                borderWidth: 0.4,
-                borderColor: '#5F9EA0',
+
+          data: chinaGeoJson.features.map(item => {
+            return {
+              name: item.properties.name,
+              label: {
+                show: true,
+                color: getRandomColor(),
               },
-            }, {
-              name: '新疆维吾尔自治区',
               itemStyle: {
-                color: '#EEEE00',
-                opacity: 1,
-                borderWidth: 0.4,
-                borderColor: '#5F9EA0',
+          
+                color: getRandomColor(),
               },
-            },
-          ],
+            }
+          }),
         },
       ],
     } as EChartsOption
