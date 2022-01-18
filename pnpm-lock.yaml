@@ -91,6 +91,7 @@ importers:
 
   playground:
     specifiers:
+      '@types/geojson': ^7946.0.8
       '@types/node': ^17.0.5
       '@types/qs': ^6.9.7
       '@typescript-eslint/eslint-plugin': ^5.8.0
@@ -114,6 +115,7 @@ importers:
       vue: 3.2.26
       vue-router: 4.0.12_vue@3.2.26
     devDependencies:
+      '@types/geojson': 7946.0.8
       '@types/node': 17.0.5
       '@types/qs': 6.9.7
       '@typescript-eslint/eslint-plugin': 5.8.1_3a47348159e115370aa4cba56aba33b6
@@ -637,6 +639,10 @@ packages:
 
   /@types/expect/1.20.4:
     resolution: {integrity: sha512-Q5Vn3yjTDyCMV50TB6VRIbQNxSE4OmZR86VSbGaNpfUolm0iePBB4KdEEHmxoY5sT2+2DIvXW0rvMDP2nHZ4Mg==}
+    dev: true
+
+  /@types/geojson/7946.0.8:
+    resolution: {integrity: sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==}
     dev: true
 
   /@types/glob-stream/6.1.1:
