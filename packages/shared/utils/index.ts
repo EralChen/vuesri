@@ -9,3 +9,5 @@ export {
 export * from './load'
 export * from './string'
 export * from './request/RestFetch'
+export * from './function'
+export * from './number'

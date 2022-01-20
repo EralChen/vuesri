@@ -3,7 +3,7 @@ import { ElMessage, ElLoadingService } from 'element-plus'
 import type { BaseResponse, RequestOptions, InitOptions } from './types'
 
 export class SkzzRestFetch extends RestFetch {
-  async skzzRequest<T extends BaseResponse> (options: RequestOptions, init?: InitOptions):Promise<T> {
+  async request<T extends BaseResponse> (options: RequestOptions, init?: InitOptions, requestInit?: RequestInit):Promise<T> {
     const loading = !!init?.loading
     let loadingService:ReturnType<typeof ElLoadingService>|null = null
     if (loading) {
@@ -11,7 +11,7 @@ export class SkzzRestFetch extends RestFetch {
         typeof init.loading === 'boolean' ?  {} : init.loading, 
       )
     }
-    const res = await super.request<T>(options)
+    const res = await super.request(options, undefined, requestInit)
     if (!(res.code === 200 || res.status === 10001)) {
       ElMessage({
         type: 'error',
@@ -29,5 +29,4 @@ export class SkzzRestFetch extends RestFetch {
     loadingService?.close()
     return res
   }
-  
 }
