@@ -1,16 +1,16 @@
 <script lang="ts">
-import { defineComponent, provide } from 'vue'
+import { defineComponent, PropType, provide } from 'vue'
 import { propsKey, contextKey } from './symbol'
 export default defineComponent({
   name: 'VkTabGroup',
   props: {
     modelValue: {
-      type: [String, Number, Boolean, Array],
+      type: [String, Number, Boolean, Array, Object] as PropType<any>,
       required: false,
     },
   },
   emits: {
-    'update:model-value': (e: string | number | boolean | Array<string | number>) => e || true,
+    'update:model-value': (e: any) => e || true,
   },
   setup (props, context) {
     provide(propsKey, props)

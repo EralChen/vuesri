@@ -44,6 +44,7 @@ export default defineComponent({
   <vk-tab-item name="2"><button>2</button></vk-tab-item>
   <vk-tab-item name="3"><button>3</button></vk-tab-item>
 </vk-tab-group>
+{{ tabArrayValue }}
 
 <vk-tab-group v-model="tabFlag">
   <vk-tab-item :name="true"><button>1</button></vk-tab-item>

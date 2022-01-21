@@ -1,6 +1,12 @@
 <script lang="ts">
 import { computed, defineComponent, inject, watch } from 'vue'
 import {VkTabGroupSymbol} from '@vunk/components/tab-group'
+import { ObjectUtils } from '@vunk/shared'
+enum CollectionType {
+  array,
+  object,
+  other
+}
 export default defineComponent({
   name: 'VkTabItem',
   props: {
@@ -27,20 +33,54 @@ export default defineComponent({
     'update:model-value': null,
   },
   setup (props, { emit }) {
-    const pProps = inject<{
-      modelValue: string|boolean|(string|number|boolean)[]
-        }>(VkTabGroupSymbol.propsKey)
-
+    const pProps = inject<{modelValue: any}>(VkTabGroupSymbol.propsKey)
     const pCtx = inject<any>(VkTabGroupSymbol.contextKey)
     if (!pProps) throw new Error('VkTabItem must be in VkTabGroup')
     if (!pCtx) throw new Error('VkTabItem must be in VkTabGroup')
-    const isActive = computed(() => {
-      if (Array.isArray(pProps.modelValue)) {
-        return pProps.modelValue.includes(props.name)
+    const collectionType = computed(() => {
+      if (ObjectUtils.isPlainObject(pProps.modelValue)) {
+        return CollectionType.object
+      } else if (Array.isArray(pProps.modelValue)) {
+        return CollectionType.array
       } else {
-        return pProps.modelValue === props.name
+        return CollectionType.other
       }
     })
+
+    const actions: Record<CollectionType, {
+      isActive: (name: any) => boolean
+      remove: AnyFunc
+      set: AnyFunc
+    }> = {
+      [CollectionType.array]: {
+        isActive: (name) => !!pProps.modelValue.includes(name),
+        remove: (name) => {
+          const arr = [...pProps.modelValue]
+          arr.splice(
+            pProps.modelValue.findIndex(item => item === name),
+            1,
+          )
+          return arr
+        },
+        set: (name) => [...pProps.modelValue, name],
+      },
+      [CollectionType.object]: {
+        isActive: (name) => !!pProps.modelValue[name + ''],
+        remove: (name) => {
+          const obj = { ...pProps.modelValue }
+          obj[name] = false
+          return obj
+        },
+        set: (name) => ({ ...pProps.modelValue, [name]: true }),
+      },
+      [CollectionType.other]: {
+        isActive: (name) => pProps.modelValue === name,
+        remove: (_) => undefined,
+        set: (name) => name,
+      },
+    }
+    
+    const isActive = computed<boolean>(() =>  actions[collectionType.value].isActive(props.name))
 
 
     emit('update:model-value', isActive.value)
@@ -49,29 +89,17 @@ export default defineComponent({
     watch(isActive, (v) => {
       emit('update:model-value', v)
       v ? emit('active') : emit('inactive')
-
     })
 
     const handleClick = () => {
       if (isActive.value && props.clearable) {
         // 清除
-        if (Array.isArray(pProps.modelValue)) {
-          const arr = [...pProps.modelValue]
-          arr.splice(
-            pProps.modelValue.findIndex(item => item === props.name),
-            1,
-          )
-          pCtx.emit('update:model-value', arr)
-        } else {
-          pCtx.emit('update:model-value', undefined)
-        }
+        const nModelValue = actions[collectionType.value].remove(props.name)
+        pCtx.emit('update:model-value', nModelValue)
       } else {
         // 设置
-        if (Array.isArray(pProps.modelValue)) {
-          pCtx.emit('update:model-value', [...pProps.modelValue, props.name])
-        } else {
-          pCtx.emit('update:model-value', props.name)
-        }
+        const nModelValue = actions[collectionType.value].set(props.name)
+        pCtx.emit('update:model-value', nModelValue)
       }
     }
 
