@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import EXAMPLE from './_demo-components'
 import ECHRAT from './_demo-echart'
+import DEMOMASTER from './_demo-master'
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -12,6 +13,7 @@ export const routes: Array<RouteRecordRaw> = [
   },
   ...EXAMPLE,
   ...ECHRAT,
+  ...DEMOMASTER,
 ]
 
 const router = createRouter({

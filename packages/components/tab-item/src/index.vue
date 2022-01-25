@@ -56,13 +56,28 @@ export default defineComponent({
         isActive: (name) => !!pProps.modelValue.includes(name),
         remove: (name) => {
           const arr = [...pProps.modelValue]
-          arr.splice(
-            pProps.modelValue.findIndex(item => item === name),
-            1,
-          )
+          const index = arr.findIndex(item => item === name)
+          if (index === arr.length - 1) {
+            arr.pop()
+            while (arr.length > 0 && !(arr[arr.length - 1] ?? false)) {
+              arr.pop()
+            }
+          } else {
+            arr[index] = undefined
+
+          }
           return arr
         },
-        set: (name) => [...pProps.modelValue, name],
+        set: (name) => {
+          const arr = [...pProps.modelValue]
+          const i = arr.findIndex(item => !(item ?? false))
+          if (i === -1) {
+            arr.push(name)
+          } else {
+            arr[i] = name
+          }
+          return arr
+        },
       },
       [CollectionType.object]: {
         isActive: (name) => !!pProps.modelValue[name + ''],
