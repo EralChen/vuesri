@@ -3,7 +3,7 @@ import voieRoutes from '~pages'
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/vunk/components/card',
+    redirect: '/docs/components/card',
     meta: {
       hidden: true,
     },
