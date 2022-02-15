@@ -64,7 +64,6 @@ export default defineComponent({
             }
           } else {
             arr[index] = undefined
-
           }
           return arr
         },

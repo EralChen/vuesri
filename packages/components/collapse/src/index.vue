@@ -1,10 +1,10 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType, TransitionProps } from 'vue'
 
 export default defineComponent({
   name: 'VkCollapse',
   emits: {
-    'update:model-value': (e:boolean) => e || true,
+    'update:model-value': (e: boolean) => e || true,
   },
   props: {
     event: {
@@ -27,6 +27,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    transitionProps: {
+      type: Object as PropType<TransitionProps>,
+      default: () => ({}),
+    },
   },
   setup () {
     return {}
@@ -43,8 +47,10 @@ export default defineComponent({
     <div class="vk-collapse-header-x" :class="headerClass" @[event]="toggle">
       <slot name="header" :toggle="toggle"></slot>
     </div>
-    <div class="vk-collapse-body-x" v-if="!hiddenBody" :class="bodyClass" v-show="modelValue">
-      <slot name="body"></slot>
-    </div>
+    <transition v-bind="transitionProps">
+      <div class="vk-collapse-body-x" v-if="!hiddenBody" :class="bodyClass" v-show="modelValue">
+        <slot name="body"></slot>
+      </div>
+    </transition>
   </div>
 </template>

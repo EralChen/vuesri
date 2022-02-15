@@ -14,5 +14,15 @@ export default defineComponent({
 })
 </script>
 <template>
-  <VkCollapse v-model="show"></VkCollapse>
+  <VkCollapse v-model="show" :transitionProps="{
+    name: 'drop-down'
+  }">
+    <template #header>
+      12321
+    </template>
+    <template #body>
+
+      222
+    </template>
+  </VkCollapse>
 </template>
