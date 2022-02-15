@@ -1,7 +1,11 @@
 <template>
-  <router-view></router-view>
+  <AppWrapper>
+    <router-view></router-view>
+  </AppWrapper>
 </template>
-
+<script setup>
+import AppWrapper from '_c/AppWrapper/index.vue'
+</script>
 <style>
 html{
   height: 100%;

@@ -18,7 +18,7 @@
                 <g id="箭头1" transform="translate(40.000000, 52.000000)">
                     <g id="路径-2">
                         <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                        <use fill="#3AA0FF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <use fill="currentColor" fill-rule="evenodd" xlink:href="#path-1"></use>
                     </g>
                     <ellipse id="椭圆形" fill="#1383EF" opacity="0.5" filter="url(#filter-3)" cx="9.5" cy="15" rx="9.5" ry="1"></ellipse>
                 </g>

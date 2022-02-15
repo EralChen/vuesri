@@ -30,6 +30,10 @@
     "typings/**/*.d.ts",
     "config/**/*.ts",
     "utils/**/*.ts",
+    "demos/**/*.ts",
+    "demos/**/*.vue",
+    "build/**/*.ts",
+    "build/**/*.vue",
     "vite.config.ts"
   ],
   "exclude": [

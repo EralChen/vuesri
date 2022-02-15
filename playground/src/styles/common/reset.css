@@ -11,10 +11,15 @@
  box-sizing: inherit; /* ←---- 告诉 其他 所有 元素 和 伪 元素 继承 其 盒 模型 */
 }
 
-li, ul{
+ul{
   list-style: none;
 }
 
-button{
+button, a{
   cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+  color: currentColor;
 }

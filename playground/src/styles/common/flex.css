@@ -114,3 +114,11 @@ Styleguide Layout.amFlex
   flex-direction: inherit;
   flex: 1;
 }
+
+[sk-flex-grow~="hidden"]{
+  overflow: hidden;
+}
+
+[sk-flex-grow~="auto"]{
+  overflow: auto;
+}

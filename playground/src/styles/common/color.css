@@ -1,25 +1,21 @@
 :root{
-  --c-primary: #2CFF00;
-  --c-primary-400: #00B94D;
-  --c-primary-300: #00bc77a6;
-  --c-primary-200: #8AC97D;
-  --c-primary-100: #00bc7726;
 
   --c-info: #265EAF;
   --c-warning: #413d04;
   --c-danger: #FF0000;
   --c-success: #9AFF00;
 
+  --c-text:#333333;
+  --ic-text: #eeeeee;
+   
+  --c-sec-text:  #909399;
+  /* --c-sub-content: #  */
 
-  --c-title: #FFFFFF;
-  --c-content:#333333;
-  --c-sub: #507548;
-  --c-disabled: #c5c8ce;
-  --c-border: #dcdee2;
-  --c-divider: #e8eaec;
-  
-  --c-dark: #333;
-  --c-light: #F4F4F4;
+  --c-bg: #FFF;
+  --c-sec-bg: #eee;
+
+  --c-border: #DCDFE6;
+
 }
 
 
@@ -39,7 +35,7 @@
 
 /* 初始化css样式 */
 body{
-  color: var(--c-content);
+  color: var(--c-text);
 }
 h1{
   color: var(--c-light);

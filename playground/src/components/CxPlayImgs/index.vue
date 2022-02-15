@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, PropType, computed, ref, onMounted } from 'vue'
+import { defineComponent, PropType, ref, onMounted } from 'vue'
 export default defineComponent({
   props: {
     url: {
