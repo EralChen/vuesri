@@ -19,7 +19,7 @@ const DEMODIR = '_demo-components'
 const capName = capitalize(camelize(mriData.name))
 export default series(
   parallel(
-    taskWithName('playground:addRoute', async () => {
+    taskWithName('playground:addDemoVue', async () => {
       const routerExampleFile = path.resolve(playgroundSrc, `./router/${DEMODIR}/index.ts`)
       let data = await fsPromises.readFile(routerExampleFile, { encoding: 'utf8' })
       data = data.replace(/export\sdefault\s\[((.|\s)*?)\]/, (match, $1) => {

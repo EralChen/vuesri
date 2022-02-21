@@ -64,7 +64,7 @@ export default defineConfig(({ mode }) => {
           markdownAnchor(md)
           mdDemoPlugin(md)
         },
-        wrapperComponent: "MdWrapper"
+        wrapperComponent: 'MdWrapper',
         // markdownItUses: [mdDemoPlugin],
       }),
       legacy({
