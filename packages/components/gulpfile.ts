@@ -5,6 +5,7 @@ import path from 'path'
 import { outDir } from '../../config/path'
 import {rollupComponents} from '../../build/utils/rollup'
 import {genTypes} from '../../build/utils/ts-morph'
+
 // sync 快速找到所有目录
 const files = sync('*', {
   cwd: path.resolve(__dirname, './'),

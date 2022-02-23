@@ -8,5 +8,5 @@ export default defineComponent({
 })
 </script>
 <template>
-  <div>baseCard</div>
+  <div>xxxxxxxx</div>
 </template>

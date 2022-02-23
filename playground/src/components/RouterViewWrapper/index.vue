@@ -6,10 +6,3 @@
     </keep-alive>
   </router-view>
 </template>
-<route>
-{
-  meta: {
-    title: "Components"
-  }
-}
-</route>

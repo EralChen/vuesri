@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import voieRoutes from '~pages'
+
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/docs/components/card',
+    redirect: '/docs/setup/env',
     meta: {
       hidden: true,
     },

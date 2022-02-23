@@ -3,6 +3,7 @@ import SideBar from './side-bar/index.vue'
 import HeaderVue from './header/index.vue'
 import { Breakpoints, sBreakpoints } from '@/components/AppWrapper/index.vue'
 import { inject, onMounted, ref } from 'vue'
+import RouterViewWrapper from '_c/RouterViewWrapper/index.vue'
 const bp = inject<Breakpoints>(sBreakpoints)
 if (!bp) throw new Error()
 const smTablet = bp.smaller('tablet')
@@ -28,11 +29,7 @@ onMounted(() => {
       </div>
       <div class="admin-layout-main__inner" sk-flex-grow="hidden">
         <!-- <slot> -->
-          <router-view v-slot="{ Component, route }">
-            <keep-alive>
-              <component :is="Component" :key="route.meta.usePathKey ? route.path : undefined" />
-            </keep-alive>
-          </router-view>
+          <RouterViewWrapper></RouterViewWrapper>
         <!-- </slot> -->
       </div>
     </main>

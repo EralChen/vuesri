@@ -8,6 +8,8 @@ const mainTask = series(
   taskWithName('clean', async () => run('rm -rf ./dist')),
   // 并行打包 packages 下的内容
   taskWithName('buildPackages', async () => run('pnpm run --filter ./packages --parallel build')),
+
+  // taskWithName('buildPackages', async () => run('pnpm run -C packages/components build')),
   // 拷贝types到外层
   taskWithName('copyTypes', async () => {
     fs.cp(path.resolve(outDir, 'types'), path.resolve(outDir), {

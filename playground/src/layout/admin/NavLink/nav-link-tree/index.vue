@@ -58,7 +58,14 @@ export default defineComponent({
     }
     const genRoutes = computed(() => {
       return function * (routes: RouteRecordRaw[]) {
-        for (const route of routes) {
+        const nRoutes = routes.sort((a, b) => {
+          if (a.meta?.sorted && b.meta?.sorted) {
+            return a.meta.sorted - b.meta.sorted
+          } else {
+            return 0
+          }
+        })
+        for (const route of nRoutes) {
           const nRoute = mergeRoute(route)
           if (props.filterNodeMethod(nRoute)) {
             yield nRoute

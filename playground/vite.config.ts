@@ -71,16 +71,14 @@ export default defineConfig(({ mode }) => {
           markdownAnchor(md)
           mdLinkOpenPlugin(md)
           mdPrismPlugin(md, {
-            init: () => {
-              //
-            },
-            plugins: [],
-            defaultLanguageForUnknown: 'html',
+            init: () => {},
+            plugins:[],
+            defaultLanguageForUnknown: 'html'
           })
           mdDemoPlugin(md)
  
         },
-        wrapperComponent: 'MdWrapper',
+        wrapperComponent: "MdWrapper",
       
         // markdownItUses: [mdDemoPlugin],
       }),

@@ -6,5 +6,6 @@ declare module 'vue-router' {
     alwaysShow?: boolean
     affix?: boolean
     icon?: string
+    sorted?: number
   }
 }

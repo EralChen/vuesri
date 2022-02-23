@@ -1,0 +1,58 @@
+.markdown-body {
+  background-color: var(--c-bg);
+  padding: var(--gap-xxs);
+  font-size: .8em;
+  line-height: 1.5;
+  h1,h2,h3{
+    line-height: 3;
+  }
+  p{
+    line-height: 2;
+  }
+  a{
+    color: var(--c-info);
+  }
+
+  ol{
+    li{
+      display: inline-block;
+    }
+    &::before{
+      display: inline-block;
+      content: '1' '.';
+    }
+    &[start]{
+      &::before{
+        display: inline-block;
+        content: attr(start) '.';
+      }
+    }
+  }
+
+  img{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 4px solid var(--c-border);
+    border-radius: 4px;
+  }
+  code{
+    &[class^=language-]{
+      padding: 0;
+      line-height: 2;
+    }
+    line-height: 1.5;
+    padding: .2em .4em;
+  }
+  pre{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: var(--c-sec-bg);
+    border-radius: 4px;
+  }
+  blockquote{
+    padding-left: 16px;
+    border-left: 6px solid var(--c-sec-bg);
+    font-size: .8em;
+  }
+}

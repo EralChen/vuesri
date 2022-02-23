@@ -2,7 +2,7 @@
   font-size: calc(1vw * 0.7 + 1.2em);
   --f-xxxl: 1.8rem;
   --f-xxl: 1.4rem;
-  --f-xl: 0.85rem;
+  --f-xl: 1.2rem;
 
   --f-l: .75rem;
   --f-m: .67rem;
@@ -16,10 +16,13 @@ body{
   font-size: var(--f-m);
 }
 h1{
-  font-size: var(--f-xl);
+  font-size: var(--f-l);
 }
 h2{
-  font-size: var(--f-l);
+  font-size: var(--f-m);
+}
+h3{
+  font-size: var(--f-s);
 }
 .f-l{
   font-size: var(--f-l);

@@ -5,14 +5,12 @@ import prism from 'prismjs'
 
 // prism is listed as actual dep so it's ok to require
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-await import('prismjs/components/index.js').then(res => {
-// required to make embedded highlighting work...
-  const loadLanguages = res.default
-  loadLanguages(['markup', 'css', 'javascript'])
+const res = await import('prismjs/components/index.js')
+const loadLanguages = res.default
 
-})
+loadLanguages(['markup', 'css', 'javascript', 'vue'])
 
-function wrap (code: string, lang: string): string {
+function wrap(code: string, lang: string): string {
   if (lang === 'text') {
     code = escapeHtml(code)
   }
@@ -39,13 +37,12 @@ export const highlight = (str: string, lang: string) => {
   }
   if (!prism.languages[lang]) {
     try {
-      // loadLanguages([lang])
+      loadLanguages([lang])
     } catch (e) {
-      // eslint-disable-next-line no-console
       console.warn(
         chalk.yellow(
-          `[vitepress] Syntax highlight for language "${lang}" is not supported.`,
-        ),
+          `[vitepress] Syntax highlight for language "${lang}" is not supported.`
+        )
       )
     }
   }
