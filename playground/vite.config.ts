@@ -12,6 +12,9 @@ import pages from 'vite-plugin-pages'
 import markdown from 'vite-plugin-md'
 import markdownAnchor from 'markdown-it-anchor'
 import { mdDemoPlugin } from './build/markdown/demo'
+import { mdLinkOpenPlugin } from './build/markdown/linkOpen'
+import mdPrismPlugin from 'markdown-it-prism'
+import { highlight } from './utils/highlight'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = getEnv(mode)
@@ -58,13 +61,27 @@ export default defineConfig(({ mode }) => {
       }),
 
       markdown({
-        
+        markdownItOptions: {
+          html: true,
+          linkify: true,
+          highlight,
+        },
         markdownItSetup (md) {
           // for example
           markdownAnchor(md)
+          mdLinkOpenPlugin(md)
+          mdPrismPlugin(md, {
+            init: () => {
+              //
+            },
+            plugins: [],
+            defaultLanguageForUnknown: 'html',
+          })
           mdDemoPlugin(md)
+ 
         },
         wrapperComponent: 'MdWrapper',
+      
         // markdownItUses: [mdDemoPlugin],
       }),
       legacy({

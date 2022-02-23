@@ -1,0 +1,28 @@
+.markdown-body {
+  background-color: var(--c-bg);
+  padding: var(--gap-xxs);
+  line-height: 1.5;
+  h1,h2,h3{
+    line-height: 3;
+  }
+  code:not([class]){
+    background-color: var(--c-sec-bg);
+  }
+  table{
+    margin: 1em 0;
+    width: 100%;
+    font-size: .85em;
+    border-radius: 4px;
+  }
+  table, th, td{
+    border: 2px solid var(--c-border);
+    border-collapse: collapse;
+  }
+  td, th{
+    padding: .2em;
+  }
+
+  th{
+    text-align: left;
+  }
+}
