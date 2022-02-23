@@ -39,15 +39,21 @@ export default defineComponent({
   },
   setup (props) {
     function getFullPath (path: string, pPath?: string) {
+      // return path
+      // 
       return path.startsWith('/') ? path : (pPath || props.baseUrl) + '/' + path
     }
     function mergeRoute (pRoute: RouteRecordRaw): RouteRecordRaw {
       // 合并 只有一个儿子 的 route
       if (!pRoute.children || pRoute.meta?.alwaysShow) return pRoute
       const routes = pRoute.children.filter(item => !item.meta?.hidden)
+      
+      // 只处理 routes 唯一的数据
       if (routes.length === 1) {
-        const only = routes[0]
+        const only = {...routes[0]}
+
         only.path = getFullPath(only.path, pRoute.path)
+        // console.log(only.path)
         if (only.children?.length) { //如果这个route 还有children
           return mergeRoute(only)
         }
@@ -65,12 +71,14 @@ export default defineComponent({
             return 0
           }
         })
+
         for (const route of nRoutes) {
           const nRoute = mergeRoute(route)
           if (props.filterNodeMethod(nRoute)) {
             yield nRoute
           }
         }
+
       }
     })
     return {
@@ -99,12 +107,16 @@ export default defineComponent({
             <p sk-flex="row_center" class="sub-ml-xxxs">
               <SvgIcon v-if="item.meta?.icon" :icon-class="item.meta?.icon"></SvgIcon>
               <span class="admin-layout-nav-link-label">
-                {{ item.meta?.title }}
+   
+                <span :title="getFullPath(item.path)">{{ item.meta?.title }} </span>
+
               </span>
             </p>
 
           </template>
+
           <template #body>
+
             <AdminLayoutNavLinkTree
               :baseUrl="getFullPath(item.path)"
               :data="item.children"
@@ -113,6 +125,7 @@ export default defineComponent({
               :filterNodeMethod="filterNodeMethod" 
               @navigate="$emit('navigate', $event)"
             ></AdminLayoutNavLinkTree>
+
           </template>
         </NavLink>
       </li>
