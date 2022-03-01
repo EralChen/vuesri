@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { VumaTilesetLayer,__VumaTilesetLayer } from '@vuesium-mars3d/components/tileset-layer'
+import { VumaTilesetLayer } from '@vuesium-mars3d/components/tileset-layer'
 import { VumViewer } from 'vuesium'
 import { VumaMap } from '@vuesium-mars3d/components/map'
 </script>
