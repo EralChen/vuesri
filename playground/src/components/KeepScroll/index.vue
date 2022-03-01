@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { onActivated, onMounted, ref, onDeactivated } from 'vue'
-import { debounce } from '@vunk/shared'
+import { debounce } from 'vunk'
 const keepScrollXNode = ref<HTMLDivElement|null>(null)
 const scrollTop = ref(0)
 const saveScrollTop = debounce(function () {

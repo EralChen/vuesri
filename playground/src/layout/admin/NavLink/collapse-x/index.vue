@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { VkCollapse } from '@vunk/components/collapse'
+import { VkCollapse } from 'vunk'
 import RightTriangle from './RightTriangle/index.vue'
 defineProps({
   icon: {

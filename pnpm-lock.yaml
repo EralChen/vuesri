@@ -107,6 +107,7 @@ importers:
       vue: ^3.2.31
       vue-router: ^4.0.12
       vue-tsc: ^0.31.4
+      vunk: ^0.0.0-alpha.19
     dependencies:
       '@vueuse/core': 7.6.2_vue@3.2.31
       element-plus: 2.0.2_vue@3.2.31
@@ -114,6 +115,7 @@ importers:
       qs: 6.10.3
       vue: 3.2.31
       vue-router: 4.0.12_vue@3.2.31
+      vunk: 0.0.0-alpha.19
     devDependencies:
       '@types/node': 17.0.18
       '@types/qs': 6.9.7
@@ -7496,6 +7498,10 @@ packages:
   /vuesium/0.0.0-alpha.12:
     resolution: {integrity: sha512-pGjECGfonWFomqI8fkQTrXFpnEJ3dTe1XVibn0jBCOE852W9dZozTGfkqdr4YG35B89VoZMmydOD8qACXTfflw==}
     dev: true
+
+  /vunk/0.0.0-alpha.19:
+    resolution: {integrity: sha512-e6AZNkOrJ6oMT0l8maKSVwI/hweISyd50+mE/h/aw7/9NvmKh2TwIbMfX5qYXNlLcg7vqNT3LU7BoHyhfsb6qA==}
+    dev: false
 
   /which-boxed-primitive/1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}

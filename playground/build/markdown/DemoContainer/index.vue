@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import SourceCode from './SourceCode/index.vue'
-import { VkCollapse } from '@vunk/components/collapse'
+import { VkCollapse } from 'vunk'
 import demos from '@/demos'
 export default defineComponent({
   components: {
