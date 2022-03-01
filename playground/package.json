@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "build:skzz": "vite build --mode skzz",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "init:cesium": "gulp -f scripts/init-cesium.ts"
   },
   "dependencies": {
     "@vueuse/core": "^7.6.2",
@@ -15,6 +16,9 @@
     "qs": "^6.10.3",
     "vue": "^3.2.31",
     "vue-router": "^4.0.12",
+		"cesium": "^1.90.0",
+		"mars3d": "^3.2.3",
+		"mars3d-heatmap": "^3.2.3",
     "vunk": "^0.0.0-alpha.19"
   },
   "devDependencies": {

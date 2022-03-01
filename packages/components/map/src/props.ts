@@ -6,7 +6,7 @@ const props = {
    */
   defaultOptions: {
     type: Object as PropType<ConstructorParameters<typeof Map>['1']>,
-    default: undefined,
+    default: () => ({}),
   },
 }
 export default props
