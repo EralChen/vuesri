@@ -11,48 +11,32 @@ import { camelize, capitalize } from '../../../utils/string'
 const argv = process.argv.slice(2)
 const mriData = mri<{
   name: string,
-  ground: string
 }>(argv)
-const playgroundSrc = path.resolve(playgroundRoot, './src')
-const playgroundViews = path.resolve(playgroundRoot, './src/views')
+const playgroundDemos = path.resolve(playgroundRoot, './src/demos')
 const DEMODIR = '_demo-components'
 const capName = capitalize(camelize(mriData.name))
+// 创建一个新组件时，在playground下生成一个 基础的demo文件
+// 在demo的 ${DEMODIR} 文件下添加 一个 mri.name 命名文件夹, 并生成一个 index.vue, 在demos/index.ts下添加映射
 export default series(
   parallel(
-    taskWithName('playground:addDemoVue', async () => {
-      const routerExampleFile = path.resolve(playgroundSrc, `./router/${DEMODIR}/index.ts`)
-      let data = await fsPromises.readFile(routerExampleFile, { encoding: 'utf8' })
+    // 在demos/index.ts下添加映射
+    taskWithName('playground:addToDemosRecord', async () => {
+      const demosRecordFile = path.resolve(playgroundDemos, `./index.ts`)
+      let data = await fsPromises.readFile(demosRecordFile, { encoding: 'utf8' })
       data = data.replace(/export\sdefault\s\[((.|\s)*?)\]/, (match, $1) => {
         const nRoute = [
-          '  {',
-          `    path: '/${DEMODIR}/${mriData.name}',`,
-          `    component: () => import('_v/${DEMODIR}/${mriData.name}/index.vue'),`,
-          '  },',
-          '',
+          `    '${DEMODIR}/${mriData.name}/index.vue': () => import('./${DEMODIR}/${mriData.name}/index.vue'),`,
         ]
         return match.replace($1, $1 + nRoute.join('\n'))
       })
-      return fsPromises.writeFile(routerExampleFile, data)
+      return fsPromises.writeFile(demosRecordFile, data)
     }),
+
     taskWithName('playground:createView', async () => {
-      const componentsDemoRoot = path.resolve(playgroundViews, DEMODIR)
+      const componentsDemoRoot = path.resolve(playgroundDemos, DEMODIR)
       const componentPath = path.resolve(componentsDemoRoot, `./${mriData.name}`)
       await fsPromises.mkdir(componentPath, {recursive: true})
       await fsPromises.writeFile(path.resolve(componentPath, './index.vue'), createVueStr(capName))
     }),
   ),
-  taskWithName('playground:addRouteEntryForHome', async () => {
-    const viewsComponentsJson = path.resolve(playgroundViews, `${DEMODIR}.json`)
-    let data = await fsPromises.readFile(viewsComponentsJson, { encoding: 'utf8' })
-    const dataJson: {title: string, data: {to: string, label: string}[]}[] = JSON.parse(data)
-    const ground = mriData.ground || '#'
-    let routeItem = dataJson.find(item => item.title === ground)
-    if (!routeItem) dataJson.push((routeItem = {title: ground, data: []}, routeItem))
-    routeItem.data.push({
-      label: mriData.name,
-      to: `/${DEMODIR}/${mriData.name}`,
-    })
-    data = JSON.stringify(dataJson, null, 2)
-    return fsPromises.writeFile(viewsComponentsJson, data)
-  }),
 ) 
