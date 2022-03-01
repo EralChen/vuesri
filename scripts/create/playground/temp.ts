@@ -18,3 +18,20 @@ export default defineComponent({
   <${pre}${capName}></${pre}${capName}>
 </template>
 `
+
+export const createMdStr = (options: {
+  name: string,
+  demoPath: string
+}) => `<route>
+{
+  meta: {
+    title: "${options.name}"
+  }
+}
+</route>
+
+# Collapse
+:::demo
+${options.demoPath}
+:::
+`
