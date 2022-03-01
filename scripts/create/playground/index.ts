@@ -48,7 +48,7 @@ export default series(
     taskWithName('playground:createMd', async () => {
       const pagesDocsRoot = path.resolve(playgroundRoot, './src/pages/docs')
       const componentsRoot = path.resolve(pagesDocsRoot, './components')
-      await fsPromises.writeFile(path.resolve(componentsRoot, `./${mriData.name}`), createMdStr({
+      await fsPromises.writeFile(path.resolve(componentsRoot, `./${mriData.name}.md`), createMdStr({
         name: capName,
         demoPath: demoVuePath,
       }))
