@@ -7,3 +7,6 @@
 </route>
 
 
+:::demo
+card/index.vue
+:::
