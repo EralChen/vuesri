@@ -4,6 +4,7 @@ export type LoadEvent = {
   viewer:__VumViewer.VumViewer
   map: Map
 }
+export type DefaultOptions = ConstructorParameters<typeof Map>['1']
 export {
   Map,
 }

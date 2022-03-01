@@ -1,11 +1,11 @@
 import {PropType} from 'vue'
-import { Map } from 'mars3d'
+import { DefaultOptions } from './types'
 const props = {
   /**
    * https://mars3d.cn/api/Map.html?classFilter=Map
    */
   defaultOptions: {
-    type: Object as PropType<ConstructorParameters<typeof Map>['1']>,
+    type: Object as PropType<DefaultOptions>,
     default: () => ({}),
   },
 }
