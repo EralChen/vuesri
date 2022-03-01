@@ -1,2 +1,2 @@
-export const LIB_NAME = 'vunk'
-export const LIB_PRE = 'vk'
+export const LIB_NAME = 'vuesium-mars3d'
+export const LIB_PRE = 'vuma'

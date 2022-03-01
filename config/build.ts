@@ -1,1 +1,1 @@
-export const libExternal = ['vue']
+export const libExternal = ['vue', 'cesium', 'vuesium', 'mars3d']

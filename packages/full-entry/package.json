@@ -1,6 +1,6 @@
 {
-  "name": "vunk",
-  "version": "0.0.0-alpha.19",
+  "name": "vuesium-mars3d",
+  "version": "0.0.0-alpha.6",
   "description": "",
   "module": "index.esm.js",
   "scripts": {
