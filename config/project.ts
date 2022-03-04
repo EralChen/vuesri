@@ -1,2 +1,2 @@
-export const LIB_NAME = 'vuesium-mars3d'
+export const LIB_NAME = '--lib-name--'
 export const LIB_PRE = 'vuma'

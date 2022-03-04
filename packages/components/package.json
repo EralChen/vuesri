@@ -1,5 +1,5 @@
 {
-  "name": "@vuesium-mars3d/components",
+  "name": "@--lib-name--/components",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
