@@ -3,7 +3,7 @@ import voieRoutes from '~pages'
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/docs/components/collapse',
+    redirect: '/docs/components',
     meta: {
       hidden: true,
     },
