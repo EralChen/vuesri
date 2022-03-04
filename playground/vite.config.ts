@@ -87,7 +87,7 @@ export default defineConfig(({ mode }) => {
       }),
       windowEnv(),
       viteExternalsPlugin({
-        cesium: 'Cesium',
+        // cesium: 'Cesium',
       }),
       createSvgIconsPlugin({
         // Specify the icon folder to be cached
