@@ -5,7 +5,7 @@ export default Layout
 <route>
 {
   meta: {
-    title: "Vunk"
+    title: "Core"
   }
 }
 </route>
