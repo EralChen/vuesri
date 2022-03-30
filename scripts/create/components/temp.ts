@@ -24,7 +24,6 @@ export type OnLoad = (e:LoadEvent) => ReturnVoid
 
 export const createVueStr = (capName:string) => `<script lang="ts">
 import { props, emits } from './ctx'
-import { LoadEvent } from './types'
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: '${pre}${capName}',

@@ -19,6 +19,7 @@ importers:
       eslint-plugin-vue: ^8.5.0
       fast-glob: ^3.2.11
       gulp: ^4.0.2
+      mitt: ^3.0.0
       mri: ^1.2.0
       rollup: ^2.68.0
       rollup-plugin-css-only: ^3.1.0
@@ -32,6 +33,7 @@ importers:
     dependencies:
       '@vuesri/components': link:packages/components
       '@vuesri/shared': link:packages/shared
+      mitt: 3.0.0
       vue: 3.2.31
       vunk: 0.0.0-alpha.27
     devDependencies:
@@ -4302,6 +4304,10 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
+
+  /mitt/3.0.0:
+    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
+    dev: false
 
   /mixin-deep/1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}

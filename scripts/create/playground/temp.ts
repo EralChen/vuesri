@@ -30,7 +30,7 @@ export const createMdStr = (options: {
 }
 </route>
 
-# Collapse
+# ${options.name}
 :::demo
 ${options.demoPath}
 :::
