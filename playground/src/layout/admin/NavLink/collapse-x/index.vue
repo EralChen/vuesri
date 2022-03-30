@@ -10,7 +10,7 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  hiddenBody: {
+  bodyIf: {
     type: Boolean,
     default: false,
   },
@@ -23,7 +23,7 @@ defineEmits({
   <VkCollapse  
    :modelValue="modelValue"
    @update:modelValue="$emit('update:model-value', $event)"
-   class="admin-layout-nav-link-collapse-x" :hiddenBody="hiddenBody">
+   class="admin-layout-nav-link-collapse-x" :bodyIf="bodyIf">
 
     <template #header>
       <RightTriangle 

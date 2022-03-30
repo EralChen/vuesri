@@ -16,7 +16,7 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    hiddenBody: {
+    bodyIf: {
       type: Boolean,
       default: false,
     },
@@ -70,7 +70,7 @@ export default defineComponent({
           'is-dir': hasChildren
         }" 
         v-model="collapseShow"
-        :hidden-body="hiddenBody"
+        :hidden-body="bodyIf"
       >
         <template #header>
           <a
