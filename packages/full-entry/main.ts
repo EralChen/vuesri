@@ -1,1 +1,0 @@
-export * from '@--lib-name--/shared'

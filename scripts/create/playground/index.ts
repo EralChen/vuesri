@@ -23,7 +23,7 @@ export default series(
     // 在demo的 ${DEMODIR} 文件下添加 一个 mri.name 命名文件夹, 并生成一个 index.vue
     taskWithName('playground:createView', async () => {
       const componentsDemoRoot = path.resolve(playgroundDemos, DEMODIR)
-      const componentPath = path.resolve(componentsDemoRoot, `./${mriData.name}`)
+      const componentPath = path.resolve(componentsDemoRoot, `./${mriData.name}`)      
       await fsPromises.mkdir(componentPath, {recursive: true})
       await fsPromises.writeFile(path.resolve(componentPath, './index.vue'), createVueStr(capName))
     }),
@@ -33,6 +33,12 @@ export default series(
     taskWithName('playground:createMd', async () => {
       const pagesDocsRoot = path.resolve(playgroundRoot, './src/pages/docs')
       const componentsRoot = path.resolve(pagesDocsRoot, './components')
+      const stat = await fsPromises.stat(componentsRoot)
+      if (!stat.isDirectory()) {
+        await fsPromises.mkdir(componentsRoot, {
+          recursive: true,
+        })
+      }
       await fsPromises.writeFile(path.resolve(componentsRoot, `./${mriData.name}.md`), createMdStr({
         name: capName,
         demoPath: demoVuePath,

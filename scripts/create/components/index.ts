@@ -6,7 +6,7 @@ import path from 'path'
 import { componentsPath, mainRoot } from '../../../config/path'
 import { camelize, capitalize } from '../../../utils/string'
 import fsPromises from 'fs/promises'
-import {createIndexStr, createTypesStr, createVueStr} from './temp'
+import {createCtxStr, createIndexStr, createTypesStr, createVueStr} from './temp'
 import { LIB_NAME } from '../../../config/project'
 const argv = process.argv.slice(2)
 const mriData = mri<{
@@ -38,14 +38,10 @@ export default series(
         createVueStr(capName),
       )
     }),
-    taskWithName('createPropFile', async () => {
+    taskWithName('createCtxFile', async () => {
       return fsPromises.appendFile(
-        path.resolve(srcPath, './props.ts'),
-        `import {} from 'vue'${'\n'
-        }const props = {${'\n'
-        }}${'\n'
-        }export default props${'\n'
-        }`,
+        path.resolve(srcPath, './ctx.ts'),
+        createCtxStr(),
       )
     }),
   ),
