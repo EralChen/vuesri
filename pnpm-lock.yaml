@@ -4,8 +4,8 @@ importers:
 
   .:
     specifiers:
-      '@--lib-name--/components': workspace:*
-      '@--lib-name--/shared': workspace:*
+      '@vuesri/components': workspace:*
+      '@vuesri/shared': workspace:*
       '@rollup/plugin-commonjs': ^21.0.1
       '@rollup/plugin-node-resolve': ^13.1.3
       '@types/gulp': ^4.0.9
@@ -30,8 +30,8 @@ importers:
       vue: ^3.2.31
       vunk: ^0.0.0-alpha.27
     dependencies:
-      '@--lib-name--/components': link:packages/components
-      '@--lib-name--/shared': link:packages/shared
+      '@vuesri/components': link:packages/components
+      '@vuesri/shared': link:packages/shared
       vue: 3.2.31
       vunk: 0.0.0-alpha.27
     devDependencies:

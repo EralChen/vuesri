@@ -32,8 +32,8 @@
 		"typescript": "^4.5.5"
 	},
 	"dependencies": {
-		"@--lib-name--/components": "workspace:*",
-		"@--lib-name--/shared": "workspace:*",
+		"@vuesri/components": "workspace:*",
+		"@vuesri/shared": "workspace:*",
 		"vue": "^3.2.31",
 		"vunk": "^0.0.0-alpha.27"
 	}

@@ -1,5 +1,5 @@
 {
-  "name": "@--lib-name--/shared",
+  "name": "@vuesri/shared",
   "version": "1.0.0",
   "private": true,
   "module": "index.ts",

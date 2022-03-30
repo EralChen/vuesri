@@ -1,2 +1,2 @@
-export const LIB_NAME = '--lib-name--'
-export const LIB_PRE = 'vuma'
+export const LIB_NAME = 'vuesri'
+export const LIB_PRE = 'va'
