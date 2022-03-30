@@ -20,7 +20,6 @@ importers:
       fast-glob: ^3.2.11
       gulp: ^4.0.2
       mri: ^1.2.0
-      qs: ^6.10.3
       rollup: ^2.68.0
       rollup-plugin-css-only: ^3.1.0
       rollup-plugin-esbuild: ^4.8.2
@@ -33,7 +32,6 @@ importers:
     dependencies:
       '@--lib-name--/components': link:packages/components
       '@--lib-name--/shared': link:packages/shared
-      qs: 6.10.3
       vue: 3.2.31
       vunk: 0.0.0-alpha.27
     devDependencies:
