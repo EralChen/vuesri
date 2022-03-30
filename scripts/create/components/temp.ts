@@ -15,7 +15,7 @@ export {
 export default ${pre}${capName}
 `
 
-export const createTypesStr = () => `import { ReturnVoid } from '@${LIB_NAME}/shared'
+export const createTypesStr = () => `import { ReturnVoid } from 'vunk/shared/type'
 export type LoadEvent = {
 
 }

@@ -29,11 +29,13 @@ importers:
       ts-morph: ^13.0.3
       typescript: ^4.5.5
       vue: ^3.2.31
+      vunk: ^0.0.0-alpha.27
     dependencies:
       '@--lib-name--/components': link:packages/components
       '@--lib-name--/shared': link:packages/shared
       qs: 6.10.3
       vue: 3.2.31
+      vunk: 0.0.0-alpha.27
     devDependencies:
       '@rollup/plugin-commonjs': 21.0.1_rollup@2.68.0
       '@rollup/plugin-node-resolve': 13.1.3_rollup@2.68.0
@@ -6313,6 +6315,10 @@ packages:
 
   /vunk/0.0.0-alpha.19:
     resolution: {integrity: sha512-e6AZNkOrJ6oMT0l8maKSVwI/hweISyd50+mE/h/aw7/9NvmKh2TwIbMfX5qYXNlLcg7vqNT3LU7BoHyhfsb6qA==}
+    dev: false
+
+  /vunk/0.0.0-alpha.27:
+    resolution: {integrity: sha512-hnXq1IO/AXuwvwdTlliItZbi6WD5eluTGF1h0X33iCQRYCOvWPSUJTgLqyOZ/4XVakySkHFiSEsf+4zaMYlvBA==}
     dev: false
 
   /which-boxed-primitive/1.0.2:

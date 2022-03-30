@@ -2,6 +2,8 @@
   "name": "@--lib-name--/shared",
   "version": "1.0.0",
   "private": true,
-  "description": "一些lib中共享的东西可以放在这个包下，这个包不会被打包输出",
-  "module": "index.ts"
+  "module": "index.ts",
+  "scripts": {
+    "build": "gulp -f gulpfile.ts"
+  }
 }

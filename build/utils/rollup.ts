@@ -68,12 +68,13 @@ export async function rollupFile (opts: {
       esbuild(), 
       commonjs(),
     ],
-    external: opts.external,
+    external: [...opts.external,  new RegExp(`^@${LIB_NAME}`)],
   }
   const outConfig: OutputOptions = {
     
     format: 'esm',
     file: opts.outputFile,
+    paths: fixPath,
   } 
   const bundle = await rollup(inputConfig)
   return bundle.write(outConfig)

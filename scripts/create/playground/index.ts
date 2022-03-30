@@ -20,21 +20,6 @@ const capName = capitalize(camelize(mriData.name))
 const demoVuePath  = `${DEMODIR}/${mriData.name}/index.vue`
 export default series(
   parallel(
-
-    // 在demos/index.ts下添加映射
-    taskWithName('playground:addToDemosRecord', async () => {
-      const demosRecordFile = path.resolve(playgroundDemos, `./index.ts`)
-      let data = await fsPromises.readFile(demosRecordFile, { encoding: 'utf8' })
-      data = data.replace(/export\sdefault\s\{((.|\s)*?)\}/, (match, $1) => {
-        const nRoute = [
-          `    '${demoVuePath}': () => import('./${demoVuePath}'),`,
-          '',
-        ]
-        return match.replace($1, $1 + nRoute.join('\n'))
-      })
-      return fsPromises.writeFile(demosRecordFile, data)
-    }),
-
     // 在demo的 ${DEMODIR} 文件下添加 一个 mri.name 命名文件夹, 并生成一个 index.vue
     taskWithName('playground:createView', async () => {
       const componentsDemoRoot = path.resolve(playgroundDemos, DEMODIR)
