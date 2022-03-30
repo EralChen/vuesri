@@ -6,5 +6,3 @@ dist-ssr
 
 package-lock.json
 pnpm-lock.yaml
-
-public/Cesium

@@ -50,7 +50,7 @@ export default defineComponent({
       
       // 只处理 routes 唯一的数据
       if (routes.length === 1) {
-        const only = {...routes[0]}
+        const only = { ...routes[0] }
 
         only.path = getFullPath(only.path, pRoute.path)
         // console.log(only.path)

@@ -86,9 +86,7 @@ export default defineConfig(({ mode }) => {
         modernPolyfills: ['esnext.array.at'],
       }),
       windowEnv(),
-      viteExternalsPlugin({
-        // cesium: 'Cesium',
-      }),
+      viteExternalsPlugin(),
       createSvgIconsPlugin({
         // Specify the icon folder to be cached
         iconDirs: [path.resolve(srcRoot, './icons/svg')],

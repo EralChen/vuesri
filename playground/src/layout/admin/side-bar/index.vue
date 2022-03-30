@@ -22,8 +22,13 @@ const filterNode = computed(() => {
     if (route.meta?.[filterSymbol]) return true
     // 如果命中了父节点，则标记所有子节点为命中
     let currentFlag = includesTitle(route)
+
     let childFlag = false   // 如果命中了子节点，则展示继续展示该父节点
-    route.children?.forEach(item => {
+    let stack = [...route.children || []]
+    let index = 0
+    let item = stack[index]
+
+    while (item) {
       if (includesTitle(item)) {
         childFlag = true
       }
@@ -32,11 +37,17 @@ const filterNode = computed(() => {
       } else {
         item.meta = {
           [filterSymbol]: currentFlag,
-        }  
+        }
       }
-    })
+      if (item.children) {
+        stack.push(...item.children)
+      }
+      item = stack[++index]
+    }
 
-    return currentFlag || childFlag 
+
+
+    return currentFlag || childFlag
   }
 })
 // filter 过滤菜单 end

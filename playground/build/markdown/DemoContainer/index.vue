@@ -1,18 +1,12 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import SourceCode from './SourceCode/index.vue'
-import { VkCollapse } from 'vunk'
 import demos from '@/demos'
+import SourceContainer from '../SourceContainer/index.vue'
 export default defineComponent({
   components: {
-    SourceCode,
-    VkCollapse,
+    SourceContainer
   },
   props: {
-    demos: {
-      type: Object,
-      default: () => ({}),
-    },
     source: {
       type: String,
       default: '',
@@ -32,7 +26,7 @@ export default defineComponent({
   },
   async setup (props) {
     const codeShow = ref(false)
-    const c = (await demos[props.path]()).default
+    const c = (await demos[`./${props.path}`]()).default
     return {
       codeShow,
       c,
@@ -43,38 +37,9 @@ export default defineComponent({
 <template>
   <div class="demo-x">
     <Component :is="c"></Component>
-    <VkCollapse v-model="codeShow" :transition-props="{
-      name: 'drop-down'
-    }" class="demo-source-code-x">
-      <template #header>
-        <SvgIcon :icon-class="'down'" :class="{
-          'is-active': codeShow
-        }"></SvgIcon>
-      </template>
-      <template #body>
-        <SourceCode :source="source"></SourceCode>
-      </template>
-    </VkCollapse>
+    <SourceContainer :description="description" :raw-source="rawSource"
+      :path="path" :source="source"
+    ></SourceContainer>
   </div>
 </template>
-<style lang="scss">
-.demo-source-code-x{
-  .vk-collapse-header-x{
-    color: var(--c-sec-text);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    border-radius: 4px;
-    &:hover{
-      background-color: var(--c-sec-bg);
-    }
-  }
 
-  .icon-down {
-    transition: transform .4s ease;
-    &.is-active{
-      transform: rotateZ(180deg);
-    }
-  }
-}
-</style>

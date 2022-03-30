@@ -10,6 +10,7 @@ const config = {
   },
   plugins: [
     '@typescript-eslint',
+    'import',
   ],
   extends: [
     'plugin:vue/vue3-essential',
@@ -37,9 +38,12 @@ const config = {
     semi: ['error', 'never'],
     'no-whitespace-before-property': 'error',
     'key-spacing': ['error', { 'afterColon': true }],
+    'object-curly-spacing': ['error', 'always'],
     // for ts
     // for vue
     'vue/multi-word-component-names': 'off',
+    // import plugin
+    'import/no-duplicates': 'error',
   },
 }
 module.exports = config

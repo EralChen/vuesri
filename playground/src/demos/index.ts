@@ -1,4 +1,2 @@
-
-export default {
-
-} as Record<string, () => Promise<typeof import("*.vue")>>
+const modules = import.meta.glob('./**/*.vue')
+export default modules

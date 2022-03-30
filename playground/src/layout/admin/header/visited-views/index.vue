@@ -1,6 +1,6 @@
 <script lang="ts">
 import { useRoutesStore } from '@/store/routes'
-import { resolveFullPath } from '@/utils/route'
+import { lintPath, resolveFullPath } from '@/utils/route'
 import { defineComponent, ref, watch } from 'vue'
 import { useRoute, RouteLocationNormalizedLoaded, useRouter, RouteRecordRaw } from 'vue-router'
 type ViewRoute = Omit<RouteLocationNormalizedLoaded, 'redirectedFrom' | 'matched'>
@@ -9,6 +9,7 @@ const filterAffixTags = (routes: RouteRecordRaw[], basePath = '') => {
 
   routes.forEach(route => {
     const fullPath = resolveFullPath(route.path, basePath)
+    // console.log(fullPath)
     if (route.meta && route.meta.affix) {
       tags.set(fullPath, {
         fullPath,
@@ -45,8 +46,9 @@ export default defineComponent({
         params: v.params,
         name: v.name,
         query: v.query,
-        path: v.path,
+        path: lintPath(v.path),
       })) as ViewRoute
+      
       visitedViews.value.set(doc.path, doc)
     }, { immediate: true })
 

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 const props = defineProps({
+  type: {
+    type: String,
+    default: 'vue'
+  },
   source: {
     type: String,
     required: true,
@@ -8,13 +12,14 @@ const props = defineProps({
 })
 
 const decoded = computed(() => {
+
   return decodeURIComponent(props.source)
 })
 
 </script>
 
 <template>
-  <div class="example-source language-vue" v-html="decoded"></div>
+  <div :class="'example-source language-' + type" v-html="decoded"></div>
 </template>
 
 <style scoped lang="scss">
