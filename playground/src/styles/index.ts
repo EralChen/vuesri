@@ -4,3 +4,4 @@ import './vue'
 import './markdown'
 import 'vunk/index.css'
 
+import './esri'

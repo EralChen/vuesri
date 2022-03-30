@@ -11,6 +11,8 @@ import './styles'
 
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import esriConfig from '@arcgis/core/config'
+esriConfig.assetsPath = import.meta.env.VITE_BASE_URL + '/Esri'
 
 createApp(App)
   .use(router)

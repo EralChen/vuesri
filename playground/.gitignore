@@ -4,5 +4,7 @@ dist
 dist-ssr
 *.local
 
+public/Esri
+
 package-lock.json
 pnpm-lock.yaml

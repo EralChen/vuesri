@@ -10,7 +10,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "types": [
-      "node"
+      "node",
+      "arcgis-js-api"
     ],
     "baseUrl": ".",
     "paths": {
@@ -26,12 +27,18 @@
     },
     "lib": ["esnext", "dom"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", 
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.d.ts", 
+    "src/**/*.tsx", 
+    "src/**/*.vue", 
+
     "typings/**/*.d.ts",
     "config/**/*.ts",
     "utils/**/*.ts",
     "demos/**/*.ts",
     "build/**/*.vue",
+    "scripts/**/*.ts",
     "vite.config.ts"
   ],
   "exclude": [

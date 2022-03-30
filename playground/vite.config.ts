@@ -45,9 +45,10 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        '_v': path.resolve(srcRoot, './views'),
-        '_c': path.resolve(srcRoot, './components'),
-        '@': path.resolve(srcRoot, '.'),
+        '_v': path.resolve(srcRoot,'./views'),
+        '_c': path.resolve(srcRoot,'./components'),
+        '@': path.resolve(srcRoot,'.'),
+        esri: '@arcgis/core',
       },
     },
 

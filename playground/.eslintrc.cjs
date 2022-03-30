@@ -1,5 +1,6 @@
 /** @type { import('eslint').Linter.Config } */
 const config = {
+  root: true,
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
@@ -16,6 +17,7 @@ const config = {
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
   ],
+
   rules: {
     // https://eslint.org/docs/rules/ for js
     'no-console': 'warn',
