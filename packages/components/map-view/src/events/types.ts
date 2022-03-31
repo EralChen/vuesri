@@ -15,8 +15,4 @@ export interface PointerMoveEvent extends BaseMapViewMouseEvent {
 export type MitterEvents = {
   click: ClickEvent
   'pointer-move': PointerMoveEvent
-  'watch:extent': {
-    value: __esri.Extent
-    oValue: __esri.Extent
-  }
 }

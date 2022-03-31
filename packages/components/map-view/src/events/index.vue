@@ -5,9 +5,6 @@ import { useMapView } from '@vuesri/shared/use'
 import { sCursor, sMitter } from '@vuesri/shared/symbol'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
 import { AnyFunc } from 'vunk/shared/types'
-import mitt from 'mitt'
-import * as watchUtils  from 'esri/core/watchUtils'
-import { throttle } from 'lodash'
 export default defineComponent({
   emits, props,
   setup (props, { emit }) {
@@ -26,8 +23,7 @@ export default defineComponent({
         this.removeHandler = hr.remove
       }
     }
-    view[sMitter] = mitt()
-    const mitter = view[sMitter] // 为 view 安装一个事件总线
+    const mitter = view[sMitter]
 
     /* 点击事件 */
     const clickHandler = new ViewOnToggleHandler('click', async (event) => {
@@ -90,11 +86,6 @@ export default defineComponent({
       dragHandler.remove()
     })
     /* drag事件 end */
-    // view.extent
-    const watchExtent = throttle((value: __esri.Extent, oValue: __esri.Extent) => {
-      mitter.emit('watch:extent', { value, oValue })
-    }, 400)
-    watchUtils.watch(view, 'extent', watchExtent)
 
     return () => null
   },

@@ -4,10 +4,13 @@ import { computed, defineComponent, onMounted, provide, ref, StyleValue } from '
 import MapView from '@arcgis/core/views/MapView'
 import AMap from '@arcgis/core/Map'
 import Events from './events/index.vue'
+import Watchs from './events/index.vue'
+import { sMitter } from '@vuesri/shared/symbol'
+import mitt from 'mitt'
 export default defineComponent({
   name: 'VaMapView',
   components: {
-    Events,
+    Events,Watchs,
   },
   emits,
   props,
@@ -19,6 +22,7 @@ export default defineComponent({
       map: map,
       ...props.defaultOptions,
     })
+    view[sMitter] = mitt() // 为 view 安装一个事件总线
     view.ui.components = []
 
     // set cursor
@@ -55,6 +59,7 @@ export default defineComponent({
       v-model:cursor="eventCursor"
       :limit-extent="limitExtent"
     ></Events>
+    <Watchs></Watchs>
     <slot></slot>
   </div>
 </template>
