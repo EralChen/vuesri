@@ -1,9 +1,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { VaMapView } from '@vuesri/components/map-view'
+import { VaSkyBasemap } from 'vuesri'
 export default defineComponent({
   components: {
     VaMapView,
+    VaSkyBasemap,
+    // VaServerFeatureLayer,
   },
   setup () {
     return {
@@ -12,5 +15,8 @@ export default defineComponent({
 })
 </script>
 <template>
-  <VaMapView></VaMapView>
+  <VaMapView>
+    <VaSkyBasemap></VaSkyBasemap>
+    
+  </VaMapView>
 </template>

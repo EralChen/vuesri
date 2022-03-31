@@ -11,7 +11,7 @@ export default defineComponent({
   props: {
     type: {
       type: String,
-      default: 'vue'
+      default: 'vue',
     },
     source: {
       type: String,
@@ -43,7 +43,7 @@ export default defineComponent({
 })
 </script>
 <template>
-  <div class="demo-x">
+
    
     <VkCollapse
       v-model="codeShow"
@@ -61,7 +61,7 @@ export default defineComponent({
         <SourceCode :source="source" :type="type"></SourceCode>
       </template>
     </VkCollapse>
-  </div>
+
 </template>
 <style lang="scss">
 .demo-source-code-x {
@@ -73,7 +73,7 @@ export default defineComponent({
     align-items: center;
     border-radius: 4px;
     &:hover {
-      background-color: var(--c-sec-bg);
+      background-color: var(--c-bg-s);
     }
     > * + * {
       margin-left: .5em;

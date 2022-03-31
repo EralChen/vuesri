@@ -4,7 +4,7 @@ import demos from '@/demos'
 import SourceContainer from '../SourceContainer/index.vue'
 export default defineComponent({
   components: {
-    SourceContainer
+    SourceContainer,
   },
   props: {
     source: {
@@ -36,10 +36,20 @@ export default defineComponent({
 </script>
 <template>
   <div class="demo-x">
-    <Component :is="c"></Component>
+    <div class="demo-component-x">
+      <Component :is="c"></Component>
+    </div>
+
     <SourceContainer :description="description" :raw-source="rawSource"
       :path="path" :source="source"
     ></SourceContainer>
   </div>
 </template>
-
+<style>
+.demo-component-x{
+  border: 2px solid var(--c-border);
+  padding: 16px;
+  margin: 8px;
+  border-radius: 4px;
+}
+</style>

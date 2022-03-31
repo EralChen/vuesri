@@ -3,7 +3,7 @@ import { computed } from 'vue'
 const props = defineProps({
   type: {
     type: String,
-    default: 'vue'
+    default: 'vue',
   },
   source: {
     type: String,

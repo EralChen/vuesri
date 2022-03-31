@@ -30,7 +30,7 @@ export default defineComponent({
         href: string;
     }) => e,
   },
-  setup (props, {emit}) {
+  setup (props, { emit }) {
     const hasChildren = computed(() => !props.linkable)
     const collapseShow = ref(props.expandBody)
     const route = useRoute()
@@ -70,7 +70,7 @@ export default defineComponent({
           'is-dir': hasChildren
         }" 
         v-model="collapseShow"
-        :hidden-body="bodyIf"
+        :body-if="bodyIf"
       >
         <template #header>
           <a
