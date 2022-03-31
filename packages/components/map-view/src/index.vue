@@ -41,6 +41,7 @@ export default defineComponent({
     })
 
     return {
+      viewNode,
       eventCursor,
       cursorStyle,
     }
