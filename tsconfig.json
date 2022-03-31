@@ -13,7 +13,10 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "lib": [
-      "ESNext", "DOM",
+      "ESNext", "DOM"
+    ],
+    "types": [
+      "arcgis-js-api"
     ],
     "allowSyntheticDefaultImports": true,
   },
@@ -21,7 +24,6 @@
     "packages/**/*.ts",
     "packages/**/*.vue",
     "typings/**/*.d.ts",
-    "packages/typings/**/*.d.ts",
     "config/**/*.ts",
     "utils/**/*.ts",
     "scripts/**/*.ts"

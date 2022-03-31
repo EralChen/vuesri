@@ -1,16 +1,16 @@
 <script lang="ts">
-import { props, emits } from './ctx'
 import { computed, defineComponent, onMounted, provide, ref, StyleValue } from 'vue'
 import MapView from '@arcgis/core/views/MapView'
 import AMap from '@arcgis/core/Map'
 import Events from './events/index.vue'
-import Watchs from './events/index.vue'
+import Watchs from './watchs/index.vue'
 import { sMitter } from '@vuesri/shared/symbol'
 import mitt from 'mitt'
+import { props, emits } from './ctx'
 export default defineComponent({
   name: 'VaMapView',
   components: {
-    Events,Watchs,
+    Events, Watchs,
   },
   emits,
   props,
@@ -41,8 +41,6 @@ export default defineComponent({
     })
 
     return {
-      viewNode,
-      view,
       eventCursor,
       cursorStyle,
     }

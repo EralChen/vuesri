@@ -8,7 +8,7 @@ import esbuild from 'rollup-plugin-esbuild'
 import {LIB_NAME} from '../../config/project'
 import {libExternal} from '../../config/build'
 import commonjs from '@rollup/plugin-commonjs'
-
+import alias from '@rollup/plugin-alias'
 export function rollupComponents (opts: {
   files: string[],
   entry: (file: string) => string,
@@ -19,6 +19,11 @@ export function rollupComponents (opts: {
     const inputConfig: InputOptions = {
       input: entry,
       plugins: [
+        alias({
+          entries: [
+            { find: 'esri', replacement: '@arcgis/core' },
+          ],
+        }),
         css({
           output: 'index.css',
         }),

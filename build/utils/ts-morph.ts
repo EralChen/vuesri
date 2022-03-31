@@ -41,7 +41,6 @@ export async function genTypes (opts: {
 
   // 添加全局类型
   project.addSourceFilesAtPaths(path.resolve(workRoot, 'typings', './**/*{.d.ts,.ts}'))
-
   /* [TODO]固定.d.ts文件输入路径的临时解决方案，令outDir中目录结构于packages相同 */
   project.addSourceFilesAtPaths(path.resolve(mainRoot,  './main.ts'))
 

@@ -1,10 +1,10 @@
 <script lang="ts">
 import { defineComponent, onUnmounted } from 'vue'
 import { useMapView } from '@vuesri/shared/use'
-import {  sMitter } from '@vuesri/shared/symbol'
+import { sMitter } from '@vuesri/shared/symbol'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
 import { AnyFunc } from 'vunk/shared/types'
-import { throttle } from 'lodash'
+import { throttle } from 'lodash-es'
 export default defineComponent({
   setup () {
     const view = useMapView()

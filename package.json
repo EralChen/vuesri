@@ -9,10 +9,12 @@
 		"cc": "gulp -f scripts/create/index.ts"
 	},
 	"devDependencies": {
+		"@rollup/plugin-alias": "^3.1.9",
 		"@rollup/plugin-commonjs": "^21.0.1",
 		"@rollup/plugin-node-resolve": "^13.1.3",
+		"@types/arcgis-js-api": "^4.22.0",
 		"@types/gulp": "^4.0.9",
-		"@types/lodash": "^4.14.181",
+		"@types/lodash-es": "^4.17.6",
 		"@types/qs": "^6.9.7",
 		"@typescript-eslint/eslint-plugin": "^5.12.1",
 		"@typescript-eslint/parser": "^5.12.1",
@@ -35,7 +37,7 @@
 	"dependencies": {
 		"@vuesri/components": "workspace:*",
 		"@vuesri/shared": "workspace:*",
-		"lodash": "^4.17.21",
+		"lodash-es": "^4.17.21",
 		"mitt": "^3.0.0",
 		"vue": "^3.2.31",
 		"vunk": "^0.0.0-alpha.28"

@@ -4,7 +4,7 @@ import { sync } from 'fast-glob'
 import path from 'path'
 import { outDir } from '../../config/path'
 import {rollupComponents} from '../../build/utils/rollup'
-import {genTypes} from '../../build/utils/ts-morph'
+// import {genTypes} from '../../build/utils/ts-morph'
 
 // sync 快速找到所有目录
 const files = sync('*', {
@@ -21,7 +21,7 @@ export default parallel(
       outputFile: (file) => path.resolve(outDir, `./components/${file}/index.js`),
     }),
   ),
-  taskWithName('genTypes', () => genTypes({
-    filesRoot: path.resolve(__dirname, './'),
-  })),
+  // taskWithName('genTypes', () => genTypes({
+  //   filesRoot: path.resolve(__dirname, './'),
+  // })),
 )
