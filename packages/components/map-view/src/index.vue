@@ -24,7 +24,7 @@ export default defineComponent({
     })
     view[sMitter] = mitt() // 为 view 安装一个事件总线
     view.ui.components = []
-
+    ;(window as any).__VA_MAP_VIEW__ = view
     // set cursor
     const eventCursor = ref('')
     const cursorStyle = computed(() => ({
@@ -56,9 +56,8 @@ export default defineComponent({
   >
     <Events
       v-model:cursor="eventCursor"
-      :limit-extent="limitExtent"
     ></Events>
-    <Watchs></Watchs>
+    <Watchs :limit-extent="limitExtent"></Watchs>
     <slot></slot>
   </div>
 </template>

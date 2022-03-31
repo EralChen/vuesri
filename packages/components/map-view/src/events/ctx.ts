@@ -1,13 +1,8 @@
-import { PropType } from 'vue'
 
 export const props = {
   cursor: {
     type: String,
     default: '',
-  },
-  limitExtent: {
-    type: Object as PropType<__esri.Extent>,
-    default: undefined,
   },
 }
 

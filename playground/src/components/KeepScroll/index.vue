@@ -38,6 +38,6 @@ onActivated(() => {
 }
 .keep-scroll-x{
   height: 100%;
-  overflow: auto;
+  overflow-y: scroll;
 }
 </style>

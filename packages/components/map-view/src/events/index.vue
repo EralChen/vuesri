@@ -12,7 +12,7 @@ export default defineComponent({
     class ViewOnToggleHandler extends ToggleHandler {
       eventName: string
       private handler: AnyFunc
-      cacheData: any
+      cacheData: unknown
       constructor (eventName: string, handler: AnyFunc) {
         super()
         this.eventName = eventName
@@ -55,37 +55,6 @@ export default defineComponent({
       pointerMoveHandler.remove()
     })
     /* 鼠标移动事件 end */
-
-    /* drag事件 */
-    const dragHandler = new ViewOnToggleHandler('drag', (e: __esri.ViewDragEvent) => {
-      if (props.limitExtent) {
-        let { xmax, xmin, ymax, ymin, center: currentCenter } = view.extent
-        switch (true) {
-        case xmin < props.limitExtent.xmin:
-          xmin = props.limitExtent.xmin
-        case ymin < props.limitExtent.ymin:
-          ymin = props.limitExtent.ymin
-        case xmax > props.limitExtent.xmax:
-          xmax = props.limitExtent.xmax
-        case ymax > props.limitExtent.ymax:
-          ymax = props.limitExtent.ymax
-          break
-        default:
-          dragHandler.cacheData = currentCenter.clone()
-          return
-        }
-        if (e.action === 'end' || e.action === 'update') {
-          window.requestAnimationFrame(() => {
-            if (dragHandler.cacheData) view.goTo(dragHandler.cacheData)
-          })
-        }
-      }
-    })
-    props.limitExtent && dragHandler.add()
-    onUnmounted(() => {
-      dragHandler.remove()
-    })
-    /* drag事件 end */
 
     return () => null
   },
