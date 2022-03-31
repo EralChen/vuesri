@@ -3,9 +3,12 @@ import { props, emits } from './ctx'
 import { computed, defineComponent, onMounted, provide, ref, StyleValue } from 'vue'
 import MapView from '@arcgis/core/views/MapView'
 import AMap from '@arcgis/core/Map'
-
+import Events from './events/index.vue'
 export default defineComponent({
   name: 'VaMapView',
+  components: {
+    Events,
+  },
   emits,
   props,
   setup (props, { emit }) {
@@ -48,10 +51,10 @@ export default defineComponent({
     :style="cursorStyle"
     class="va-map-view va-view-x"
   >
-    <VaEvents
+    <Events
       v-model:cursor="eventCursor"
       :limit-extent="limitExtent"
-    ></VaEvents>
+    ></Events>
     <slot></slot>
   </div>
 </template>

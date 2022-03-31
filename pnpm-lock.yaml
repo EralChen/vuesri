@@ -29,13 +29,13 @@ importers:
       ts-morph: ^13.0.3
       typescript: ^4.5.5
       vue: ^3.2.31
-      vunk: ^0.0.0-alpha.27
+      vunk: ^0.0.0-alpha.28
     dependencies:
       '@vuesri/components': link:packages/components
       '@vuesri/shared': link:packages/shared
       mitt: 3.0.0
       vue: 3.2.31
-      vunk: 0.0.0-alpha.27
+      vunk: 0.0.0-alpha.28
     devDependencies:
       '@rollup/plugin-commonjs': 21.0.1_rollup@2.68.0
       '@rollup/plugin-node-resolve': 13.1.3_rollup@2.68.0
@@ -6072,6 +6072,10 @@ packages:
 
   /vunk/0.0.0-alpha.27:
     resolution: {integrity: sha512-hnXq1IO/AXuwvwdTlliItZbi6WD5eluTGF1h0X33iCQRYCOvWPSUJTgLqyOZ/4XVakySkHFiSEsf+4zaMYlvBA==}
+    dev: false
+
+  /vunk/0.0.0-alpha.28:
+    resolution: {integrity: sha512-nq89+y4sNg46x/S5ADgsbgJDNhnOkCss4FLlkqGtXwJA5ovmZtGwWTZaOZDSDpEul5EbkHp/m1d/a0gNNAjicA==}
     dev: false
 
   /which-boxed-primitive/1.0.2:

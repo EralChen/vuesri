@@ -7,6 +7,10 @@ export const props = {
     type: Object as PropType< __esri.MapViewProperties>,
     default: () => ({}),
   },
+  cursor: {
+    type: String,
+    default: '',
+  },
 }
 
 export const emits = {

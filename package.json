@@ -36,6 +36,6 @@
 		"@vuesri/shared": "workspace:*",
 		"mitt": "^3.0.0",
 		"vue": "^3.2.31",
-		"vunk": "^0.0.0-alpha.27"
+		"vunk": "^0.0.0-alpha.28"
 	}
 }
