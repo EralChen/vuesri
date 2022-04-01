@@ -7,4 +7,7 @@ export * from '@vuesri/components/limit-extent'
 
 export * from '@vuesri/components/basemap-toggle'
 
-export * from '@vuesri/components/basemap-toggle-next-basemap-plugin'
+
+export * from '@vuesri/components/basemap-base-layers'
+
+export * from '@vuesri/components/basemap-toggle-next-basemap'

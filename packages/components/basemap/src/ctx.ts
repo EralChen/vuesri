@@ -11,11 +11,7 @@ export const props = {
     type: Object as PropType<__esri.SpatialReferenceProperties>,
     default: undefined,
   },
-  thumbnailUrl: {
-    type: String,
-    default: '',
-  },
-  custom: {
+  orphan: {
     type: Boolean,
     default: false,
   },

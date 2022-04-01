@@ -22,11 +22,8 @@ export default defineComponent({
     watchEffect(() => {
       basemap.spatialReference = (props.spatialReference || view.spatialReference) as __esri.SpatialReference
     })
-    watchEffect(() => {
-      basemap.thumbnailUrl = props.thumbnailUrl
-    })
 
-    !props.custom && (map.basemap = basemap)
+    !props.orphan && (map.basemap = basemap)
     onUnmounted(() => { //还原basemap
       map.basemap === basemap && (map.basemap = originBasemap)
     })

@@ -3,7 +3,7 @@ import { VaMapView } from '@vuesri/components/map-view'
 import { VaSkyBasemap } from 'vuesri'
 import { VaBasemap } from '@vuesri/components/basemap'
 import { VaBasemapToggle } from '@vuesri/components/basemap-toggle'
-import { VaBasemapToggleNextBasemapPlugin } from '@vuesri/components/basemap-toggle-next-basemap-plugin'
+import { VaBasemapToggleNextBasemap } from '@vuesri/components/basemap-toggle-next-basemap'
 import TileLayer from 'esri/layers/TileLayer'
 const baseLayers: __esri.LayerProperties[] = [
   new TileLayer({
@@ -16,10 +16,10 @@ const baseLayers: __esri.LayerProperties[] = [
   <VaSkyBasemap></VaSkyBasemap>
   
   <VaBasemapToggle>
-    <VaBasemap :baseLayers="baseLayers" :custom="true">
-      <VaBasemapToggleNextBasemapPlugin
+    <VaBasemap :baseLayers="baseLayers" :orphan="true">
+      <VaBasemapToggleNextBasemap
         :thumbnailUrl="'https://neimenggu.tianditu.gov.cn/static/map/vec.jpg'"
-      ></VaBasemapToggleNextBasemapPlugin>
+      ></VaBasemapToggleNextBasemap>
     </VaBasemap>
   </VaBasemapToggle>
 

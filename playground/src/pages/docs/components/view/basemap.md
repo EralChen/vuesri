@@ -26,7 +26,7 @@ _demo-components/basemap/index.vue
 |-|-|-|-|
 |defaultOptions|__esri.BasemapProperties|{}|[构造函数参数](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#constructors-summary)|
 |:baseLayers*|\_\_esri.CollectionProperties<\_\_esri.LayerProperties><br />__esri.LayerProperties[] | - |图层配置|
-|custom|Boolean|false|若为true,实例将不会挂载到`map.basemap`|
+|orphan|Boolean|false|若为true, 则实例为待挂载的状态|
 |:spatialReference|__esri.SpatialReferenceProperties|-|底图坐标系|
 
 ## Emits

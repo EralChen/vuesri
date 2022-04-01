@@ -49,6 +49,7 @@ onMounted(() => {
   width: 100%;
 }
 .admin-layout-side-bar-x {
+  flex: .18;
   height: 100%;
   border-radius: 4px;
   padding: 1em;

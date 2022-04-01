@@ -4,7 +4,7 @@ import { useBasemap, useBasemapToggle } from '@vuesri/shared/use'
 import { props } from './ctx'
 export default defineComponent({
   props: props,
-  name: 'VaBasemapToggleNextBasemapPlugin',
+  name: 'VaBasemapToggleNextBasemap',
   setup (props) {
     const basemap = useBasemap()
     const toggle = useBasemapToggle()
