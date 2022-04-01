@@ -17,8 +17,8 @@ export default defineComponent({
     watchEffect(() => {
       layer.url = props.url
     })
-    
-   
+
+
     useSetLayerOptions(layer, props)
     useAddLayer(map, layer, props)
 

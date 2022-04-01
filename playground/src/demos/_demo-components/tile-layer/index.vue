@@ -1,16 +1,13 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import { VaTileLayer } from '@vuesri/components/tile-layer'
-export default defineComponent({
-  components: {
-    VaTileLayer,
-  },
-  setup () {
-    return {
-    }
-  },
-})
+import { VaMapView } from '@vuesri/components/map-view'
+import { VaSkyBasemap } from 'vuesri'
 </script>
 <template>
-  <VaTileLayer></VaTileLayer>
+<VaMapView>
+  <VaSkyBasemap :type="'img_w'" :spatialReference="{
+    wkid: 102100
+  }"></VaSkyBasemap>
+  <VaTileLayer :url="'http://116.63.63.191:6080/arcgis/rest/services/SBWB/NB_DT3857/MapServer'"></VaTileLayer>
+</VaMapView>
 </template>
