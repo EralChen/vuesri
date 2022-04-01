@@ -1,6 +1,6 @@
 <script lang="ts">
 import { props, emits } from './ctx'
-import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
+import { defineComponent, onMounted, onUnmounted, provide, ref } from 'vue'
 import { useView, useSetVisible } from '@vuesri/shared/use'
 import BasemapToggle from 'esri/widgets/BasemapToggle'
 export default defineComponent({
@@ -16,7 +16,7 @@ export default defineComponent({
     })
 
     useSetVisible(basemapToggle, props)
-  
+    provide('vaBasemapToggle', basemapToggle)
     onMounted(() => {
       basemapToggle.container = toggleNode.value
       view.ui.add(basemapToggle, props.position)

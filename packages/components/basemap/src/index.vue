@@ -1,13 +1,13 @@
 <script lang="ts">
 import { props, emits } from './ctx'
-import { defineComponent, onUnmounted, watchEffect } from 'vue'
+import { defineComponent, onUnmounted, provide, watchEffect } from 'vue'
 import { useView } from '@vuesri/shared/use'
 import Basemap from 'esri/Basemap'
 export default defineComponent({
   name: 'VaBasemap',
   emits,
   props,
-  setup (props, { emit }) {
+  setup (props, { emit, slots }) {
     const view = useView()
     const map = view.map
     const originBasemap = map.basemap
@@ -31,8 +31,9 @@ export default defineComponent({
       map.basemap === basemap && (map.basemap = originBasemap)
     })
 
+    provide('vaBasemap', basemap)
     emit('load', { view, basemap })
-    return () => null
+    return () => slots.default?.()
   },
 })
 </script>
