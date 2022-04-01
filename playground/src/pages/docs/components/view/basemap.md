@@ -27,5 +27,10 @@ _demo-components/basemap/index.vue
 |defaultOptions|__esri.BasemapProperties|{}|[构造函数参数](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#constructors-summary)|
 |:baseLayers*|\_\_esri.CollectionProperties<\_\_esri.LayerProperties><br />__esri.LayerProperties[] | - |图层配置|
 |custom|Boolean|false|若为true,实例将不会挂载到`map.basemap`|
+|:spatialReference|__esri.SpatialReferenceProperties|-|底图坐标系|
 
+## Emits
 
+|事件|类型|参数|描述|
+|-|-|-|-|
+|load|__VaBasemap.OnLoad|view: \__esri.View <br> basemap: __esri.Basemap |实例加载后|
