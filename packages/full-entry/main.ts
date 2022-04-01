@@ -11,3 +11,5 @@ export * from '@vuesri/components/basemap-toggle'
 export * from '@vuesri/components/basemap-base-layers'
 
 export * from '@vuesri/components/basemap-toggle-next-basemap'
+
+export * from '@vuesri/components/tile-layer'
