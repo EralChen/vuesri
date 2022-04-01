@@ -2,7 +2,6 @@
 {
   meta: {
     title: "Basemap",
-    sorted: 2
   }
 }
 </route>
@@ -25,7 +24,7 @@ _demo-components/basemap/index.vue
 |属性|类型|默认值|描述|
 |-|-|-|-|
 |defaultOptions|__esri.BasemapProperties|{}|[构造函数参数](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#constructors-summary)|
-|:baseLayers*|\_\_esri.CollectionProperties<\_\_esri.LayerProperties><br />__esri.LayerProperties[] | - |图层配置|
+|:baseLayers|\_\_esri.CollectionProperties<\_\_esri.LayerProperties><br />__esri.LayerProperties[] | - |图层配置|
 |orphan|Boolean|false|若为true, 则实例为待挂载的状态|
 |:spatialReference|__esri.SpatialReferenceProperties|-|底图坐标系|
 

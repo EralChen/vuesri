@@ -7,7 +7,8 @@ export default RouterViewWrapper
 {
   meta: {
     title: "视图",
-    sorted: 1
+    sorted: 1,
+    alwaysShow: true
   }
 }
 </route>

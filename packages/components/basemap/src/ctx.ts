@@ -5,7 +5,6 @@ export const props = {
   baseLayers: {
     type: Array as PropType<__esri.CollectionProperties<__esri.LayerProperties>| __esri.LayerProperties[]>,
     default: () => [],
-    required: true,
   },
   spatialReference: {
     type: Object as PropType<__esri.SpatialReferenceProperties>,

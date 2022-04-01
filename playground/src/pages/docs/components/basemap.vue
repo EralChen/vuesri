@@ -6,8 +6,8 @@ export default RouterViewWrapper
 <route>
 {
   meta: {
-    title: "控件",
-    sorted: 99,
+    title: "底图",
+    sorted: 2,
     alwaysShow: true
   }
 }

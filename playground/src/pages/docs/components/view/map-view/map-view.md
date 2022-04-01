@@ -13,7 +13,7 @@
 
 向叶子节点 `provide` 该实例
 
-插入 <router-link :to="'/docs/components/view/basemap'"> `Basemap`</router-link> 组件，可创建可视化地图
+插入 <router-link :to="'/docs/components/basemap/basemap'"> `Basemap`</router-link> 组件，可创建可视化地图
 
 ## Demo
 :::demo
