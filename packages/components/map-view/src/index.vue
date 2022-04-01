@@ -57,7 +57,7 @@ export default defineComponent({
     <Events
       v-model:cursor="eventCursor"
     ></Events>
-    <Watchs :limit-extent="limitExtent"></Watchs>
+    <Watchs></Watchs>
     <slot></slot>
   </div>
 </template>
