@@ -1,5 +1,5 @@
 export function mergeImport (str: string) {
-  const matchAll = str.matchAll(/import\s?{(.+)}\s?from\s['|"](?<name>[A-Za-z]+)['|"]/g)
+  const matchAll = str.matchAll(/import\s*{(.+)}\s*from\s['|"](?<name>[A-Za-z]+)['|"]/g)
   const matchArr =  [...matchAll]
   const matchMap = matchArr.reduce((a, c) => {
     if (c.groups?.name) {
@@ -28,7 +28,8 @@ export function mergeImport (str: string) {
         if (index === 0) {
           str = str.replace(s, importMerge)
         } else {
-          str = str.replace(s + '\n', '')
+          const reg = new RegExp(s + '\\s*')
+          str = str.replace(reg, '')
         }
       })
     

@@ -3,12 +3,12 @@ import fs from 'fs'
 import MarkdownIt from 'markdown-it'
 // @ts-ignore
 import mdContainer from 'markdown-it-container'
-import { highlight } from '../../utils/highlight'
+import { highlight } from '../../../utils/highlight'
 // import { docRoot } from '../../utils/paths'
-import { demosRoot } from '../../config/path'
+import { demosRoot } from '../../../config/path'
 import type Token from 'markdown-it/lib/token'
 import type Renderer from 'markdown-it/lib/renderer'
-import { restoreAlias } from '../../config/demo-source'
+import { restoreAlias } from '../../../config/demo-source'
 const localMd = MarkdownIt()
 // const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/
 

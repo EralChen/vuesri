@@ -1,3 +1,4 @@
+
 <route>
 {
   meta: {
@@ -7,6 +8,7 @@
 </route>
 
 # BasemapToggle
+
 
 初始化 [BasemapToggle](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapToggle.html) 实例
 
@@ -23,13 +25,12 @@ _demo-components/basemap-toggle/index.vue
 _demo-components/basemap-toggle/with-basemap.vue
 :::
 
-## Props
 
 ## Props
 
 |属性|类型|默认值|描述|
 |-|-|-|-|
-|defaultOptions|__esri.MapViewProperties|{}|[构造函数参数](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#constructors-summary)|
-|:cursor|string|''|鼠标移动到地图容器上的css样式|
-
+|defaultOptions|__esri.BasemapToggleProperties|{}|[构造函数参数](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapToggle.html#constructors-summary)|
+|:position|__VaBasemapToggle.[UiAddPosition](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-ui-UI.html#add)|'bottom-right'|ui控件的位置|
+{{ propsRows.visible }}
 

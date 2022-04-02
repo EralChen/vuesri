@@ -11,13 +11,16 @@ import { viteExternalsPlugin } from 'vite-plugin-externals'
 import pages from 'vite-plugin-pages'
 import markdown from 'vite-plugin-md'
 import markdownAnchor from 'markdown-it-anchor'
-import { mdDemoPlugin } from './build/markdown/demo'
-import { mdLinkOpenPlugin } from './build/markdown/linkOpen'
+import { mdDemoPlugin } from './build/markdown/md-plugin/demo'
+import { mdLinkOpenPlugin } from './build/markdown/md-plugin/linkOpen'
 import mdPrismPlugin from 'markdown-it-prism'
 import { highlight } from './utils/highlight'
+import mdFrontMatter from './md.frontmatter'
+import { getDeepValue } from './utils/object'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = getEnv(mode)
+
   return {
     base: env.VITE_BASE_URL + '/',
     css: {
@@ -51,7 +54,7 @@ export default defineConfig(({ mode }) => {
         esri: '@arcgis/core',
       },
     },
-
+  
     plugins: [
       vue({
         include: [/\.vue$/, /\.md$/],
@@ -67,6 +70,7 @@ export default defineConfig(({ mode }) => {
           linkify: true,
           highlight,
         },
+
         markdownItSetup (md) {
           // for example
           markdownAnchor(md)
@@ -79,12 +83,27 @@ export default defineConfig(({ mode }) => {
             defaultLanguageForUnknown: 'html',
           })
           mdDemoPlugin(md)
- 
         },
         wrapperComponent: 'MdWrapper',
-      
+        transforms: {
+          before (code) {
+
+            const keys = Reflect.ownKeys(mdFrontMatter)
+            const reg = new RegExp(`{{\\s*((${keys.join('|')}).+)\\s*}}`, 'g')
+            const matchArr = [...code.matchAll(reg)]
+            matchArr.forEach(item => {
+              const temp = item[0]
+              const curretKeys = item[1].split('.').map(s => s.trim())
+              code = code.replace(temp, getDeepValue(mdFrontMatter, curretKeys))
+            })
+
+            return code
+          },
+        },
+        
         // markdownItUses: [mdDemoPlugin],
       }),
+      
       legacy({
         modernPolyfills: ['esnext.array.at'],
       }),

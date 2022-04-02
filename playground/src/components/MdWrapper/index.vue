@@ -1,3 +1,4 @@
+
 <script lang="ts">
 import { defineComponent } from 'vue'
 import KeepScroll from '_c/KeepScroll/index.vue'
@@ -5,15 +6,15 @@ export default defineComponent({
   props: {
     frontmatter: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   components: {
-    KeepScroll
+    KeepScroll,
   },
   setup () {
     return {}
-  }
+  },
 })
 </script>
 <template>

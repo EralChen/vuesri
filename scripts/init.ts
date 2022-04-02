@@ -47,7 +47,7 @@ export default series(
     let data = await fs.readFile(projConfigPath, {
       encoding: 'utf8',
     })
-    data = data.replace(/LIB_PRE\s?=\s?'(.*)'/g, (match, $1) => {
+    data = data.replace(/LIB_PRE\s*=\s*'(.*)'/g, (match, $1) => {
       return match.replace($1, mriData.pre)
     })
     return fs.writeFile(projConfigPath, data)
