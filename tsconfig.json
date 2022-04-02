@@ -16,7 +16,8 @@
       "ESNext", "DOM"
     ],
     "types": [
-      "arcgis-js-api"
+      "arcgis-js-api",
+      "jest"
     ],
     "allowSyntheticDefaultImports": true,
   },
@@ -30,7 +31,8 @@
   ],
   "exclude": [
     "playground/typings/**/*.d.ts",
-    "dist"
+    "dist",
+    "**/__test?__",
   ]
  }
  

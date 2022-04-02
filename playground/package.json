@@ -7,7 +7,8 @@
     "build": "vite build",
     "build:skzz": "vite build --mode skzz",
     "serve": "vite preview",
-    "init:arcgis": "gulp -f scripts/init-arcgis.ts"
+    "init:arcgis": "gulp -f scripts/init-arcgis.ts",
+    "test": "jest"
   },
   "dependencies": {
     "@vueuse/core": "^8.2.0",

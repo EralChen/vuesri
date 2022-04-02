@@ -72,7 +72,9 @@ export default defineConfig(({ mode }) => {
           markdownAnchor(md)
           mdLinkOpenPlugin(md)
           mdPrismPlugin(md, {
-            init: () => {},
+            init: () => {
+              //
+            },
             plugins: [],
             defaultLanguageForUnknown: 'html',
           })
@@ -87,7 +89,9 @@ export default defineConfig(({ mode }) => {
         modernPolyfills: ['esnext.array.at'],
       }),
       windowEnv(),
-      viteExternalsPlugin(),
+      viteExternalsPlugin({
+
+      }),
       createSvgIconsPlugin({
         // Specify the icon folder to be cached
         iconDirs: [path.resolve(srcRoot, './icons/svg')],

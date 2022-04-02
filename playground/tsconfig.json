@@ -11,7 +11,8 @@
     "esModuleInterop": true,
     "types": [
       "node",
-      "arcgis-js-api"
+      "arcgis-js-api",
+      "jest"
     ],
     "baseUrl": ".",
     "paths": {
@@ -42,6 +43,7 @@
     "vite.config.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/__test?__",
   ]
 }

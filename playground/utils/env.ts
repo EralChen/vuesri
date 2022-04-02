@@ -1,5 +1,5 @@
 import path from 'path'
-import {readFileSync} from 'fs'
+import { readFileSync } from 'fs'
 import { workRoot } from '../config/path'
 export function getEnv (mode: string): ImportMetaEnv {
   const envFilePath = path.resolve(workRoot, `./.env.${mode}`)

@@ -1,17 +1,13 @@
 <script lang="ts">
-import { props, emits } from './ctx'
 import { defineComponent } from 'vue'
+import { useBasemap, useLayer, useAddLayer } from '@vuesri/shared/use'
 export default defineComponent({
   name: 'VaBasemapBaseLayers',
-  emits,
-  props,
-  setup (props, { emit }) {
-    // core
-    emit('load', { })
-    return {}
+  setup () {
+    const basemap = useBasemap()
+    const layer = useLayer()
+    useAddLayer(basemap.baseLayers, layer, {})
+    return () => null
   },
 })
 </script>
-<template>
-  <div>BasemapBaseLayers</div>
-</template>

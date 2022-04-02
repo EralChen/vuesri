@@ -10,7 +10,7 @@ const loadLanguages = res.default
 
 loadLanguages(['markup', 'css', 'javascript', 'vue'])
 
-function wrap(code: string, lang: string): string {
+function wrap (code: string, lang: string): string {
   if (lang === 'text') {
     code = escapeHtml(code)
   }
@@ -41,8 +41,8 @@ export const highlight = (str: string, lang: string) => {
     } catch (e) {
       console.warn(
         chalk.yellow(
-          `[vitepress] Syntax highlight for language "${lang}" is not supported.`
-        )
+          `[vitepress] Syntax highlight for language "${lang}" is not supported.`,
+        ),
       )
     }
   }

@@ -21,6 +21,7 @@ const config = {
   rules: {
     // https://eslint.org/docs/rules/ for js
     'no-console': 'warn',
+    'prefer-const': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'quotes': ['error', 'single', { avoidEscape: true, 'allowTemplateLiterals': true }],
     'comma-dangle': ['error', 'always-multiline'], // multiline object ,
@@ -42,6 +43,7 @@ const config = {
     'key-spacing': ['error', { 'afterColon': true }],
     'object-curly-spacing': ['error', 'always'],
     // for ts
+    '@typescript-eslint/ban-ts-comment': 'off',
     // for vue
     'vue/multi-word-component-names': 'off',
     // import plugin
