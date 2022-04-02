@@ -26,7 +26,7 @@ const baseLayers: __esri.LayerProperties[] = [
 ]
 </script>
 `
-  test('toFirstUpperCase', () => {
+  test('mergeImport', () => {
     expect(mergeImport(str)).toBe(nStr)
   })
 })
