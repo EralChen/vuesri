@@ -17,6 +17,7 @@ export function useSetLayerOptions (
   minScale: number
   title: string
   cursor: string
+  opacity: number
 }) {
   watchEffect(() => {
     layer[sCursor] = props.cursor
@@ -32,5 +33,8 @@ export function useSetLayerOptions (
   })
   watchEffect(() => {
     layer.minScale = props.minScale
+  })
+  watchEffect(() => {
+    layer.opacity = props.opacity
   })
 }

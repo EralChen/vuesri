@@ -19,11 +19,16 @@ export const props = {
     type: Boolean,
     default: true,
   },
+
+  opacity: {
+    type: Number,
+    default: 1,
+  },
+
   index: {
     type: Number,
     default: undefined,
   },
-
   orphan: {
     type: Boolean,
     default: false,

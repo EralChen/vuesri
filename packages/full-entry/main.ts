@@ -13,3 +13,7 @@ export * from '@vuesri/components/basemap-base-layers'
 export * from '@vuesri/components/basemap-toggle-next-basemap'
 
 export * from '@vuesri/components/tile-layer'
+
+export * from '@vuesri/components/sky-basemap'
+
+export * from '@vuesri/components/web-tile-layer'

@@ -1,0 +1,6 @@
+|:[maxScale](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-TileLayer.html#maxScale)|Number|0|图层最大比例尺|
+|:[minScale](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-TileLayer.html#minScale)|Number|0|图层最小比例尺|
+|:index|Number|-|图层叠加顺序|
+|:[opacity](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#opacity)|Number|1|透明度|
+|:[title](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#title)|String|-|图层标题|
+|:[visible](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#visible)|Boolean|true|show|
