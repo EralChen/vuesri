@@ -1,5 +1,6 @@
 import { watchEffect } from 'vue'
 import { sCursor } from '@vuesri/shared/symbol'
+import { useSetVisible } from '../useSetVisible'
 
 export function useSetLayerOptions (
   layer:
@@ -19,14 +20,12 @@ export function useSetLayerOptions (
   cursor: string
   opacity: number
 }) {
+  useSetVisible(layer, props)
   watchEffect(() => {
     layer[sCursor] = props.cursor
   })
   watchEffect(() => {
     layer.title = props.title
-  })
-  watchEffect(() => {
-    layer.visible = props.visible
   })
   watchEffect(() => {
     layer.maxScale = props.maxScale

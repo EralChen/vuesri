@@ -13,6 +13,7 @@ export const props = {
     type: String,
     default: 'f0175927031c1e12cb804b0c3b8cce4d',
   },
+  
 }
 
 export const emits = {

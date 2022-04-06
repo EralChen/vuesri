@@ -16,7 +16,7 @@ export default defineComponent({
     const baseLayer = baseTypeInfo[0]
     const typeSR = baseTypeInfo[1]
 
-    const defaultOptions = computed(() => {
+    const defaultOptions = computed<__esri.WebTileLayerProperties & {spatialReference?: __esri.SpatialReferenceProperties}>(() => {
       return {
         subDomains,
         urlTemplate: `https://{subDomain}.tianditu.gov.cn`
@@ -24,6 +24,7 @@ export default defineComponent({
           + `&LAYER=${baseLayer}&STYLE=default`
           + `&TILEMATRIXSET=${typeSR}&FORMAT=tiles&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}`
           + `&tk=${props.token}`,
+        
       }
     })
     return {

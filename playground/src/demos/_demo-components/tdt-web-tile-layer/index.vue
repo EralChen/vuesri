@@ -7,10 +7,10 @@ import { VaBasemapBaseLayers } from '@vuesri/components/basemap-base-layers'
 <template>
 <VaMapView>
   <VaBasemap>
-
     <VaTdtWebTileLayer :type="'img_c'" :orphan="true">
       <VaBasemapBaseLayers />
     </VaTdtWebTileLayer>
+
 
     <VaTdtWebTileLayer :type="'cia_c'" :orphan="true">
       <VaBasemapBaseLayers />
