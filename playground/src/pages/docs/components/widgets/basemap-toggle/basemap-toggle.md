@@ -29,6 +29,13 @@ _demo-components/basemap-toggle/with-basemap.vue
 _demo-components/basemap-toggle-next-basemap/index.vue
 :::
 
+### 使用图层
+
+:::demo
+_demo-components/basemap-toggle/with-layers.vue
+:::
+
+
 
 
 

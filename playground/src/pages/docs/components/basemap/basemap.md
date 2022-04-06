@@ -14,9 +14,20 @@
 
 ## Demo
 
+### 使用属性生成底图
+
 :::demo
 _demo-components/basemap/index.vue
 :::
+
+### 使用图层组件生成底图
+
+关联组件：<router-link to="/docs/components/basemap/basemap-base-layers">BasemapBaseLayers</router-link>
+
+:::demo
+_demo-components/basemap-base-layers/index.vue
+:::
+
 
 
 ## Props

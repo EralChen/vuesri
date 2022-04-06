@@ -1,7 +1,8 @@
 <route>
 {
   meta: {
-    title: "BasemapBaseLayers"
+    title: "BasemapBaseLayers",
+    hidden: true
   }
 }
 </route>
@@ -13,6 +14,7 @@
 ## Demo
 
 ### 使用图层组件生成底图
+
 :::demo
 _demo-components/basemap-base-layers/index.vue
 :::
