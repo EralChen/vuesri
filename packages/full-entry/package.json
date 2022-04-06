@@ -1,6 +1,6 @@
 {
   "name": "vuesri",
-  "version": "0.0.0-dev.1",
+  "version": "0.0.0-dev.2",
   "description": "",
   "module": "index.esm.js",
   "scripts": {
