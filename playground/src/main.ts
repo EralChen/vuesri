@@ -5,6 +5,7 @@ import store from './store'
 
 import SvgIcon from '@/components/SvgIcon/index.vue'
 import DemoContainer from '../build/markdown/DemoContainer/index.vue'
+import SourceContainer from '../build/markdown/SourceContainer/index.vue'
 import MdWrapper from '@/components/MdWrapper/index.vue'
 import 'virtual:svg-icons-register'
 import './styles'
@@ -22,5 +23,6 @@ createApp(App)
   .use(store)
   .component('SvgIcon', SvgIcon)
   .component('DemoContainer', DemoContainer)
+  .component('SourceContainer', SourceContainer)
   .component('MdWrapper', MdWrapper)
   .mount('#app')

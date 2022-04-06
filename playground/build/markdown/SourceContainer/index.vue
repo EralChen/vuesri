@@ -32,12 +32,29 @@ export default defineComponent({
   },
   setup (props) {
     const codeShow = ref(false)
-    const decodedDescription = computed(() => {
-      return decodeURIComponent(props.description)
+    function unescapeHTML (a: string){
+      a = '' + a
+      return a.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&apos;/g, "'")
+    }
+    const jsonDescription = computed(() => {
+      let json = unescapeHTML(decodeURIComponent(props.description)) as any
+      const match = json.match(/<.+>(.+)<\/.+>/)
+      json = match ? match[1] : ''
+      try {
+        json = JSON.parse(json)
+      } catch {
+        json = {
+          msg: json,
+        }
+      }
+      return {
+        sourceIf: true,
+        ...json,
+      } 
     })
     return {
       codeShow,
-      decodedDescription,
+      jsonDescription,
     }
   },
 })
@@ -51,11 +68,12 @@ export default defineComponent({
         name: 'drop-down'
       }"
       class="demo-source-code-x"
+      v-if="jsonDescription.sourceIf"
     >
       <template #header>
         <SvgIcon :icon-class="'down'" :class="{
           'is-active': codeShow
-        }"></SvgIcon> <span v-html="decodedDescription"></span>
+        }"></SvgIcon> <span v-html="jsonDescription.msg"></span>
       </template>
       <template #body>
         <SourceCode :source="source" :type="type"></SourceCode>

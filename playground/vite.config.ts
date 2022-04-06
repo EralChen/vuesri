@@ -89,7 +89,7 @@ export default defineConfig(({ mode }) => {
           before (code) {
 
             const keys = Reflect.ownKeys(mdFrontMatter)
-            const reg = new RegExp(`{{\\s*((${keys.join('|')}).+)\\s*}}`, 'g')
+            const reg = new RegExp(`<\\?\\s*((${keys.join('|')}).+)\\s*\\?\>`, 'g')
             const matchArr = [...code.matchAll(reg)]
             matchArr.forEach(item => {
               const temp = item[0]

@@ -12,7 +12,7 @@
 
 初始化 [BasemapToggle](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapToggle.html) 实例
 
-## demo
+## Demo
 
 ### 使用defaultOptions
 :::demo
@@ -21,9 +21,15 @@ _demo-components/basemap-toggle/index.vue
 
 ### 使用Basemap组件
 
-:::demo
+:::demo { "sourceIf": false }
 _demo-components/basemap-toggle/with-basemap.vue
 :::
+
+:::source
+_demo-components/basemap-toggle-next-basemap/index.vue
+:::
+
+
 
 
 ## Props
@@ -32,5 +38,4 @@ _demo-components/basemap-toggle/with-basemap.vue
 |-|-|-|-|
 |defaultOptions|__esri.BasemapToggleProperties|{}|[构造函数参数](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapToggle.html#constructors-summary)|
 |:position|__VaBasemapToggle.[UiAddPosition](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-ui-UI.html#add)|'bottom-right'|ui控件的位置|
-{{ propsRows.visible }}
-
+|:visible|Boolean|true|show|

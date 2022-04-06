@@ -18,6 +18,10 @@ export const props = {
     type: Object as PropType<__esri.BasemapProperties>,
     default: () => ({}),
   },
+  thumbnailUrl: {
+    type: String,
+    default: '',
+  },
 }
 
 export const emits = {

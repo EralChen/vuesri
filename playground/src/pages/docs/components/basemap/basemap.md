@@ -27,6 +27,7 @@ _demo-components/basemap/index.vue
 |:baseLayers|\_\_esri.CollectionProperties<\_\_esri.LayerProperties><br />__esri.LayerProperties[] | - |图层配置|
 |orphan|Boolean|false|若为true, 则实例为待挂载的状态|
 |:spatialReference|__esri.SpatialReferenceProperties|-|底图坐标系|
+|:thumbnailUrl|String|''|设置[thumbnailUrl](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#thumbnailUrl)|
 
 ## Emits
 
