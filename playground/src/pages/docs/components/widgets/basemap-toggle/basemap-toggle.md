@@ -43,6 +43,6 @@ _demo-components/basemap-toggle/with-layers.vue
 
 |属性|类型|默认值|描述|
 |-|-|-|-|
-|defaultOptions|__esri.BasemapToggleProperties|{}|[构造函数参数](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapToggle.html#constructors-summary)|
-|:position|__VaBasemapToggle.[UiAddPosition](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-ui-UI.html#add)|'bottom-right'|ui控件的位置|
+|[defaultOptions](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-BasemapToggle.html#constructors-summary)|__esri.BasemapToggleProperties|{}|构造函数参数|
+|:[position](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-ui-UI.html#add)|__VaBasemapToggle.UiAddPosition|'bottom-right'|ui控件的位置|
 |:visible|Boolean|true|show|
