@@ -34,11 +34,11 @@ _demo-components/basemap-base-layers/index.vue
 
 |属性|类型|默认值|描述|
 |-|-|-|-|
-|defaultOptions|__esri.BasemapProperties|{}|[构造函数参数](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#constructors-summary)|
-|:baseLayers|\_\_esri.CollectionProperties<\_\_esri.LayerProperties><br />__esri.LayerProperties[] | - |图层配置|
+|[defaultOptions](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#constructors-summary)|__esri.BasemapProperties|{}|构造函数参数|
+|:[baseLayers](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#baseLayers)|\_\_esri.CollectionProperties<\_\_esri.LayerProperties><br />__esri.LayerProperties[] | - |图层配置|
 |orphan|Boolean|false|若为true, 则实例为待挂载的状态|
-|:spatialReference|__esri.SpatialReferenceProperties|-|底图坐标系|
-|:thumbnailUrl|String|''|设置[thumbnailUrl](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#thumbnailUrl)|
+|:[spatialReference](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#spatialReference)|__esri.SpatialReferenceProperties|-|底图坐标系|
+|:[thumbnailUrl](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#thumbnailUrl)|String|''|图标|
 
 ## Emits
 
