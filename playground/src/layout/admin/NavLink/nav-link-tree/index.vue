@@ -99,7 +99,7 @@ export default defineComponent({
         <NavLink
           :to="getFullPath(item.path)"
           :linkable="!hasChildren(item)"
-          :body-if="!hasChildren(item)"
+          :bodyIf="hasChildren(item)"
           :expand-body="level <= expandLevel"
           @navigate="$emit('navigate', $event)"
         >

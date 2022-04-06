@@ -18,7 +18,7 @@ export default defineComponent({
     },
     bodyIf: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     expandBody: {
       type: Boolean,

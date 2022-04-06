@@ -36,14 +36,14 @@ importers:
       ts-morph: ^13.0.3
       typescript: ^4.5.5
       vue: ^3.2.31
-      vunk: ^0.0.0-alpha.28
+      vunk: ^0.0.0-alpha.29
     dependencies:
       '@vuesri/components': link:packages/components
       '@vuesri/shared': link:packages/shared
       lodash-es: 4.17.21
       mitt: 3.0.0
       vue: 3.2.31
-      vunk: 0.0.0-alpha.28
+      vunk: 0.0.0-alpha.29
     devDependencies:
       '@rollup/plugin-alias': 3.1.9_rollup@2.68.0
       '@rollup/plugin-commonjs': 21.0.1_rollup@2.68.0
@@ -7868,8 +7868,8 @@ packages:
     resolution: {integrity: sha512-hnXq1IO/AXuwvwdTlliItZbi6WD5eluTGF1h0X33iCQRYCOvWPSUJTgLqyOZ/4XVakySkHFiSEsf+4zaMYlvBA==}
     dev: false
 
-  /vunk/0.0.0-alpha.28:
-    resolution: {integrity: sha512-nq89+y4sNg46x/S5ADgsbgJDNhnOkCss4FLlkqGtXwJA5ovmZtGwWTZaOZDSDpEul5EbkHp/m1d/a0gNNAjicA==}
+  /vunk/0.0.0-alpha.29:
+    resolution: {integrity: sha512-vvxStq6Mh99QUV8Mn3OreNYAqyvO3r3mjmaLUN2Sv637jAafitVwjIvTeEvN5e7dlb93/nBjhJJVhUjiuIIlRg==}
     dev: false
 
   /w3c-hr-time/1.0.2:

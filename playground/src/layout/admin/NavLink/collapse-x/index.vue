@@ -12,7 +12,7 @@ defineProps({
   },
   bodyIf: {
     type: Boolean,
-    default: false,
+    default: true,
   },
 })
 defineEmits({
