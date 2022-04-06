@@ -27,6 +27,7 @@
 		"eslint-plugin-vue": "^8.5.0",
 		"fast-glob": "^3.2.11",
 		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
 		"jest": "^27.5.1",
 		"mri": "^1.2.0",
 		"rollup": "^2.68.0",

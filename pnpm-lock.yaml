@@ -23,6 +23,7 @@ importers:
       eslint-plugin-vue: ^8.5.0
       fast-glob: ^3.2.11
       gulp: ^4.0.2
+      gulp-concat: ^2.6.1
       jest: ^27.5.1
       lodash-es: ^4.17.21
       mitt: ^3.0.0
@@ -62,6 +63,7 @@ importers:
       eslint-plugin-vue: 8.5.0_eslint@8.10.0
       fast-glob: 3.2.11
       gulp: 4.0.2
+      gulp-concat: 2.6.1
       jest: 27.5.1
       mri: 1.2.0
       rollup: 2.68.0
@@ -2572,6 +2574,12 @@ packages:
       typedarray: 0.0.6
     dev: true
 
+  /concat-with-sourcemaps/1.1.0:
+    resolution: {integrity: sha512-4gEjHJFT9e+2W/77h/DS5SGUgwDaOwprX8L/gl5+3ixnzkVJJsZWDSelmN3Oilw3LNDZjZV0yqH1hLG3k6nghg==}
+    dependencies:
+      source-map: 0.6.1
+    dev: true
+
   /convert-source-map/1.8.0:
     resolution: {integrity: sha512-+OQdjP49zViI/6i7nIJpA8rAl4sV/JdPfU9nZs3VqOwGIgizICvuN2ru6fMd+4llL0tar18UYJXfZ/TWtmhUjA==}
     dependencies:
@@ -4143,6 +4151,15 @@ packages:
       semver-greatest-satisfied-range: 1.1.0
       v8flags: 3.2.0
       yargs: 7.1.2
+    dev: true
+
+  /gulp-concat/2.6.1:
+    resolution: {integrity: sha1-Yz0WyV2IUEYorQJmVmPO5aR5M1M=}
+    engines: {node: '>= 0.10'}
+    dependencies:
+      concat-with-sourcemaps: 1.1.0
+      through2: 2.0.5
+      vinyl: 2.2.1
     dev: true
 
   /gulp/4.0.2:

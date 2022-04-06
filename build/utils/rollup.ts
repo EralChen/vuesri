@@ -55,13 +55,18 @@ export function rollupComponents (opts: {
 export async function rollupFile (opts: {
   inputFile: string,
   outputFile: string
-  external: string[]
+  external: (string | RegExp)[]
   format: 'umd'|'esm'
 }) {
   const inputConfig = {
     input: opts.inputFile,
     
     plugins: [
+      alias({
+        entries: [
+          { find: 'esri', replacement: '@arcgis/core' },
+        ],
+      }),
       nodeResolve({
         extensions: ['.js', '.json', '.ts'],
         browser: true,

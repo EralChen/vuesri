@@ -32,7 +32,7 @@ export default series(
   }),
   taskWithName('publish', async () => {
     run(
-      'npm publish --tag alpha --registry https://registry.npmjs.org',
+      'npm publish --tag dev --registry https://registry.npmjs.org',
       outDir,
     )
   }),
