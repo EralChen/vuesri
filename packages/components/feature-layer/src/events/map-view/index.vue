@@ -1,0 +1,59 @@
+<script lang="ts">
+import { sMitter } from '@vuesri/shared/symbol'
+import { useLayer } from '@vuesri/shared/use'
+import { MitterEvents } from '@vuesri/components/map-view/shared/types'
+import { defineComponent, inject, onUnmounted } from 'vue'
+import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
+import { AnyFunc } from 'vunk/shared/types'
+import { emits } from './ctx'
+export default defineComponent({
+  emits,
+  setup (props, { emit }) {
+    const view = inject<__esri.MapView|null>('vaMapView', null)
+    if (!view) return () => null
+
+    const layer = useLayer() as __esri.FeatureLayer
+    const mitter = view[sMitter]
+    class MitterToggleHandler<T extends keyof MitterEvents> extends ToggleHandler {
+      name: T
+      handler: AnyFunc
+      constructor (name: T, handler: (e: MitterEvents[T]) => void) {
+        super()
+        this.name = name
+        this.handler = handler
+      }
+      add () {
+        mitter.on(this.name, this.handler)
+        this.removeHandler = () => mitter.off(this.name, this.handler)
+      }
+    }
+
+    /* click mitter */
+    const clickMitter = new MitterToggleHandler('click', (e) => {
+      const { hitTestResult: { results } } = e
+      const result = results.find(item => item.graphic.layer === layer)
+      emit('click', { ...e, result, layer })
+    })
+    clickMitter.add()
+    onUnmounted(() => {
+      clickMitter.remove()
+    })
+    /* click mitter end */
+
+    /* pointer move mitter */
+    const pinterMoveMitter = new MitterToggleHandler('pointer-move', (e) => {
+      const { hitTestResult: { results } } = e
+      const result = results.find(item => item.graphic.layer === layer)
+      emit('pointerMove', { ...e, result, layer })
+    })
+    pinterMoveMitter.add()
+    onUnmounted(() => {
+      pinterMoveMitter.remove()
+    })
+    /* pointer move mitter */
+
+
+    return () => null
+  },
+})
+</script>

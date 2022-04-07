@@ -19,3 +19,5 @@ export * from '@vuesri/components/sky-basemap'
 export * from '@vuesri/components/web-tile-layer'
 
 export * from '@vuesri/components/tdt-web-tile-layer'
+
+export * from '@vuesri/components/server-feature-layer'
