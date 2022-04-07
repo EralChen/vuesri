@@ -124,5 +124,8 @@ export const lods = [{
   'resolution': 1.3411045321451153e-006,
   'scale': 563.61694050000006,
 }]
-
+export const origin = {
+  x: -180,
+  y: 90,
+}
 export const levelToScale = lods.reduce((a, c) => (a[c.level] = c.scale, a), {} as Record<string, number>)

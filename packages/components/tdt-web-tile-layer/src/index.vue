@@ -2,7 +2,15 @@
 import { props, emits } from './ctx'
 import { computed, defineComponent, nextTick, ref, watch } from 'vue'
 import { VaWebTileLayer } from '@vuesri/components/web-tile-layer'
-import { lods } from '@vuesri/shared/config/tile-info/4490'
+import * as tileInfo4490 from '@vuesri/shared/config/tile-info/4490'
+import * as tileInfo3857 from '@vuesri/shared/config/tile-info/3857'
+const wkidToInfo = {
+  4326: tileInfo4490,
+  4490: tileInfo4490,
+  3857: tileInfo3857,
+  102100: tileInfo3857,
+
+}
 export default defineComponent({
   name: 'VaTdtWebTileLayer',
   components: {
@@ -23,14 +31,16 @@ export default defineComponent({
     })
 
     const defaultOptions = computed<__esri.WebTileLayerProperties & {spatialReference?: __esri.SpatialReferenceProperties}>(() => {
+      const wkid = props.spatialReference.wkid as keyof typeof wkidToInfo
+      if (!wkid) new Error('不支持未知的wkid')
+
+      const info = wkidToInfo[wkid]
+
       const tileInfo: __esri.TileInfoProperties = {
-        origin: {
-          x: -180,
-          y: 90,
-        },
+        origin: info.origin,
         spatialReference: props.spatialReference,
       }
-      tileInfo.lods = lods.slice(props.lodsLevel[0], props.lodsLevel[1] + 1)
+      tileInfo.lods = info.lods.slice(props.lodsLevel[0], props.lodsLevel[1] + 1)
       
       return {
         subDomains,
@@ -39,7 +49,7 @@ export default defineComponent({
           + `&LAYER=${urlParams.value.baseLayer}&STYLE=default`
           + `&TILEMATRIXSET=${urlParams.value.typeSR}&FORMAT=tiles&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}`
           + `&tk=${props.token}`,
-        tileInfo,
+        // tileInfo,
         spatialReference: props.spatialReference,
       }
     })

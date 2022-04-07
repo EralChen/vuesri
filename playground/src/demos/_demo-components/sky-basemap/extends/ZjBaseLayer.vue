@@ -11,9 +11,8 @@ export default defineComponent({
     VaWebTileLayer,
     VaBasemapBaseLayers,
   },
-  async setup () {
+  setup () {
     const view = useView()
-    await view.when()
     const defaultOptions:__esri.WebTileLayerProperties & { spatialReference?: __esri.SpatialReferenceProperties } = {
       title: 'zjLayer',
       urlTemplate: `https://ditu.zjzwfw.gov.cn/services/wmts/imgmap/default/oss` + 
@@ -21,7 +20,7 @@ export default defineComponent({
           `&tileMatrixSet=default&format=tiles&height=256&width=256&token=3006a6d9-1aee-46b0-93f4-d3334b7ec6d9` + 
           `&tilecol={col}&tilerow={row}&tilematrix={level}`,
       tileInfo: {
-        lods: lods.slice(1, 19),
+        lods: lods.slice(9, 19),
         origin: {
           x: -180,
           y: 90,
