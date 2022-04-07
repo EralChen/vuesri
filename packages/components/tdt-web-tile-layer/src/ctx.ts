@@ -9,6 +9,12 @@ export const props = {
     >,
     default: 'img_c',
   },
+  spatialReference: {
+    type: Object as PropType<__esri.SpatialReferenceProperties>,
+    default: () => ({
+      wkid: 4326,
+    }), 
+  },
   token: {
     type: String,
     default: 'f0175927031c1e12cb804b0c3b8cce4d',
