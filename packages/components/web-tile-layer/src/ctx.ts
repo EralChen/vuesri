@@ -7,6 +7,7 @@ export const props = {
     type: Object as PropType<__esri.WebTileLayerProperties>,
     default: () => ({}),
   },
+
 }
 
 export const emits = {

@@ -13,11 +13,11 @@ export default defineComponent({
   },
   emits,
   props,
-  setup (props, { emit }) {
+  setup (props) {
     const annoType = computed(() => {
       const baseTypeInfo = props.type.split('_')
-      const baseLayer = baseTypeInfo[0] as 'img'|'vec'|'ter'
-      const typeSR = baseTypeInfo[1] as 'w'|'c'
+      const baseLayer = baseTypeInfo[0] as 'img' | 'vec' | 'ter'
+      const typeSR = baseTypeInfo[1] as 'w' | 'c'
       const annoType = `c${baseLayer[0]}a_${typeSR}`
       return annoType as 'cia_c' | 'cva_c' | 'cta_c' | 'cia_w' | 'cva_w' | 'cta_w'
     })
@@ -41,15 +41,28 @@ export default defineComponent({
 })
 </script>
 <template>
-  <VaBasemap 
-    :thumbnailUrl="thumbnailUrl"
-  >
+  <VaBasemap :orphan="orphan" :thumbnailUrl="thumbnailUrl" @load="$emit('load', $event)">
     <!-- layer -->
-    <VaTdtWebTileLayer :type="type" :orphan="true" :spatialReference="spatialReference">
+    <VaTdtWebTileLayer
+      :type="type"
+      :orphan="true"
+      :spatialReference="spatialReference"
+      :maxScale="maxScale"
+      :minScale="minScale"
+      :lodsLevel="lodsLevel"
+    >
       <VaBasemapBaseLayers />
     </VaTdtWebTileLayer>
     <!-- anno -->
-    <VaTdtWebTileLayer v-if="anno" :type="annoType" :orphan="true" :spatialReference="spatialReference">
+    <VaTdtWebTileLayer
+      v-if="anno"
+      :type="annoType"
+      :orphan="true"
+      :spatialReference="spatialReference"
+      :maxScale="maxScale"
+      :minScale="minScale"
+      :lodsLevel="lodsLevel"
+    >
       <VaBasemapBaseLayers />
     </VaTdtWebTileLayer>
     <slot></slot>

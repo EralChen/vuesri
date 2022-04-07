@@ -1,5 +1,6 @@
 import { PropType } from 'vue'
 import * as webTileLayerCtx from '@vuesri/components/web-tile-layer/src/ctx'
+import { levelToScale } from '@vuesri/shared/config/tile-info/4490'
 export const props = {
   ...webTileLayerCtx.props,
   type: {
@@ -19,7 +20,19 @@ export const props = {
     type: String,
     default: 'f0175927031c1e12cb804b0c3b8cce4d',
   },
-  
+  lodsLevel: {
+    type: Array as PropType<number[]>,
+    default: () => [1, 18],
+  },
+  minScale: {
+    type: Number,
+    default: levelToScale[1],
+  },
+  maxScale: {
+    type: Number,
+    default: levelToScale[18],
+  },
+
 }
 
 export const emits = {

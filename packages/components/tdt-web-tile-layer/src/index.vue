@@ -10,7 +10,7 @@ export default defineComponent({
   },
   emits,
   props,
-  setup (props, { emit }) {
+  setup (props) {
     const subDomains = ['t0', 't1', 't2', 't3', 't4', 't5', 't6', 't7']
     const urlParams = computed(() => {
       const baseTypeInfo = props.type.split('_')
@@ -23,6 +23,15 @@ export default defineComponent({
     })
 
     const defaultOptions = computed<__esri.WebTileLayerProperties & {spatialReference?: __esri.SpatialReferenceProperties}>(() => {
+      const tileInfo: __esri.TileInfoProperties = {
+        origin: {
+          x: -180,
+          y: 90,
+        },
+        spatialReference: props.spatialReference,
+      }
+      tileInfo.lods = lods.slice(props.lodsLevel[0], props.lodsLevel[1] + 1)
+      
       return {
         subDomains,
         urlTemplate: `https://{subDomain}.tianditu.gov.cn`
@@ -30,15 +39,7 @@ export default defineComponent({
           + `&LAYER=${urlParams.value.baseLayer}&STYLE=default`
           + `&TILEMATRIXSET=${urlParams.value.typeSR}&FORMAT=tiles&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}`
           + `&tk=${props.token}`,
-        tileInfo: {
-          format: 'jpg',
-          origin: {
-            x: -180,
-            y: 90,
-          },
-          lods: lods.slice(1, 19),
-          spatialReference: props.spatialReference,
-        },
+        tileInfo,
         spatialReference: props.spatialReference,
       }
     })

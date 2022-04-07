@@ -1,5 +1,4 @@
 import { ReturnVoid } from 'vunk/shared/types'
-export type LoadEvent = {
-
-}
+import { __VaBasemap } from '@vuesri/components/basemap'
+export type LoadEvent = __VaBasemap.LoadEvent
 export type OnLoad = (e:LoadEvent) => ReturnVoid

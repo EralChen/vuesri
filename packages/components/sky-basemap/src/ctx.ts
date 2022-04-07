@@ -1,3 +1,4 @@
+import { levelToScale } from '@vuesri/shared/config/tile-info/4490'
 import { PropType } from 'vue'
 import { LoadEvent } from './types'
 
@@ -10,6 +11,10 @@ export const props = {
     type: String as PropType<'img_c' | 'vec_c' | 'ter_c' | 'img_w' | 'vec_w' | 'ter_w'>,
     default: 'img_c',
   },
+  orphan: {
+    type: Boolean,
+    default: false,
+  },
   anno: {
     type: Boolean,
     default: true,
@@ -17,6 +22,18 @@ export const props = {
   thumbnailUrl: {
     type: String,
     default: '',
+  },
+  minScale: {
+    type: Number,
+    default: levelToScale[1],
+  },
+  maxScale: {
+    type: Number,
+    default: levelToScale[18],
+  },
+  lodsLevel: {
+    type: Array as PropType<number[]>,
+    default: () => [1, 18],
   },
 }
 
