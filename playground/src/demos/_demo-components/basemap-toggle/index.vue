@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { VaMapView } from '@vuesri/components/map-view'
-import { VaSkyBasemap } from 'vuesri'
+import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 import { VaBasemapToggle } from '@vuesri/components/basemap-toggle'
 import TileLayer from 'esri/layers/TileLayer'
 import Basemap from 'esri/Basemap'

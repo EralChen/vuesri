@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { VaMapView } from '@vuesri/components/map-view'
-import { VaSkyBasemap } from 'vuesri'
+import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 import { VaLimitExtent } from '@vuesri/components/limit-extent'
 import Extent from 'esri/geometry/Extent'
 const limitExtent = new Extent({

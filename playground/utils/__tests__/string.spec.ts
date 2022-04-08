@@ -3,7 +3,7 @@ import { mergeImport } from '../string'
 describe('utils-string', () => {
   const str = `<script lang="ts" setup>
 import { VaMapView } from 'vuesri'
-import { VaSkyBasemap } from 'vuesri'
+import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 import { VaBasemap } from 'vuesri'
 import { VaBasemapToggle } from 'vuesri'
 import { VaBasemapToggleNextBasemap } from 'vuesri'

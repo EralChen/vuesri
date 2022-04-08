@@ -15,18 +15,24 @@
 ## Demo
 
 ### 基础示例
-<!-- :::demo
+:::demo
 _demo-components/sky-basemap/index.vue
-::: -->
+:::
 
 ### 添加Toggle
-<!-- :::demo
+:::demo
 _demo-components/sky-basemap/toggle.vue
-::: -->
+:::
 
 ### 扩展图层
 :::demo
 _demo-components/sky-basemap/extends/index.vue
+:::
+:::source ./ZjBaseLayer.vue
+_demo-components/sky-basemap/extends/ZjBaseLayer.vue
+:::
+:::source ./NbBaseLayer.vue
+_demo-components/sky-basemap/extends/NbBaseLayer.vue
 :::
 
 

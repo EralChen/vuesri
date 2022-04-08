@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { VaTileLayer } from '@vuesri/components/tile-layer'
 import { VaMapView } from '@vuesri/components/map-view'
-import { VaSkyBasemap } from 'vuesri'
+import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 </script>
 <template>
 <VaMapView>

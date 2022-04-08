@@ -4,8 +4,6 @@ import { VaWebTileLayer } from '@vuesri/components/web-tile-layer'
 import { VaBasemapBaseLayers } from '@vuesri/components/basemap-base-layers'
 import { levelToScale } from '@vuesri/shared/config/tile-info/4490'
 import { useView } from '@vuesri/shared/use'
-
-// import { useView } from '@vuesri/shared/use'
 export default defineComponent({
   inheritAttrs: false,
   components: {

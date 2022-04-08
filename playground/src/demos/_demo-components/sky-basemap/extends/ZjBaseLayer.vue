@@ -3,8 +3,6 @@ import { defineComponent } from 'vue'
 import { VaWebTileLayer } from '@vuesri/components/web-tile-layer'
 import { VaBasemapBaseLayers } from '@vuesri/components/basemap-base-layers'
 import { useView } from '@vuesri/shared/use'
-
-// import { useView } from '@vuesri/shared/use'
 export default defineComponent({
   inheritAttrs: false,
   components: {
