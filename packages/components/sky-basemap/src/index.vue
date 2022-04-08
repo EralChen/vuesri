@@ -49,7 +49,6 @@ export default defineComponent({
       :spatialReference="spatialReference"
       :maxScale="maxScale"
       :minScale="minScale"
-      :lodsLevel="lodsLevel"
     >
       <VaBasemapBaseLayers />
     </VaTdtWebTileLayer>
@@ -61,7 +60,6 @@ export default defineComponent({
       :spatialReference="spatialReference"
       :maxScale="maxScale"
       :minScale="minScale"
-      :lodsLevel="lodsLevel"
     >
       <VaBasemapBaseLayers />
     </VaTdtWebTileLayer>

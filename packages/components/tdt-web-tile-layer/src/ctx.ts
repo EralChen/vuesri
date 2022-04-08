@@ -20,10 +20,6 @@ export const props = {
     type: String,
     default: 'f0175927031c1e12cb804b0c3b8cce4d',
   },
-  lodsLevel: {
-    type: Array as PropType<number[]>,
-    default: () => [1, 18],
-  },
   minScale: {
     type: Number,
     default: levelToScale[1],

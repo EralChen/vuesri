@@ -31,10 +31,6 @@ export const props = {
     type: Number,
     default: levelToScale[18],
   },
-  lodsLevel: {
-    type: Array as PropType<number[]>,
-    default: () => [1, 18],
-  },
 }
 
 export const emits = {

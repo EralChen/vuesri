@@ -40,7 +40,7 @@ export default defineComponent({
         origin: info.origin,
         spatialReference: props.spatialReference,
       }
-      tileInfo.lods = info.lods.slice(props.lodsLevel[0], props.lodsLevel[1] + 1)
+      tileInfo.lods = info.lods.slice(1, 19)
       
       return {
         subDomains,
