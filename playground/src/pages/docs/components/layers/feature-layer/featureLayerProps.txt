@@ -2,3 +2,4 @@
 |:[renderer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#renderer)|__esri.Renderer|-|渲染器，改变要素样式|
 |:[definitionExpression](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#definitionExpression)|String|'1=1'|SQL过滤要素|
 |:[popupEnabled](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#popupEnabled)|Boolean|true|是否启用默认弹窗|
+|:cursor|String|-|hover要素时鼠标样式|
