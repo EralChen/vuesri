@@ -93,6 +93,7 @@ export default defineComponent({
 .layout-admin-header-link-ul {
   flex-wrap: wrap;
   li {
+    margin: 5px;
     .icon-close {
       border-radius: 50%;
     }
@@ -109,9 +110,11 @@ export default defineComponent({
         background: var(--c-info);
       }
     }
-  }
-  > * + * {
-    margin-left: var(--gap-xxs);
-  }
+
+}
+
+  // > * + * {
+  //   margin-left: var(--gap-xxs);
+  // }
 }
 </style>
