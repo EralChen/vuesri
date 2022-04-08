@@ -1,16 +1,14 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import { VaViewWhen } from '@vuesri/components/view-when'
-export default defineComponent({
-  components: {
-    VaViewWhen,
-  },
-  setup () {
-    return {
-    }
-  },
-})
+import { VaMapView } from '@vuesri/components/map-view'
+import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
+import SubNode from './sub-node.vue'
 </script>
 <template>
-  <VaViewWhen></VaViewWhen>
+<VaMapView>
+  <VaSkyBasemap></VaSkyBasemap>
+  <VaViewWhen>
+    <SubNode></SubNode>
+  </VaViewWhen>
+</VaMapView>
 </template>
