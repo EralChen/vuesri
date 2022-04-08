@@ -28,7 +28,7 @@ export default defineComponent({
     /* set cursor */
     const eventCursor = ref('')
     const cursorStyle = computed(() => ({
-      '--va-map-view-cursor': props.cursor || eventCursor.value,
+      '--va-scene-view-cursor': props.cursor || eventCursor.value,
     }) as unknown as StyleValue)
     /* set cursor end */
 
