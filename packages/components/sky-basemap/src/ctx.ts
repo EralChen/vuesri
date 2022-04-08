@@ -31,6 +31,10 @@ export const props = {
     type: Number,
     default: levelToScale[18],
   },
+  token: {
+    type: String,
+    default: undefined,
+  },
 }
 
 export const emits = {

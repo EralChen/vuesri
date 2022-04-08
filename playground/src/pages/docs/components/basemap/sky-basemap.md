@@ -47,7 +47,7 @@ _demo-components/sky-basemap/extends/NbBaseLayer.vue
 |:[thumbnailUrl](https://developers.arcgis.com/javascript/latest/api-reference/esri-Basemap.html#thumbnailUrl)|String|''|图标|
 |:[maxScale](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-TileLayer.html#maxScale)|Number|18|图层最大比例尺|
 |:[minScale](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-TileLayer.html#minScale)|Number|1|图层最小比例尺|
-
+|[token](http://lbs.tianditu.gov.cn)|String|-|请求使用的token|
 
 ## Emits
 |事件|类型|参数|描述|
