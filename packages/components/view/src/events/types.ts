@@ -1,14 +1,14 @@
 
-export interface BaseMapViewMouseEvent {
-  view: __esri.MapView
+export interface BaseViewMouseEvent {
+  view: __esri.MapView | __esri.SceneView
   hitTestResult: __esri.HitTestResult
 }
 
-export interface ClickEvent extends BaseMapViewMouseEvent {
+export interface ClickEvent extends BaseViewMouseEvent {
   event: __esri.ViewClickEvent
 }
 
-export interface PointerMoveEvent extends BaseMapViewMouseEvent {
+export interface PointerMoveEvent extends BaseViewMouseEvent {
   event: __esri.ViewPointerMoveEvent
 }
 

@@ -1,4 +1,4 @@
-import { MitterEvents } from '@vuesri/components/map-view/shared/types'
+import { MitterEvents } from '@vuesri/components/view/src/type'
 
 type LayerBaseEvent = {
   result: __esri.HitTestResultResults | undefined

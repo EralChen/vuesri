@@ -1,6 +1,6 @@
 
 import { sCursor, sMitter } from '@vuesri/shared/symbol'
-import { MitterEvents } from '@vuesri/components/map-view/shared/types'
+import { MitterEvents } from '@vuesri/components/view/src/type'
 import { Emitter } from 'mitt'
 declare global {
   namespace __esri {

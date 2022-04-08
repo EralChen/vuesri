@@ -1,13 +1,13 @@
 <script lang="ts">
 import { defineComponent, onUnmounted } from 'vue'
-import { useMapView } from '@vuesri/shared/use'
+import { useView } from '@vuesri/shared/use'
 import { sMitter } from '@vuesri/shared/symbol'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
 import { AnyFunc } from 'vunk/shared/types'
 import { throttle } from 'lodash-es'
 export default defineComponent({
   setup () {
-    const view = useMapView()
+    const view = useView()
     class ViewWatchToggleHandler extends ToggleHandler {
       propertyName: string
       private handler: AnyFunc

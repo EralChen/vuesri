@@ -1,14 +1,14 @@
 <script lang="ts">
 import { defineComponent, onUnmounted } from 'vue'
 import { emits, props } from './ctx'
-import { useMapView } from '@vuesri/shared/use'
+import { useView } from '@vuesri/shared/use'
 import { sCursor, sMitter } from '@vuesri/shared/symbol'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
 import { AnyFunc } from 'vunk/shared/types'
 export default defineComponent({
   emits, props,
   setup (props, { emit }) {
-    const view = useMapView()
+    const view = useView() as __esri.MapView | __esri.SceneView
     class ViewOnToggleHandler extends ToggleHandler {
       eventName: string
       private handler: AnyFunc

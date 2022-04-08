@@ -1,39 +1,35 @@
 <script lang="ts">
+import { props, emits } from './ctx'
 import { computed, defineComponent, onMounted, provide, ref, StyleValue } from 'vue'
-import MapView from '@arcgis/core/views/MapView'
-import AMap from '@arcgis/core/Map'
-import { ViewEvents, ViewWatchs } from '@vuesri/components/view'
+import SceneView from 'esri/views/SceneView'
+import EsriMap from '@arcgis/core/Map'
 import { sMitter } from '@vuesri/shared/symbol'
 import mitt from 'mitt'
-import { props, emits } from './ctx'
 export default defineComponent({
-  name: 'VaMapView',
-  components: {
-    ViewEvents, ViewWatchs,
-  },
+  name: 'VaSceneView',
   emits,
   props,
   setup (props, { emit }) {
     const viewNode = ref<HTMLDivElement>()
-    // init
-    const map = new AMap()
-    const view:__esri.MapView = new MapView({
-      map: map,
+    // core
+    const map = new EsriMap()
+    const view = new SceneView({
+      map,
       ...props.defaultOptions,
     })
     view[sMitter] = mitt() // 为 view 安装一个事件总线
     view.ui.components = []
-    ;(window as any).__VA_MAP_VIEW__ = view
-    
-    // set cursor
+    ;(window as any).__VA_SCENE_VIEW__ = view
+        
+    /* set cursor */
     const eventCursor = ref('')
     const cursorStyle = computed(() => ({
       '--va-map-view-cursor': props.cursor || eventCursor.value,
     }) as unknown as StyleValue)
+    /* set cursor end */
 
-    // provide
     provide('vaView', view)
-    provide('vaMapView', view)
+    provide('vaSceneView', view)
 
     onMounted(() => {
       view.container = viewNode.value as HTMLDivElement
@@ -42,7 +38,6 @@ export default defineComponent({
 
     return {
       viewNode,
-      eventCursor,
       cursorStyle,
     }
   },
@@ -52,20 +47,15 @@ export default defineComponent({
   <div
     ref="viewNode"
     :style="cursorStyle"
-    class="va-map-view va-view-x"
+    class="va-scene-view va-view-x"
   >
-    <ViewEvents
-      v-model:cursor="eventCursor"
-    ></ViewEvents>
-    <ViewWatchs></ViewWatchs>
     <slot></slot>
   </div>
 </template>
-
 <style>
-.va-map-view{
+.va-scene-view{
   width: 100%;
   height: 100%;
-  cursor: var(--va-map-view-cursor);
+  cursor: var(--va-scene-view-cursor);
 }
 </style>

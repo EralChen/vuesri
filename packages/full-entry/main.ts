@@ -23,3 +23,5 @@ export * from '@vuesri/components/tdt-web-tile-layer'
 export * from '@vuesri/components/server-feature-layer'
 
 export * from '@vuesri/components/view-when'
+
+export * from '@vuesri/components/scene-view'

@@ -1,7 +1,7 @@
 <script lang="ts">
 import { sMitter } from '@vuesri/shared/symbol'
 import { useLayer } from '@vuesri/shared/use'
-import { MitterEvents } from '@vuesri/components/map-view/shared/types'
+import { __VaView } from '@vuesri/components/view'
 import { defineComponent, inject, onUnmounted } from 'vue'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
 import { AnyFunc } from 'vunk/shared/types'
@@ -14,10 +14,10 @@ export default defineComponent({
 
     const layer = useLayer() as __esri.FeatureLayer
     const mitter = view[sMitter]
-    class MitterToggleHandler<T extends keyof MitterEvents> extends ToggleHandler {
+    class MitterToggleHandler<T extends keyof __VaView.MitterEvents> extends ToggleHandler {
       name: T
       handler: AnyFunc
-      constructor (name: T, handler: (e: MitterEvents[T]) => void) {
+      constructor (name: T, handler: (e: __VaView.MitterEvents[T]) => void) {
         super()
         this.name = name
         this.handler = handler
