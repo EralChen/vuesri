@@ -5,8 +5,12 @@ import SceneView from 'esri/views/SceneView'
 import EsriMap from '@arcgis/core/Map'
 import { sMitter } from '@vuesri/shared/symbol'
 import mitt from 'mitt'
+import { ViewEvents, ViewWatchs } from '@vuesri/components/view'
 export default defineComponent({
   name: 'VaSceneView',
+  components: {
+    ViewEvents, ViewWatchs,
+  },
   emits,
   props,
   setup (props, { emit }) {
@@ -38,6 +42,7 @@ export default defineComponent({
 
     return {
       viewNode,
+      eventCursor,
       cursorStyle,
     }
   },
@@ -49,6 +54,10 @@ export default defineComponent({
     :style="cursorStyle"
     class="va-scene-view va-view-x"
   >
+    <ViewEvents
+      v-model:cursor="eventCursor"
+    ></ViewEvents>
+    <ViewWatchs></ViewWatchs>
     <slot></slot>
   </div>
 </template>
