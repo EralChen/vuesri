@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue'
 import { VaWebTileLayer } from '@vuesri/components/web-tile-layer'
 import { VaBasemapBaseLayers } from '@vuesri/components/basemap-base-layers'
+import { levelToScale } from '@vuesri/shared/config/tile-info/4490'
 import { useView } from '@vuesri/shared/use'
 
 // import { useView } from '@vuesri/shared/use'
@@ -16,15 +17,16 @@ export default defineComponent({
     const baseLayer = view.map.basemap.baseLayers.getItemAt(0) as __esri.TileLayer
     const defaultOptions:__esri.WebTileLayerProperties & { spatialReference?: __esri.SpatialReferenceProperties } = {
       title: 'zjLayer',
-      urlTemplate: `https://ditu.zjzwfw.gov.cn/services/wmts/imgmap/default/oss` + 
-          `?service=WMTS&request=GetTile&version=1.0.0&layer=0&style=default` +
-          `&tileMatrixSet=default&format=tiles&height=256&width=256&token=3006a6d9-1aee-46b0-93f4-d3334b7ec6d9` + 
-          `&tilecol={col}&tilerow={row}&tilematrix={level}`,
+      urlTemplate: `https://ditu.zjzwfw.gov.cn/services/wmts/emap_lab/default/oss`
+        + `?service=WMTS&request=GetTile&version=1.0.0&layer=TDT_ZJEMAPANNO&style=default` 
+        + `&tileMatrixSet=c&format=tiles&height=256&width=256&token=2c92920471b56e640171be7537bd0074`
+        + `&tilecol={col}&tilerow={row}&tilematrix={level}`,
       tileInfo: baseLayer.tileInfo,
       spatialReference: baseLayer.spatialReference,
     }
     return {
       defaultOptions,
+      levelToScale,
     }
   },
 })
@@ -34,7 +36,6 @@ export default defineComponent({
     :defaultOptions="defaultOptions" 
     :orphan="true" 
     v-bind="$attrs"
-
   >
     <VaBasemapBaseLayers />
   </VaWebTileLayer>

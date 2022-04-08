@@ -1,28 +1,32 @@
 <script lang="ts" setup>
 import { VaMapView } from '@vuesri/components/map-view'
 import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
-import { VaViewWhen } from '@vuesri/components/view-when'
-import { levelToScale, lods } from '@vuesri/shared/config/tile-info/3857'
+import { levelToScale, lods } from '@vuesri/shared/config/tile-info/4490'
 import ZjBaseLayer from './ZjBaseLayer.vue'
+import NbBaseLayer from './NbBaseLayer.vue'
 const defaultOptions:__esri.MapViewProperties = {
   constraints: {
-    lods: lods.slice(2, 9) as any,
+    // level 2 => 20
+    lods: lods.slice(2) as unknown as __esri.LOD[],
   },
 }
 </script>
 <template>
 <VaMapView :default-options="defaultOptions">
   <VaSkyBasemap 
-    :type="'vec_w'" 
-    :lods-level="[1, 8]" 
-    :min-scale="levelToScale[2]" 
-    :max-scale="levelToScale[8]"
-    :spatial-reference="{ wkid: 102100 }"
+    :type="'vec_c'" 
+    :min-scale="levelToScale[1]" 
+    :max-scale="levelToScale[10]" 
+    :spatial-reference="{ wkid: 4490 }"
   >
-     <!-- VaViewWhen 的子节点会在 view.when()之后加载  -->
-    <!-- <VaViewWhen>
-      <ZjBaseLayer></ZjBaseLayer>
-    </VaViewWhen> -->
+    <ZjBaseLayer
+      :min-scale="levelToScale[11]" 
+      :max-scale="levelToScale[18]"
+    ></ZjBaseLayer>
+    <NbBaseLayer
+      :min-scale="levelToScale[11]" 
+      :max-scale="levelToScale[20]"
+    ></NbBaseLayer>
   </VaSkyBasemap>
 </VaMapView>
 </template>

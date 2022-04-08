@@ -49,7 +49,7 @@ export default defineComponent({
           + `&LAYER=${urlParams.value.baseLayer}&STYLE=default`
           + `&TILEMATRIXSET=${urlParams.value.typeSR}&FORMAT=tiles&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}`
           + `&tk=${props.token}`,
-        // tileInfo,
+        tileInfo,
         spatialReference: props.spatialReference,
       }
     })
