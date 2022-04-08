@@ -1,17 +1,15 @@
 <script lang="ts">
 import { sMitter } from '@vuesri/shared/symbol'
-import { useLayer } from '@vuesri/shared/use'
+import { useLayer, useView } from '@vuesri/shared/use'
 import { __VaView } from '@vuesri/components/view'
-import { defineComponent, inject, onUnmounted } from 'vue'
+import { defineComponent, onUnmounted } from 'vue'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
 import { AnyFunc } from 'vunk/shared/types'
 import { emits } from './ctx'
 export default defineComponent({
   emits,
   setup (props, { emit }) {
-    const view = inject<__esri.MapView|null>('vaMapView', null)
-    if (!view) return () => null
-
+    const view = useView() as __esri.MapView | __esri.SceneView
     const layer = useLayer() as __esri.FeatureLayer
     const mitter = view[sMitter]
     class MitterToggleHandler<T extends keyof __VaView.MitterEvents> extends ToggleHandler {

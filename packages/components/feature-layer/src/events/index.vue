@@ -1,20 +1,17 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import EMapView from './map-view/index.vue'
-import ESceneView from './scene-view/index.vue'
 import { emits } from './ctx'
+import EView from './view/index.vue'
 export default defineComponent({
   emits,
   components: {
-    EMapView,
-    ESceneView,
+    EView,
   },
 })
 </script>
 <template>
-  <EMapView 
+  <EView 
     @click="$emit('click', $event)"
     @pointer-move="$emit('pointerMove', $event)"
-  ></EMapView>
-  <ESceneView></ESceneView>
+  ></EView>
 </template>
