@@ -5,6 +5,7 @@ import { useView } from '@vuesri/shared/use'
 import { sCursor, sMitter } from '@vuesri/shared/symbol'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
 import { AnyFunc } from 'vunk/shared/types'
+import { throttle } from 'lodash-es'
 export default defineComponent({
   emits, props,
   setup (props, { emit }) {
@@ -37,19 +38,23 @@ export default defineComponent({
     /* 点击事件 end */
 
     /* 鼠标移动事件 */
-    const pointerMoveHandler = new ViewOnToggleHandler('pointer-move', async (event) => {
-      const hitTestResult = await view.hitTest(event)
-      const feature = hitTestResult.results[0]
-      const ownLayer = feature?.graphic.layer
-      // 根据第一个要素layer上指明的 cursor 改变鼠标样式
-      if (ownLayer) {
-        const cursor = ownLayer[sCursor]
-        emit('update:cursor', cursor)
-      } else {
-        emit('update:cursor', 'initial')
-      }
-      mitter.emit('pointer-move', { view, event, hitTestResult })
-    })
+    const pointerMoveHandler = new ViewOnToggleHandler('pointer-move', 
+      throttle(
+        async (event) => {
+          const hitTestResult = await view.hitTest(event)
+          const feature = hitTestResult.results[0]
+          const ownLayer = feature?.graphic.layer
+          // 根据第一个要素layer上指明的 cursor 改变鼠标样式
+          if (ownLayer) {
+            const cursor = ownLayer[sCursor]
+            emit('update:cursor', cursor)
+          } else {
+            emit('update:cursor', 'initial')
+          }
+          mitter.emit('pointer-move', { view, event, hitTestResult })
+        }, 400,
+      ) )
+
     pointerMoveHandler.add()
     onUnmounted(() => {
       pointerMoveHandler.remove()

@@ -86,8 +86,9 @@ importers:
 
   playground:
     specifiers:
-      '@arcgis/core': ^4.22.2
-      '@types/arcgis-js-api': ^4.22.0
+      '@arcgis/core': ^4.23.7
+      '@types/arcgis-js-api': ^4.23.1
+      '@types/geojson': ^7946.0.8
       '@types/gulp': ^4.0.9
       '@types/node': ^17.0.23
       '@types/qs': ^6.9.7
@@ -126,17 +127,18 @@ importers:
       vuesri: ^0.0.0-alpha.29
       vunk: ^0.0.0-alpha.27
     dependencies:
-      '@arcgis/core': 4.23.4
+      '@arcgis/core': 4.23.7
       '@vueuse/core': 8.2.0_vue@3.2.31
       element-plus: 2.1.7_1a412d14def5ff5ca1122000e4bee666
       pinia: 2.0.12_typescript@4.6.3+vue@3.2.31
       qs: 6.10.3
       vue: 3.2.31
       vue-router: 4.0.14_vue@3.2.31
-      vuesri: 0.0.0-alpha.33
+      vuesri: link:../packages/full-entry
       vunk: 0.0.0-alpha.27
     devDependencies:
-      '@types/arcgis-js-api': 4.23.0
+      '@types/arcgis-js-api': 4.23.1
+      '@types/geojson': 7946.0.8
       '@types/gulp': 4.0.9
       '@types/node': 17.0.23
       '@types/qs': 6.9.7
@@ -184,8 +186,8 @@ packages:
     resolution: {integrity: sha512-MrAQ/MrPSxbh1bBrmwJjORfJymw4IqSHFBXqvxaga3ZdDM+/zokYF8DjyJpSjY2QmpmgQrajDUBJOWrYeARfzA==}
     dev: true
 
-  /@arcgis/core/4.23.4:
-    resolution: {integrity: sha512-F86/R0bEpc8pwVQQtzLVl4HQPzcGgfK/Is6K3md1HOipR6desR6zjX0ciHo3qeGazbKFk5EVutNyRMLx9eQAng==}
+  /@arcgis/core/4.23.7:
+    resolution: {integrity: sha512-xi3eBV513CmoHQ6F1OurEt71aBt4FzDOaOrPKzsFVJnq0LeDPKUHfsBs4E8BoGLSk5df+gDCZG+WHTmzxu8c0w==}
     dependencies:
       '@esri/arcgis-html-sanitizer': 2.9.0
       '@esri/calcite-colors': 6.0.1
@@ -1062,6 +1064,10 @@ packages:
     resolution: {integrity: sha512-fb5FYjM46N3fTOzDB1EFtsBrF4ot7VqOY+tRUonAMEdh+mp2thZFxbYbNg5Dd66jz8dxHEqZpfTcqTGVCl+MpA==}
     dev: true
 
+  /@types/arcgis-js-api/4.23.1:
+    resolution: {integrity: sha512-r3lO6+rVdM6rNfD5fppqNaWWlDE/NAON9xP6EKqTDCNBh++zaE/JZVfmNu2glW4vbWp6gbbMcTTHNxCQcoDR7Q==}
+    dev: true
+
   /@types/babel__core/7.1.19:
     resolution: {integrity: sha512-WEOTgRsbYkvA/KCsDwVEGkd7WAr1e3g31VHQ8zy5gul/V1qKullU/BU5I68X5v7V3GnB9eotmom4v5a5gjxorw==}
     dependencies:
@@ -1113,6 +1119,10 @@ packages:
 
   /@types/expect/1.20.4:
     resolution: {integrity: sha512-Q5Vn3yjTDyCMV50TB6VRIbQNxSE4OmZR86VSbGaNpfUolm0iePBB4KdEEHmxoY5sT2+2DIvXW0rvMDP2nHZ4Mg==}
+    dev: true
+
+  /@types/geojson/7946.0.8:
+    resolution: {integrity: sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==}
     dev: true
 
   /@types/glob-stream/6.1.1:
@@ -5408,7 +5418,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
     dev: true
 
   /just-debounce/1.1.0:
@@ -5522,7 +5532,7 @@ packages:
     resolution: {integrity: sha1-lWkFcI1YtLq0wiYbBPWfMcmTdMA=}
     engines: {node: '>=0.10.0'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       parse-json: 2.2.0
       pify: 2.3.0
       pinkie-promise: 2.0.1
@@ -6219,7 +6229,7 @@ packages:
     resolution: {integrity: sha1-WcRPfuSR2nBNpBXaWkBwuk+P5EE=}
     engines: {node: '>=0.10.0'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       pify: 2.3.0
       pinkie-promise: 2.0.1
     dev: true
@@ -6508,7 +6518,7 @@ packages:
     resolution: {integrity: sha512-1JU/8q+VgFZyxwrJ+SVIOsh+KywWGpds3NTqikiKpDMZWScmAYyKIgqkO+ARvNWJfXeXR1zxz7aHF4u4CyH6vQ==}
     engines: {node: '>=0.10'}
     dependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       micromatch: 3.1.10
       readable-stream: 2.3.7
     dev: true
@@ -7875,10 +7885,6 @@ packages:
       '@vue/runtime-dom': 3.2.31
       '@vue/server-renderer': 3.2.31_vue@3.2.31
       '@vue/shared': 3.2.31
-    dev: false
-
-  /vuesri/0.0.0-alpha.33:
-    resolution: {integrity: sha512-T24IntD85e2dFaYUHY8AltDIARcUdf3H0l0Ig41WHSiIo990zdsLZgJw4pf3k+igJ5pEK25kjCnnb5KpUPUxSg==}
     dev: false
 
   /vunk/0.0.0-alpha.27:
