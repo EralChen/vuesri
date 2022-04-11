@@ -52,7 +52,7 @@ export default defineComponent({
             emit('update:cursor', 'initial')
           }
           mitter.emit('pointer-move', { view, event, hitTestResult })
-        }, 400,
+        }, 800,
       ) )
 
     pointerMoveHandler.add()
