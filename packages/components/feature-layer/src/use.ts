@@ -26,3 +26,16 @@ export function useSetFeatureLayerOptions (layer:__esri.FeatureLayer, props: {
   })
 
 }
+
+export function useSetFeatureLayerSpatialReference (view: __esri.View, layer:__esri.FeatureLayer, props: {
+  spatialReference?: __esri.SpatialReferenceProperties 
+}) {
+  
+  watchEffect(() => {
+    view.when(() => {
+      layer.spatialReference = (props.spatialReference || view.spatialReference) as __esri.SpatialReference
+    })
+  })
+
+}
+

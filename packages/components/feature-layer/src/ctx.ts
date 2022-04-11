@@ -19,6 +19,11 @@ export const props = {
     type: Object as PropType<__esri.FeatureLayerProperties>,
     default: () => ({}),
   },
+  spatialReference: {
+    type: Object as PropType<__esri.SpatialReferenceProperties>,
+    default: undefined,
+  },
+
 }
 
 

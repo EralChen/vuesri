@@ -3,7 +3,7 @@ import { props, emits } from './ctx'
 import { defineComponent, provide } from 'vue'
 import { FeatureLayerEvents } from '@vuesri/components/feature-layer'
 import { useAddLayer, useView } from '@vuesri/shared/use'
-import { useSetFeatureLayerOptions } from '@vuesri/components/feature-layer/src/use'
+import { useSetFeatureLayerOptions, useSetFeatureLayerSpatialReference } from '@vuesri/components/feature-layer/src/use'
 import FeatureLayer from 'esri/layers/FeatureLayer'
 export default defineComponent({
   name: 'VaServerFeatureLayer',
@@ -20,8 +20,11 @@ export default defineComponent({
       url: props.url,
       ...props.defaultOptions,
     })
+    
     useSetFeatureLayerOptions(layer, props)
+    useSetFeatureLayerSpatialReference(view, layer, props)
     useAddLayer(map, layer, props)
+
     provide('vaLayer', layer)
     provide('vaFeatureLayer', layer)
     emit('load', { view, layer })
