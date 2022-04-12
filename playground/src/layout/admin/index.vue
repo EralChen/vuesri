@@ -21,7 +21,10 @@ onMounted(() => {
         'is-absolute': smTablet,
       }"
     >
-      <SideBar @navigate="smTablet && (hamburgerActive = false)"></SideBar>
+      <el-scrollbar>
+        <SideBar @navigate="smTablet && (hamburgerActive = false)"></SideBar>
+      </el-scrollbar>
+    
     </div>
     <main sk-flex-grow="hidden">
       <div class="admin-layout-main__header">
@@ -40,6 +43,7 @@ onMounted(() => {
   height: 100%;
   --c-side-bar-bg: white;
   --c-main-bg: #f7f7f7;
+
 }
 .admin-layout-x main {
   flex-direction: column;
@@ -56,6 +60,7 @@ onMounted(() => {
   background-color: var(--c-side-bar-bg);
   transition: all 0.4s ease-in-out;
   z-index: 2;
+
   &.is-absolute {
     position: absolute;
   }
