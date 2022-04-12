@@ -5,7 +5,12 @@ export const props = {
   ...featureLayerCtx.props,
   url: {
     type: String,
+    default: '',
     require: true,
+  },
+  layerId: {
+    type: Number,
+    default: undefined,
   },
 }
 

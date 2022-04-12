@@ -26,6 +26,8 @@ _demo-components/server-feature-layer/scene-view.vue
 ## Props
 |属性|类型|默认值|描述|
 |-|-|-|-|
+|:[url](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#url)*|String|-|服务地址|
+|:[layerId](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#layerId)|Number|-|FeatureServer图层下标|
 <? featureLayerProps ?>
 <? layerProps ?>
 

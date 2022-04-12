@@ -21,7 +21,7 @@ _demo-components/view-when/sub-node.vue
 ## Emits
 |事件|类型|参数|描述|
 |-|-|-|-|
-|load|__VaViewWhen.OnLoad|view: \__esri.View |实例加载后|
+|load|__VaViewWhen.OnLoad|view: \__esri.View |view.when()后|
 
 ## v-slot
 |属性|类型|描述|

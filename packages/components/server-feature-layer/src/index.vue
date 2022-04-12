@@ -1,6 +1,6 @@
 <script lang="ts">
 import { props, emits } from './ctx'
-import { defineComponent, provide } from 'vue'
+import { defineComponent, provide, watchEffect } from 'vue'
 import { FeatureLayerEvents } from '@vuesri/components/feature-layer'
 import { useAddLayer, useView } from '@vuesri/shared/use'
 import { useSetFeatureLayerOptions, useSetFeatureLayerSpatialReference } from '@vuesri/components/feature-layer/src/use'
@@ -17,8 +17,13 @@ export default defineComponent({
     const map = view.map
     // core
     const layer = new FeatureLayer({
-      url: props.url,
       ...props.defaultOptions,
+    })
+    watchEffect(() => {
+      layer.url = props.url
+    })
+    watchEffect(() => {
+      props.layerId && (layer.layerId = props.layerId)
     })
     
     useSetFeatureLayerOptions(layer, props)
