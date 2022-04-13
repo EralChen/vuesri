@@ -1,8 +1,9 @@
 import { ReturnVoid } from 'vunk/shared/types'
-import * as tView from './view/types'
+import { ClickEvent, PointerMoveEvent } from './view/types'
 
-export type ClickEvent = tView.ClickEvent
-export type PointerMoveEvent = tView.PointerMoveEvent
+export {
+  ClickEvent, PointerMoveEvent,
+}
 
 // handler
 export type OnClick = (e: ClickEvent) => ReturnVoid

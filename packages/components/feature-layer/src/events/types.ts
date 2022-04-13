@@ -1,5 +1,5 @@
 import { ReturnVoid } from 'vunk/shared/types'
-import * as tLayer from '@vuesri/components/layer/src/events/types'
+import * as tLayer from '@vuesri/components/layer/src/graphics-events/types'
 
 export interface ClickEvent extends tLayer.ClickEvent {
   layer: __esri.FeatureLayer
