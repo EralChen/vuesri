@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useBasemap, useLayer, useAddLayer } from '@vuesri/shared/use'
+import { useBasemap, useLayer } from '@vuesri/shared/use'
+import { useAddLayer } from '@vuesri/components/layer/src/use'
 export default defineComponent({
   name: 'VaBasemapBaseLayers',
   setup () {

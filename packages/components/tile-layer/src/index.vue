@@ -1,7 +1,8 @@
 <script lang="ts">
 import { props, emits } from './ctx'
 import { defineComponent, provide, watchEffect } from 'vue'
-import { useAddLayer, useView, useSetLayerOptions } from '@vuesri/shared/use'
+import { useView } from '@vuesri/shared/use'
+import { useAddLayer, useSetLayerOptions } from '@vuesri/components/layer/src/use'
 import TileLayer from 'esri/layers/TileLayer'
 export default defineComponent({
   name: 'VaTileLayer',

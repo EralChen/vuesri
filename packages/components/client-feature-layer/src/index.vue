@@ -1,7 +1,8 @@
 <script lang="ts">
 import { props, emits } from './ctx'
 import { defineComponent, nextTick, provide, watch, watchEffect } from 'vue'
-import { useAddLayer, useView } from '@vuesri/shared/use'
+import { useView } from '@vuesri/shared/use'
+import { useAddLayer } from '@vuesri/components/layer/src/use'
 import FeatureLayer from 'esri/layers/FeatureLayer'
 import { useSetFeatureLayerOptions, useSetFeatureLayerSpatialReference } from '@vuesri/components/feature-layer/src/use'
 import { FeatureLayerEvents } from '@vuesri/components/feature-layer'

@@ -1,7 +1,8 @@
 <script lang="ts">
 import { props, emits } from './ctx'
 import { defineComponent, provide } from 'vue'
-import { useAddLayer, useSetLayerOptions, useView } from '@vuesri/shared/use'
+import { useView } from '@vuesri/shared/use'
+import { useAddLayer, useSetLayerOptions } from '@vuesri/components/layer/src/use'
 import WebTileLayer from 'esri/layers/WebTileLayer'
 export default defineComponent({
   name: 'VaWebTileLayer',

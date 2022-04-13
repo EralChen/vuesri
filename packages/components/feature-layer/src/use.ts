@@ -1,4 +1,4 @@
-import { useSetLayerOptions } from '@vuesri/shared/use'
+import { useSetLayerOptions } from '@vuesri/components/layer/src/use'
 import { watchEffect } from 'vue'
 
 export function useSetFeatureLayerOptions (layer:__esri.FeatureLayer, props: {
