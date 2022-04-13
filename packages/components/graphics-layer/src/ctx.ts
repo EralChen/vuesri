@@ -8,6 +8,10 @@ export const props = {
     type: Object as PropType<__esri.GraphicsLayerProperties>,
     default: () => ({}),
   },
+  graphics: {
+    type: Array as PropType<__esri.Graphic[]>,
+    default: () => [],
+  },
 }
 
 export const emits = {

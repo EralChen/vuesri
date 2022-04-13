@@ -1,6 +1,6 @@
 <script lang="ts">
 import { props, emits, createEventsOnEmits } from './ctx'
-import { defineComponent, provide } from 'vue'
+import { defineComponent, provide, watchEffect } from 'vue'
 import { useView } from '@vuesri/shared/use'
 import GraphicsLayer from 'esri/layers/GraphicsLayer'
 import { useSetLayerOptions, useAddLayer } from '@vuesri/components/layer/src/use'
@@ -19,6 +19,9 @@ export default defineComponent({
     // core
     const layer = new GraphicsLayer({
       ...props.defaultOptions,
+    })
+    watchEffect(() => {
+      layer.graphics = props.graphics as unknown as __esri.Collection<__esri.Graphic>
     })
     useSetLayerOptions(layer, props)
     useAddLayer(map, layer, props)
