@@ -38,7 +38,7 @@ export default parallel(
       cwd: path.resolve(__dirname, './'),
       onlyFiles: true,
       absolute: true,
-      ignore: filePathIgnore,
+      ignore: [...filePathIgnore, '**/types.ts'],
     })
 
     filePaths.forEach(item => {
