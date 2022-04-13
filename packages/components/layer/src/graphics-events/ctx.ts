@@ -1,6 +1,5 @@
-import { ClickEvent, PointerMoveEvent } from './types'
+import * as viewCtx from './view/ctx'
 
 export const emits = {
-  click: (e: ClickEvent) => e,
-  pointerMove: (e: PointerMoveEvent) => e,
+  ...viewCtx.emits,
 } 

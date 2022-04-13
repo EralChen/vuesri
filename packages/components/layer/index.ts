@@ -1,4 +1,4 @@
-import GraphicsEvents from './src/events/index.vue'
+import GraphicsEvents from './src/graphics-events/index.vue'
 
 
 export {
