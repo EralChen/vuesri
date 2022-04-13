@@ -10,7 +10,7 @@ export default defineComponent({
   emits,
   setup (props, { emit }) {
     const view = useView() as __esri.MapView | __esri.SceneView
-    const layer = useLayer() as __esri.FeatureLayer
+    const layer = useLayer() as __esri.FeatureLayer | __esri.GraphicsLayer
     const mitter = view[sMitter]
     class MitterToggleHandler<T extends keyof __VaView.MitterEvents> extends ToggleHandler {
       name: T

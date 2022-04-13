@@ -1,17 +1,4 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { emits } from './ctx'
-import EView from './view/index.vue'
-export default defineComponent({
-  emits,
-  components: {
-    EView,
-  },
-})
+import { GraphicsEvents } from '@vuesri/components/layer'
+export default GraphicsEvents
 </script>
-<template>
-  <EView 
-    @click="$emit('click', $event)"
-    @pointer-move="$emit('pointerMove', $event)"
-  ></EView>
-</template>

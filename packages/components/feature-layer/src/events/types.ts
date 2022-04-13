@@ -1,8 +1,12 @@
 import { ReturnVoid } from 'vunk/shared/types'
-import * as tView from './view/types'
+import * as tLayer from '@vuesri/components/layer/src/events/types'
 
-export type ClickEvent = tView.ClickEvent
-export type PointerMoveEvent = tView.PointerMoveEvent
+export interface ClickEvent extends tLayer.ClickEvent {
+  layer: __esri.FeatureLayer
+}
+export interface PointerMoveEvent extends tLayer.PointerMoveEvent {
+  layer: __esri.FeatureLayer
+}
 
 // handler
 export type OnClick = (e: ClickEvent) => ReturnVoid

@@ -1,3 +1,5 @@
+import { bindPropsFactory } from '@vuesri/shared/helper/ctx'
+
 export const props = {
   maxScale: {
     type: Number,
@@ -34,3 +36,5 @@ export const props = {
     default: false,
   },
 }
+
+export const createBindProps = bindPropsFactory(props)
