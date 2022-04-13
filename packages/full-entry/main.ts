@@ -29,3 +29,5 @@ export * from '@vuesri/components/scene-view'
 export * from '@vuesri/components/client-feature-layer'
 
 export * from '@vuesri/components/layer-when'
+
+export * from '@vuesri/components/derived-feature-layer'

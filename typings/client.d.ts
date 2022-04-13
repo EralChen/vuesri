@@ -1,6 +1,6 @@
 
 import { sCursor, sMitter } from '@vuesri/shared/symbol'
-import { MitterEvents } from '@vuesri/components/view/src/type'
+import { MitterEvents } from '@vuesri/components/view/src/types'
 import { MitterEvents as FeatureLayerMitterEvents } from '@vuesri/components/client-feature-layer/src/types'
 import { Emitter } from 'mitt'
 declare global {

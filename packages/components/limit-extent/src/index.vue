@@ -4,7 +4,7 @@ import { defineComponent, onUnmounted } from 'vue'
 import { useMapView } from '@vuesri/shared/use'
 import { sMitter } from '@vuesri/shared/symbol'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
-import { MitterEvents } from '@vuesri/components/view/src/type'
+import { MitterEvents } from '@vuesri/components/view/src/types'
 import { AnyFunc } from 'vunk/shared/types'
 import { debounce } from 'lodash-es'
 export default defineComponent({

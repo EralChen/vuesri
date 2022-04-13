@@ -9,7 +9,13 @@ import glob from 'fast-glob'
 import { filePathIgnore, libExternal } from '../../config/build'
 
 
-const getOutputFile = (filePath: string) => path.resolve(outDir, `./shared/${path.relative(path.resolve(__dirname, './'), filePath).replace('.ts', '.js')}`)
+const getOutputFile = (filePath: string) => path.resolve(
+  outDir, 
+  `./shared/${path.relative(
+    path.resolve(__dirname, './'), filePath,
+  )
+    .replace('.ts', '.js')}`,
+)
 
 
 export default series(

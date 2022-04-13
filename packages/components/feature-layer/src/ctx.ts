@@ -1,6 +1,9 @@
 import { PropType } from 'vue'
 import { emits as eventsEmits } from './events/ctx'
 import { props as layerProps } from '@vuesri/shared/ctx/layer'
+import { bindPropsFactory, onEmitsFactory } from '@vuesri/shared/helper/ctx'
+
+
 export const props = {
   ...layerProps,
   renderer: {
@@ -26,7 +29,12 @@ export const props = {
 
 }
 
+export const createBindProps = bindPropsFactory(props)
+
 
 export const emits = {
   ...eventsEmits,
 }
+
+export const createOnEmits = onEmitsFactory(emits)
+
