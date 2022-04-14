@@ -18,7 +18,7 @@ _demo-components/graphic/index.vue
 
 ### in graphicsLayer.graphics
 :::demo
-_demo-components/graphic/index.vue
+_demo-components/graphic/graphics-layer.vue
 :::
 
 ## Props

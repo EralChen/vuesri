@@ -30,7 +30,7 @@ export default defineComponent({
     const clickMitter = new MitterToggleHandler('click', (e) => {
       const { hitTestResult: { results } } = e
       let result: __esri.HitTestResultResults|undefined
-      if (results[0].graphic === graphic) {
+      if (results[0]?.graphic === graphic) {
         result = results[0]
       }
       emit('click', { ...e, result  })
