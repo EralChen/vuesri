@@ -1,6 +1,6 @@
 import { PropType } from 'vue'
 import { emits as eventsEmits } from './events/ctx'
-import { props as layerProps } from '@vuesri/shared/ctx/layer'
+import { props as layerProps } from '@vuesri/components/layer/src/ctx'
 import { bindPropsFactory, onEmitsFactory } from '@vuesri/shared/helper/ctx'
 
 
