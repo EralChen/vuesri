@@ -5,7 +5,7 @@ import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 </script>
 <template>
 <VaMapView>
-  <VaSkyBasemap></VaSkyBasemap>
+  <VaSkyBasemap :type="'vec_c'"></VaSkyBasemap>
   <VaViewUi :position="'bottom-leading'">
     1111
   </VaViewUi>
