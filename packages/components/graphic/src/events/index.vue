@@ -41,10 +41,7 @@ export default defineComponent({
     })
     /* click mitter end */
 
-    return {}
+    return () => null
   },
 })
 </script>
-<template>
-  <div></div>
-</template>

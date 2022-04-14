@@ -1,6 +1,6 @@
 import { PropType } from 'vue'
 import { LoadEvent } from './types'
-
+import * as eventsCtx from './events/ctx'
 export const props = {
   defaultOptions: {
     type: Object as PropType<__esri.GraphicProperties>,
@@ -43,5 +43,7 @@ export const props = {
 }
 
 export const emits = {
+  ...eventsCtx.emits,
   load: (e: LoadEvent) => e,
 }
+export const createEventsOnEmits = eventsCtx.createOnEmits
