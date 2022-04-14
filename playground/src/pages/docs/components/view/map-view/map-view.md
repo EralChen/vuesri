@@ -16,8 +16,15 @@
 插入 <router-link :to="'/docs/components/basemap/basemap'"> `Basemap`</router-link> 组件，可创建可视化地图
 
 ## Demo
+
+### Base
 :::demo
 _demo-components/map-view/index.vue
+:::
+
+### constraints
+:::demo
+_demo-components/map-view/constraints.vue
 :::
 
 ## Props

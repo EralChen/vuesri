@@ -9,7 +9,7 @@
 
 # LimitExtent
 
-限制视图拖拽范围
+通过事件限制视图拖拽范围
 
 ## demo
 :::demo

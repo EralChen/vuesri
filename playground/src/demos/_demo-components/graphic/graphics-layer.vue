@@ -2,6 +2,7 @@
 import { VaGraphic } from '@vuesri/components/graphic'
 import { VaMapView } from '@vuesri/components/map-view'
 import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
+import { VaGraphicsLayer } from '@vuesri/components/graphics-layer'
 import { Polygon } from 'esri/geometry'
 import { SimpleFillSymbol } from 'esri/symbols'
 const geometry = new Polygon({
@@ -21,6 +22,9 @@ const symbol = new SimpleFillSymbol({
 <template>
 <VaMapView>
   <VaSkyBasemap></VaSkyBasemap>
-  <VaGraphic :geometry="geometry" :symbol="symbol"></VaGraphic>
+  <VaGraphicsLayer>
+    <VaGraphic :geometry="geometry" :symbol="symbol" ></VaGraphic>
+  </VaGraphicsLayer>
+
 </VaMapView>
 </template>
