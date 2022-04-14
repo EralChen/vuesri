@@ -3,30 +3,15 @@ import { props } from './ctx'
 import { defineComponent, onUnmounted } from 'vue'
 import { useMapView } from '@vuesri/shared/use'
 import { sMitter } from '@vuesri/shared/symbol'
-import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
-import { MitterEvents } from '@vuesri/components/view/src/types'
-import { AnyFunc } from 'vunk/shared/types'
 import { debounce } from 'lodash-es'
+import { useMitterToggleHandler } from '@vuesri/components/view/src/use'
 export default defineComponent({
   name: 'VaLimitExtent',
   props,
   setup (props) {
     const view = useMapView()
     const mitter = view[sMitter]
-    class MitterToggleHandler<T extends keyof MitterEvents> extends ToggleHandler {
-      name: T
-      handler: AnyFunc
-      cacheData: any
-      constructor (name: T, handler: (e: MitterEvents[T]) => void) {
-        super()
-        this.name = name
-        this.handler = handler
-      }
-      add () {
-        mitter.on(this.name, this.handler)
-        this.removeHandler = () => mitter.off(this.name, this.handler)
-      }
-    }
+    const MitterToggleHandler = useMitterToggleHandler(mitter)
 
     /* limit extent */
     const goToExtent = debounce((target: __esri.Extent) => {

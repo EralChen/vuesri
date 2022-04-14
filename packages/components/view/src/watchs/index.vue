@@ -27,7 +27,7 @@ export default defineComponent({
     /* extentWatch */
     const extentWatch = new ViewWatchToggleHandler('extent', throttle((v: __esri.Extent, ov: __esri.Extent) => {
       mitter.emit('watch:extent', [v, ov])
-    }, 400))
+    }, 50))
     extentWatch.add()
     onUnmounted(() => {
       extentWatch.remove()
