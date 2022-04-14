@@ -5,7 +5,7 @@ import { MitterEvents as FeatureLayerMitterEvents } from '@vuesri/components/cli
 import { Emitter } from 'mitt'
 declare global {
   namespace __esri {
-    interface MapView {
+    interface View {
       [sMitter]: Emitter<MitterEvents>
     }
     interface Layer {

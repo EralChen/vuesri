@@ -4,3 +4,4 @@
 |:[opacity](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#opacity)|Number|1|透明度|
 |:[title](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#title)|String|-|图层标题|
 |:[visible](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#visible)|Boolean|true|show|
+|orphan|Boolean|false|若为true, 则实例为待挂载的状态|

@@ -7,10 +7,10 @@ import { SimpleFillSymbol } from 'esri/symbols'
 const geometry = new Polygon({
   rings: [
     [
-      [120, 30],
-      [121, 30],
-      [121, 31],
-      [120, 30],
+      [125, 18],
+      [88, 18],
+      [88, 50],
+      [125, 18],
     ],
   ],
 })
