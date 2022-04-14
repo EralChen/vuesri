@@ -33,7 +33,7 @@ export default defineComponent({
       if (results[0]?.graphic === graphic) {
         result = results[0]
       }
-      emit('click', { ...e, result  })
+      emit('click', { ...e, result, graphic  })
     })
     clickMitter.add()
     onUnmounted(() => {

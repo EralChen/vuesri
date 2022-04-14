@@ -32,3 +32,11 @@ _demo-components/graphic/graphics-layer.vue
 |:[visible](https://developers.arcgis.com/javascript/latest/api-reference/esri-Graphic.html#visible)|Boolean|true|show|
 |orphan|Boolean|false|若为true, 则实例为待挂载的状态|
 |spatialReference|__esri.SpatialReferenceProperties|-|坐标系|
+
+
+## Emits
+|事件|类型|参数|描述|
+|-|-|-|-|
+|load|__VaGrapic.OnLoad|view: \__esri.View <br> graphic: __esri.Graphic |实例加载后|
+|click| __VaGrapic.OnClick| view: \__esri.View<br> [hitTestResult](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#hitTest): __esri.HitTestResult <br>  [event](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-View.html#event-click): __esri.ViewClickEvent <br> graphic: __esri.Graphic  <br> result?: __esri.HitTestResultResults // 最上层的要素 |点击事件|
+
