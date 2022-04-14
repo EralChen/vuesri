@@ -33,3 +33,5 @@ export * from '@vuesri/components/layer-when'
 export * from '@vuesri/components/derived-feature-layer'
 
 export * from '@vuesri/components/graphics-layer'
+
+export * from '@vuesri/components/graphic'
