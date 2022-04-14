@@ -35,3 +35,5 @@ export * from '@vuesri/components/derived-feature-layer'
 export * from '@vuesri/components/graphics-layer'
 
 export * from '@vuesri/components/graphic'
+
+export * from '@vuesri/components/view-ui'
