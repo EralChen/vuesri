@@ -28,7 +28,7 @@ export default defineComponent({
 
     /* 点击事件 */
     const clickHandler = new ViewOnToggleHandler('click', async (event) => {
-      console.log('click', event)
+      // console.log('click', event)
       const hitTestResult = await view.hitTest(event)
       mitter.emit('click', { view, event, hitTestResult })
     })

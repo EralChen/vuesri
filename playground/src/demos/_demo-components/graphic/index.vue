@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { VaGraphic } from '@vuesri/components/graphic'
+import { VaGraphic, __VaGraphic } from '@vuesri/components/graphic'
 import { VaMapView } from '@vuesri/components/map-view'
 import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 import { Polygon } from 'esri/geometry'
@@ -17,10 +17,17 @@ const geometry = new Polygon({
 const symbol = new SimpleFillSymbol({
   color: 'red',
 })
+const gClick:__VaGraphic.OnClick = ({ result }) => {
+  if (result) {
+    console.log(result)
+  }
+}
 </script>
 <template>
 <VaMapView>
   <VaSkyBasemap></VaSkyBasemap>
-  <VaGraphic :geometry="geometry" :symbol="symbol"></VaGraphic>
+  <VaGraphic :geometry="geometry" :symbol="symbol"
+    @click="gClick"
+  ></VaGraphic>
 </VaMapView>
 </template>
