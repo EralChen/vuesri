@@ -1,6 +1,6 @@
 import { MitterEvents } from '@vuesri/components/view/src/types'
 
-type LayerBaseEvent = {
+export type LayerBaseEvent = {
   result: __esri.HitTestResultResults | undefined
   layer: __esri.FeatureLayer | __esri.GraphicsLayer
 }

@@ -1,7 +1,7 @@
 import { ReturnVoid } from 'vunk/shared/types'
-import { ClickEvent, PointerMoveEvent } from './view/types'
+import type { ClickEvent, PointerMoveEvent } from './view/types'
 
-export {
+export type {
   ClickEvent, PointerMoveEvent,
 }
 
