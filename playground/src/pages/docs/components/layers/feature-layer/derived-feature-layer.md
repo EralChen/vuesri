@@ -22,6 +22,7 @@ _demo-components/derived-feature-layer/index.vue
 ## Props
 |属性|类型|默认值|描述|
 |-|-|-|-|
+|:[query](https://developers.arcgis.com/javascript/latest/api-reference/esri-rest-support-Query.html)*|__esri.QueryProperties|-|查询条件|
 <? featureLayerProps ?>
 <? layerProps ?>
 
