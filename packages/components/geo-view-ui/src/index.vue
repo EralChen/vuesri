@@ -13,7 +13,7 @@ export default defineComponent({
   },
   emits,
   props,
-  setup (props, { emit }) {
+  setup (props) {
     const view = useView() as (__esri.MapView | __esri.SceneView)
     const mitter = view[sMitter]
     const MitterToggleHandler = useMitterToggleHandler(mitter)
@@ -44,7 +44,7 @@ export default defineComponent({
     /* data init end */
 
     /* ScreenPoint end */
-    const visible = ref(true)
+    const extentVisible = ref(true)
     const screenPoint = shallowRef<__esri.MapViewScreenPoint>()
     const setScreenPoint = () => {
       let p: __esri.MapViewScreenPoint = center.value ? view.toScreen(center.value) :  {
@@ -58,17 +58,22 @@ export default defineComponent({
 
     /* watch extent */
     const wathExtent = new MitterToggleHandler('watch:extent', ([v]) => {
+      if (!props.visible) return
       if (!center.value) return
-      if (!v.contains(center.value)) return visible.value = false
-
+      if (!v.contains(center.value)) { 
+        return extentVisible.value = false
+      }
       setScreenPoint()
-      visible.value = true
+      extentVisible.value = true
     })
     wathExtent.add()
     onUnmounted(() => {
       wathExtent.remove()
     })
     /* watch extent end */
+
+    // 如果外层传 true 则根据 extentVisible ， 如果外层传 false 则是 false
+    const visible = computed(() => props.visible ? extentVisible.value : false)
 
     return {
       screenPoint,
@@ -78,10 +83,15 @@ export default defineComponent({
 })
 </script>
 <template>
-  <VaViewUi v-show="visible" :style="{
+  <VaViewUi v-show="visible" class="va-geo-view-ui" :style="{
     left: screenPoint?.x + 'px',
     top: screenPoint?.y + 'px'
   }">
     <slot></slot>
   </VaViewUi>
 </template>
+<style>
+.va-geo-view-ui{
+  transform: translateZ(0);
+}
+</style>

@@ -6,6 +6,10 @@ export const props = {
     type: Object as PropType<__esri.Geometry>,
     default: undefined,
   },
+  visible: {
+    type: Boolean,
+    default: true,
+  },
 }
 
 export const emits = {
