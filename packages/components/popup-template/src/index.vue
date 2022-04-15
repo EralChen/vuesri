@@ -1,6 +1,6 @@
 <script lang="ts">
 import { props, emits } from './ctx'
-import { defineComponent, inject, markRaw, nextTick, onUnmounted, ref, watchEffect } from 'vue'
+import { defineComponent, inject, markRaw, nextTick, onUnmounted, provide, ref, watchEffect } from 'vue'
 import { GraphicToNode } from './types'
 import PopupTemplate from 'esri/PopupTemplate'
 import { useView } from '@vuesri/shared/use'
@@ -12,7 +12,7 @@ export default defineComponent({
   setup (props, { emit }) {
     const view = useView()
     const instance = inject<{ popupTemplate: __esri.PopupTemplate } | null>('vaLayer', null)
-
+    const o = instance?.popupTemplate
     // core
     const graphicToNode = ref<GraphicToNode>(new Map())
     const popupTemplate = new PopupTemplate({
@@ -38,6 +38,9 @@ export default defineComponent({
     if (instance && !props.orphan) {
       instance.popupTemplate = popupTemplate
     }
+    onUnmounted(() => {
+      instance && (instance.popupTemplate = o as __esri.PopupTemplate)
+    })
 
 
     /* 弹窗关闭时，清除缓存 */
@@ -50,7 +53,7 @@ export default defineComponent({
     /* 弹窗关闭时，清除缓存  end */
 
     emit('load', { view, popupTemplate })
-
+    provide('vaPopupTemplate', popupTemplate)
     return {
       graphicToNode,
       setRef: (option: MapValue<GraphicToNode>, el) => option.el = el,
@@ -73,4 +76,5 @@ export default defineComponent({
       </slot>
     </div>
   </div>
+  <slot name="extends"></slot>
 </template>
