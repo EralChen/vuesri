@@ -18,5 +18,5 @@ _demo-components/geo-view-ui/index.vue
 ## Props
 |属性|类型|默认值|描述|
 |-|-|-|-|
-|:[geometry](https://developers.arcgis.com/javascript/latest/api-reference/esri-geometry.html)*|__esri.Geometry|'manual'|ui控件被添加的位置|
+|:[geometry](https://developers.arcgis.com/javascript/latest/api-reference/esri-geometry.html)*|__esri.Geometry|-|ui控件被添加的空间位置|
 |visible|Boolean|true|v-show|
