@@ -40,3 +40,11 @@ _demo-components/graphic/graphics-layer.vue
 |load|__VaGrapic.OnLoad|view: \__esri.View <br> graphic: __esri.Graphic |实例加载后|
 |click| __VaGrapic.OnClick| view: \__esri.View<br> [hitTestResult](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#hitTest): __esri.HitTestResult <br>  [event](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-View.html#event-click): __esri.ViewClickEvent <br> graphic: __esri.Graphic  <br> result?: __esri.HitTestResultResults // 最上层的要素 |点击事件|
 
+
+
+## v-slot
+|属性|类型|描述|
+|-|-|-|
+|attributes|Record<string, any>|graphic.attributes|
+|geometry|__esri.Geometry|graphic.geometry|
+|graphic|__esri.Graphic|当前graphic实例|

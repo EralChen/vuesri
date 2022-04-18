@@ -35,8 +35,8 @@ _demo-components/popup-template/graphic/AddToGraphic.vue
 |属性|类型|描述|
 |-|-|-|
 |attributes|Record<string, any>|graphic.attributes|
+|geometry|__esri.Geometry|graphic.geometry|
 |graphic|__esri.Graphic|当前内容的graphic|
-
 
 ## v-slot:extends
 用于扩展

@@ -52,11 +52,16 @@ export default defineComponent({
     emit('load', { view, graphic })
     return {
       eventsOnEmits,
+      graphic,
     }
   },
 })
 </script>
 <template>
   <Events v-on="eventsOnEmits"></Events>
-  <slot></slot>
+  <slot
+    :graphic="graphic"
+    :geometry="graphic.geometry"
+    :attributes="graphic.attributes"
+  ></slot>
 </template>

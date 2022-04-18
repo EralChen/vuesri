@@ -6,6 +6,8 @@ import { useView } from '@vuesri/shared/use'
 import { useAddLayer } from '@vuesri/components/layer/src/use'
 import { useSetFeatureLayerOptions, useSetFeatureLayerSpatialReference } from '@vuesri/components/feature-layer/src/use'
 import FeatureLayer from 'esri/layers/FeatureLayer'
+import { sMitter } from '@vuesri/shared/symbol'
+import mitt from 'mitt'
 export default defineComponent({
   name: 'VaServerFeatureLayer',
   components: {
@@ -20,6 +22,8 @@ export default defineComponent({
     const layer = new FeatureLayer({
       ...props.defaultOptions,
     })
+    layer[sMitter] = mitt()
+    
     watchEffect(() => {
       layer.url = props.url
     })
