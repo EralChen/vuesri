@@ -72,6 +72,7 @@ export default defineComponent({
     >
       <slot
         :attributes="option.attributes"
+        :geometry="g.geometry"
         :graphic="g"
       >
       </slot>
