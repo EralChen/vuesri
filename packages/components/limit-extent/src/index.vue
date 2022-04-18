@@ -4,7 +4,7 @@ import { defineComponent, onUnmounted } from 'vue'
 import { useMapView } from '@vuesri/shared/use'
 import { sMitter } from '@vuesri/shared/symbol'
 import { debounce } from 'lodash-es'
-import { useMitterToggleHandler } from '@vuesri/components/view/src/use'
+import { useMitterToggleHandler } from '@vuesri/shared/helper/mitter'
 export default defineComponent({
   name: 'VaLimitExtent',
   props,

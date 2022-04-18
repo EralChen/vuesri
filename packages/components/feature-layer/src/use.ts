@@ -1,5 +1,10 @@
 import { useSetLayerOptions } from '@vuesri/components/layer/src/use'
 import { watchEffect } from 'vue'
+import { AnyFunc } from 'vunk/shared/types'
+import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
+import { sMitter } from '@vuesri/shared/symbol'
+import { EmitterValue } from '@vuesri/shared/types'
+
 
 export function useSetFeatureLayerOptions (layer:__esri.FeatureLayer, props: {
   renderer: __esri.Renderer | undefined
@@ -39,3 +44,20 @@ export function useSetFeatureLayerSpatialReference (view: __esri.View, layer:__e
 
 }
 
+type MitterEvents = EmitterValue<__esri.FeatureLayer[typeof sMitter]>  
+export function useFeatureLayerMitterToggleHandler (mitter) {
+  return class MitterToggleHandler<T extends keyof MitterEvents> extends ToggleHandler {
+    name: T
+    handler: AnyFunc
+    cacheData: any
+    constructor (name: T, handler: (e: MitterEvents[T]) => void) {
+      super()
+      this.name = name
+      this.handler = handler
+    }
+    add () {
+      mitter.on(this.name, this.handler)
+      this.removeHandler = () => mitter.off(this.name, this.handler)
+    }
+  }
+}

@@ -2,7 +2,7 @@
 import { sMitter } from '@vuesri/shared/symbol'
 import { useLayer, useView } from '@vuesri/shared/use'
 import { defineComponent, onUnmounted } from 'vue'
-import { useMitterToggleHandler } from '@vuesri/components/view/src/use'
+import { useMitterToggleHandler } from '@vuesri/shared/helper/mitter'
 import { emits } from './ctx'
 export default defineComponent({
   emits,

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { props, emits } from './ctx'
+import { props, emits, createFeatureLayerOnEmits } from './ctx'
 import { defineComponent, nextTick, provide, watch, watchEffect } from 'vue'
 import { useView } from '@vuesri/shared/use'
 import { useAddLayer } from '@vuesri/components/layer/src/use'
@@ -19,7 +19,7 @@ export default defineComponent({
   setup (props, { emit }) {
     const view = useView()
     const map = view.map
-
+    const onFeatureLayerEmits = createFeatureLayerOnEmits(emit)
     // core
     const layer = new FeatureLayer({
       source: props.source,
@@ -99,14 +99,15 @@ export default defineComponent({
     provide('vaLayer', layer)
     provide('vaFeatureLayer', layer)
     emit('load', { view, layer })
-    return {}
+    return {
+      onFeatureLayerEmits,
+    }
   },
 })
 </script>
 <template>
   <FeatureLayerEvents
-    @click="$emit('click', $event)"
-    @pointerMove="$emit('pointerMove', $event)"
+    v-on="onFeatureLayerEmits"
   ></FeatureLayerEvents>
   <slot></slot>
 </template>

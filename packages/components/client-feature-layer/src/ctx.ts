@@ -36,4 +36,5 @@ export const emits = {
   load: (e: LoadEvent) => e,
 }
 
+export const createFeatureLayerOnEmits = featureLayerCtx.createOnEmits
 export const createOnEmits = onEmitsFactory(emits)

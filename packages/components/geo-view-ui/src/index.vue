@@ -4,7 +4,7 @@ import { computed, defineComponent, onUnmounted, ref, shallowRef } from 'vue'
 import { VaViewUi } from '@vuesri/components/view-ui'
 import { useView } from '@vuesri/shared/use'
 import { sMitter } from '@vuesri/shared/symbol'
-import { useMitterToggleHandler } from '@vuesri/components/view/src/use'
+import { useMitterToggleHandler } from '@vuesri/shared/helper/mitter'
 
 export default defineComponent({
   name: 'VaGeoViewUi',

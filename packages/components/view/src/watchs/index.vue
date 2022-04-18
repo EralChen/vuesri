@@ -33,7 +33,15 @@ export default defineComponent({
       extentWatch.remove()
     })
     /* extentWatch end */
-
+    /* scaleWatch */
+    const scaleWatch = new ViewWatchToggleHandler('scale', throttle((v: number, ov: number) => {
+      mitter.emit('watch:scale', [v, ov])
+    }, 50))
+    scaleWatch.add()
+    onUnmounted(() => {
+      scaleWatch.remove()
+    })
+    /* extentWatch end */
     return () => null
   },
 })

@@ -22,10 +22,11 @@ export const onEmitsFactory = <
 >(emitsOption: T1) => {
   return <
     T2 extends AnyFunc, 
+    EX extends (keyof T1)[],
     K extends keyof T1
   >
-  (emit: T2) => Reflect.ownKeys(emitsOption).reduce((a, c) => {
-    if (typeof c === 'string') {
+  (emit: T2, excludes?: EX) => Reflect.ownKeys(emitsOption).reduce((a, c) => {
+    if (typeof c === 'string' && !excludes?.includes(c)) {
       a[c] = (e: Parameters<T2>[1]) => emit(c, e)
     }
     return a

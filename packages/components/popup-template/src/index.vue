@@ -4,7 +4,8 @@ import { defineComponent, inject, markRaw, nextTick, onUnmounted, provide, ref, 
 import { GraphicToNode } from './types'
 import PopupTemplate from 'esri/PopupTemplate'
 import { useView } from '@vuesri/shared/use'
-type MapValue<T> = T extends Map<unknown, infer V> ? V : never
+import { MapValue } from '@vuesri/shared/types'
+
 export default defineComponent({
   name: 'VaPopupTemplate',
   emits,
