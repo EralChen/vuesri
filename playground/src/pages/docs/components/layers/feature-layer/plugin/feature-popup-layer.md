@@ -1,0 +1,26 @@
+<route>
+{
+  meta: {
+    title: "FeaturePopupLayer"
+  }
+}
+</route>
+
+# FeaturePopupLayer
+
+从已有FeatureLayer实例中，通过[featureLayer.queryFeatures()](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#queryFeatures) 创建 <router-link to="/docs/components/widgets/geo-view-ui">GeoViewUi</router-link>
+
+> 在服务端渲染时`featureLayer.queryFeatures()`实际上是调用`query`接口，最多返回1000个要素
+
+:::demo
+_demo-components/feature-popup-layer/index.vue
+:::
+
+
+## v-slot
+
+|属性|类型|描述|
+|-|-|-|
+|attributes|Record<string, any>|graphic.attributes|
+|geometry|__esri.Geometry|graphic.geometry|
+|graphic|__esri.Graphic|当前内容的graphic|
