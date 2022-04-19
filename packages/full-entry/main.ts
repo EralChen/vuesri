@@ -43,3 +43,5 @@ export * from '@vuesri/components/geo-view-ui'
 export * from '@vuesri/components/popup-template'
 
 export * from '@vuesri/components/feature-popup-layer'
+
+export * from '@vuesri/components/sketch'

@@ -81,7 +81,6 @@ export async function rollupFile (opts: {
     external: [...opts.external,  new RegExp(`^@${LIB_NAME}`)],
   }
   const outConfig: OutputOptions = {
-    
     format: 'esm',
     file: opts.outputFile,
     paths: fixPath,

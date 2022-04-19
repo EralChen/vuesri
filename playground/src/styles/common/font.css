@@ -1,19 +1,19 @@
 :root{
-  font-size: calc(1vw * 0.7 + 1.2em);
-  --f-xxxl: 1.8rem;
-  --f-xxl: 1.4rem;
-  --f-xl: 1.2rem;
+  font-size: calc(1vw * 0.6 + 10px);
+  --f-xxxl: 1.3rem;
+  --f-xxl: 1.2rem;
+  --f-xl: 1.1rem;
 
-  --f-l: .75rem;
-  --f-m: .67rem;
-  --f-s: .55rem;
+  --f-l: 1rem;
+  --f-m: .8rem;
+  --f-s: .7rem;
 
-  --f-xs: .5rem;
-  --f-xxs: .4rem;
-  --f-xxxs: .3rem;
+  --f-xs: .6rem;
+  --f-xxs: .5rem;
+  --f-xxxs: .4rem;
 }
 body{
-  font-size: var(--f-m);
+  font-size: var(--f-l);
 }
 h1{
   font-size: var(--f-l);
