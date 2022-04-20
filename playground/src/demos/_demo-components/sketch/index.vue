@@ -16,6 +16,15 @@ const log = () => {
   </VaViewUi>
   <VaSkyBasemap></VaSkyBasemap>
   <VaSketch
+    :available-creature-tools="['polygon']"
+    :default-options="{
+      visibleElements: {
+        selectionTools: {
+          'lasso-selection': false,
+          'rectangle-selection': false
+        }
+      }
+    }"
     v-model="graphics"
   ></VaSketch>
 </VaMapView>

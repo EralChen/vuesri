@@ -26,7 +26,7 @@ export default defineComponent({
         ) { // 绘制点 没有start事件
           layer.remove(layer.graphics.getItemAt(0))
         }
-
+        
         emit('update:modelValue', layer.graphics)
         emit('complete', e)
       }

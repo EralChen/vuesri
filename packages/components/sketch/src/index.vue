@@ -1,6 +1,6 @@
 <script lang="ts">
 import { props, emits, createEventsBindProps, createEventsOnEmits } from './ctx'
-import { defineComponent, inject, onMounted, provide, ref, watchEffect } from 'vue'
+import { defineComponent, inject, onMounted, provide, ref, watch, watchEffect } from 'vue'
 import { useView } from '@vuesri/shared/use'
 import GraphicsLayer from 'esri/layers/GraphicsLayer'
 import Sketch from 'esri/widgets/Sketch'
@@ -24,9 +24,28 @@ export default defineComponent({
     const eventsBindProps = createEventsBindProps(props)
     const eventsOnEmits = createEventsOnEmits(emit)
 
+    /* init */
+    function replaceLayerGraphics (gs: __esri.Graphic[]) {
+      layer.removeAll()
+      layer.addMany(gs)
+    }
+
+    watch(() => props.modelValue, (v) => {
+      replaceLayerGraphics([...v])
+    })
+
+    if (props.modelValueInitFrom === 'layerGraphics') {
+      // 替换后触发 watch
+      emit('update:modelValue', layer.graphics)
+    } else {
+      replaceLayerGraphics(props.modelValue as __esri.Graphic[])
+    }
+    /* init end */
+
     // data
     const sketchNode = ref()
     const ready = ref(false)
+
 
     // core
     onMounted(() => {
