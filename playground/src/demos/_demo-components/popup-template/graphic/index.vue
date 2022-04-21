@@ -5,7 +5,7 @@ import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 import { Polygon } from 'esri/geometry'
 import { SimpleFillSymbol } from 'esri/symbols'
 import { VaPopupTemplate } from '@vuesri/components/popup-template'
-import AddToGraphic from './addToGraphic.vue'
+import AddToGraphic from './AddToGraphic.vue'
 const geometry = new Polygon({
   rings: [
     [
