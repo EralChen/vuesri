@@ -16,13 +16,13 @@ body{
   font-size: var(--f-l);
 }
 h1{
-  font-size: var(--f-l);
+  font-size: var(--f-xxxl);
 }
 h2{
-  font-size: var(--f-m);
+  font-size: var(--f-xxl);
 }
 h3{
-  font-size: var(--f-s);
+  font-size: var(--f-xl);
 }
 .f-l{
   font-size: var(--f-l);
