@@ -1,0 +1,1 @@
+export const sLayerItems = Symbol('layer-items')

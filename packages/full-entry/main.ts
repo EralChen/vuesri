@@ -47,3 +47,7 @@ export * from '@vuesri/components/feature-popup-layer'
 export * from '@vuesri/components/sketch'
 
 export * from '@vuesri/components/map-image-layer'
+
+export * from '@vuesri/components/tree-layer-group'
+
+export * from '@vuesri/components/tree-layer-item'
