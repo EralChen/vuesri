@@ -8,7 +8,7 @@ import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 <VaMapView>
   <VaSkyBasemap></VaSkyBasemap>
   <VaSketch class="esri-sketch-with-save">
-    <VkAsyncTeleport :to="'.esri-sketch-with-save .esri-sketch__panel'" :sleep="500" >
+    <VkAsyncTeleport :to="'.esri-sketch-with-save .esri-sketch__panel'" :sleep="800" >
         <div
           class="esri-sketch-ui-save esri-widget--button"
         >

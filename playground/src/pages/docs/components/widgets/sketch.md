@@ -30,6 +30,10 @@ _demo-components/sketch/graphics-layer.vue
 _demo-components/sketch/extends-dom.vue
 :::
 
+### Without UI
+:::demo
+_demo-components/sketch/without-ui.vue
+:::
 
 ## Props
 |属性|类型|默认值|描述|
@@ -40,3 +44,4 @@ _demo-components/sketch/extends-dom.vue
 |v-model|__esri.Graphic[]\|__esri.Collection<__esri.Graphic>| [] | 绘制图层中的layer.graphics|
 |v-show|-|-|-|
 |modelValueInitFrom|'modelValue'\|'layerGraphics'|'modelValue'|初始化时，modelValue来源|
+|orphan	| Boolean	| false |	若为true, 则实例将未挂载到 view.ui |

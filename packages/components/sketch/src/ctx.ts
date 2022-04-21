@@ -16,6 +16,10 @@ export const props = {
     type: String as PropType<UiAddPosition>,
     default: 'top-right',
   },
+  orphan: {
+    type: Boolean,
+    default: false,
+  },
   modelValueInitFrom: {
     type: String as PropType<'modelValue'|'layerGraphics'>,
     default: 'modelValue',

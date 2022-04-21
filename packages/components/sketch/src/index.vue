@@ -1,6 +1,6 @@
 <script lang="ts">
 import { props, emits, createEventsBindProps, createEventsOnEmits } from './ctx'
-import { defineComponent, inject, onMounted, provide, ref, watch, watchEffect } from 'vue'
+import { defineComponent, inject, onMounted, onUnmounted, provide, ref, watch, watchEffect } from 'vue'
 import { useView } from '@vuesri/shared/use'
 import GraphicsLayer from 'esri/layers/GraphicsLayer'
 import Sketch from 'esri/widgets/Sketch'
@@ -60,7 +60,9 @@ export default defineComponent({
         if (!props.availableCreatureTools) return
         sketch.availableCreateTools = props.availableCreatureTools
       })
-
+      onUnmounted(() => {
+        sketch.destroy()
+      })
       useAddUi(view.ui, sketch, props)
       provide('vaGraphicsLayer', layer)
       provide('vaSketch', sketch)
