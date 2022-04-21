@@ -25,6 +25,11 @@ _demo-components/sketch/graphics-layer.vue
 
 + 通过sketch工具修改的graphic.geometry, 并不会直接同步到 VaGraphic 绑定的 geometry中<br> 修改VaGraphic中geometry属性，会直接影响到 Vasketch v-model的值（如果这个要素仍在图层中） <br> 所以获取更新后的值要从 VaSketch v-model 中得到
 
+### Extends DOM
+:::demo
+_demo-components/sketch/extends-dom.vue
+:::
+
 
 ## Props
 |属性|类型|默认值|描述|
