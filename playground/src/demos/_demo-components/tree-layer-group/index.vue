@@ -8,6 +8,7 @@ import { VaViewUi } from '@vuesri/components/view-ui'
 import { VaMapImageLayer } from '@vuesri/components/map-image-layer'
 import { VaServerFeatureLayer } from '@vuesri/components/server-feature-layer'
 import { VaTileLayer } from '@vuesri/components/tile-layer'
+import { lods } from '@vuesri/shared/config/tile-info/3857'
 import { ref } from 'vue'
 interface TreeNode extends __VaTreeLayerGroup.TreeNode {
   layer?: {
@@ -17,6 +18,11 @@ interface TreeNode extends __VaTreeLayerGroup.TreeNode {
     visible?: boolean
   },
   children?: TreeNode[]
+}
+const mapViewOptions = { 
+  constraints: {
+    lods: lods.slice(2, 19) as unknown as __esri.LOD[],
+  },
 }
 
 const treeData = ref<TreeNode[]>([
@@ -68,12 +74,15 @@ const checkChange = (data: TreeNode, checked: boolean) => {
     data.layer.visible = checked
   }
 }
+
 </script>
 <template>
-<VaMapView>
+<VaMapView 
+  :default-options="mapViewOptions"
+ >
   <VaSkyBasemap :type="'img_w'" :spatial-reference="{wkid: 102100}"></VaSkyBasemap>
   <VaViewUi>
-    <ElTree :data="treeData" show-checkbox @check-change="checkChange"></ElTree>
+    <ElTree :data="treeData" show-checkbox @check-change="checkChange" :render-after-expand="false"></ElTree>
   </VaViewUi>
 
   <VaTreeLayerGroup :data="treeData">
