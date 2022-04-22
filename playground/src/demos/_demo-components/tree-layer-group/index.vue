@@ -8,7 +8,18 @@ import { VaViewUi } from '@vuesri/components/view-ui'
 import { VaMapImageLayer } from '@vuesri/components/map-image-layer'
 import { VaServerFeatureLayer } from '@vuesri/components/server-feature-layer'
 import { VaTileLayer } from '@vuesri/components/tile-layer'
-const treeData:__VaTreeLayerGroup.TreeNode[] = [
+import { ref } from 'vue'
+interface TreeNode extends __VaTreeLayerGroup.TreeNode {
+  layer?: {
+    type: string,
+    if?: boolean,
+    url: string,
+    visible?: boolean
+  },
+  children?: TreeNode[]
+}
+
+const treeData = ref<TreeNode[]>([
   {
     label: '我的图层',
     children: [
@@ -20,6 +31,7 @@ const treeData:__VaTreeLayerGroup.TreeNode[] = [
             layer: {
               type: 'MapImageLayer',
               url: 'http://116.63.63.191:6080/arcgis/rest/services/test_server/test_polygon1/MapServer',
+              
             },
           },
 
@@ -49,32 +61,38 @@ const treeData:__VaTreeLayerGroup.TreeNode[] = [
       url: 'http://116.63.63.191:6080/arcgis/rest/services/SBWB/NB_DT3857/MapServer',
     },
   },
-]
+])
+const checkChange = (data: TreeNode, checked: boolean) => {
+  if (data.layer) {
+    data.layer.if = true
+    data.layer.visible = checked
+  }
+}
 </script>
 <template>
 <VaMapView>
   <VaSkyBasemap :type="'img_w'" :spatial-reference="{wkid: 102100}"></VaSkyBasemap>
   <VaViewUi>
-    <ElTree :data="treeData" show-checkbox></ElTree>
+    <ElTree :data="treeData" show-checkbox @check-change="checkChange"></ElTree>
   </VaViewUi>
 
   <VaTreeLayerGroup :data="treeData">
 
     <VaTreeLayerItem :type="'MapImageLayer'">
       <template v-slot="{layer}">
-        <VaMapImageLayer v-bind="layer"></VaMapImageLayer>
+        <VaMapImageLayer :url="layer.url" :visible="layer.visible" v-if="layer.if"></VaMapImageLayer>
       </template>
     </VaTreeLayerItem>
 
     <VaTreeLayerItem :type="'FeatureLayer'">
       <template v-slot="{layer}">
-        <VaServerFeatureLayer v-bind="layer"></VaServerFeatureLayer>
+        <VaServerFeatureLayer :url="layer.url" :visible="layer.visible" v-if="layer.if"></VaServerFeatureLayer>
       </template>
     </VaTreeLayerItem>
 
     <VaTreeLayerItem :type="'TileLayer'">
       <template v-slot="{layer}">
-        <VaTileLayer v-bind="layer"></VaTileLayer>
+        <VaTileLayer :url="layer.url" :visible="layer.visible" v-if="layer.if"></VaTileLayer>
       </template>
     </VaTreeLayerItem>
 
