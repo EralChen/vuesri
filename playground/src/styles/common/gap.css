@@ -56,6 +56,13 @@
 .pa-xxxs{
   padding: var(--gap-xxxs);
 }
+.mtb-xs{
+  margin-top: var(--gap-xs);
+  margin-bottom: var(--gap-xs);
+}
+.mb-s{
+  margin-bottom: var(--gap-s);
+}
 
 .sub-ml-xxxl > *+*{
   margin-left: var(--gap-xxxl);
