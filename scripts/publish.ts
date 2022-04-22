@@ -30,9 +30,16 @@ export default series(
       path.resolve(outDir, './package.json'),
     )
   }),
+  taskWithName('destMd', async () => {
+    fs.cp(
+      path.resolve(mainRoot, './README.md'),
+      path.resolve(outDir, './README.md'),
+    )
+  }),
   taskWithName('publish', async () => {
     run(
-      'npm publish --tag dev --registry https://registry.npmjs.org',
+      /* --tag dev */
+      'npm publish --registry https://registry.npmjs.org',
       outDir,
     )
   }),
