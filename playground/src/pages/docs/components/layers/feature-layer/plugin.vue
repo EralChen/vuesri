@@ -7,7 +7,8 @@ export default RouterViewWrapper
 {
   meta: {
     title: "插件",
-    alwaysShow: true
+    hidden: true,
+    alwaysShow: true,
   }
 }
 </route>
