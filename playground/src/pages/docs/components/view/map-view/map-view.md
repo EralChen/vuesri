@@ -11,7 +11,6 @@
 
 初始化 [MapView](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html) 实例
 
-向叶子节点 `provide` 该实例
 
 插入 <router-link :to="'/docs/components/basemap/basemap'"> `Basemap`</router-link> 组件，可创建可视化地图
 
