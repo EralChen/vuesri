@@ -10,7 +10,10 @@
 <router-link to="/docs/components/layers/feature-layer/client-feature-layer"> ClientFeatureLayer </router-link> - DerivedFeatureLayer
 <br>
 
-从已有`FeatureLayer`实例中，通过[featureLayer.queryFeatures()](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#queryFeatures) 派生一个新的`FeatureLayer`实例, 该实例由客户端渲染
+从已有layer实例中，通过[layer.queryFeatures()](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#queryFeatures) 创建 一个新的`FeatureLayer`实例, 该实例由客户端渲染
+
+
+可支持的图层: `FeatureLayer`, `GeojsonLayer`
 
 > 在服务端渲染时`featureLayer.queryFeatures()`实际上是调用`query`接口，最多返回1000个要素
 
