@@ -33,7 +33,9 @@ export function rollupComponents (opts: {
         nodeResolve({
           extensions: ['.json', '.js',  '.ts'],
         }),
-        esbuild(),
+        esbuild({
+          target: 'ES6',
+        }),
       ],
       external: [
         ...libExternal, 
@@ -75,7 +77,9 @@ export async function rollupFile (opts: {
         output: 'index.css',
       }),
       vue(),
-      esbuild(), 
+      esbuild({
+        target: 'ES6',
+      }), 
       commonjs(),
     ],
     external: [...opts.external,  new RegExp(`^@${LIB_NAME}`)],
