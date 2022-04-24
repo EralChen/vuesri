@@ -1,7 +1,7 @@
 <script lang="ts">
 import { props, emits } from './ctx'
 import { computed, defineComponent, nextTick, onUnmounted, ref, shallowRef } from 'vue'
-import { useFeatureLayer, useView } from '@vuesri/shared/use'
+import { useLayer, useView } from '@vuesri/shared/use'
 import { VaGeoViewUi } from '@vuesri/components/geo-view-ui'
 import { sMitter } from '@vuesri/shared/symbol'
 import { useMitterToggleHandler } from '@vuesri/shared/helper/mitter'
@@ -14,7 +14,7 @@ export default defineComponent({
   props,
   setup (props, { emit }) {
     const view = useView()
-    const layer = useFeatureLayer()
+    const layer = useLayer() as __esri.FeatureLayer | __esri.GeoJSONLayer
     const MitterToggleHandler = useMitterToggleHandler(view[sMitter])
     const LayerMitterToggleHandler = useMitterToggleHandler(layer[sMitter])
     // core

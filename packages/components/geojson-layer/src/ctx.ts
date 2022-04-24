@@ -2,7 +2,6 @@ import { PropType } from 'vue'
 import { LoadEvent } from './types'
 import * as layerCtx from '@vuesri/components/layer/src/ctx'
 import * as layerEventsCtx from '@vuesri/components/layer/src/graphics-events/ctx'
-import { onEmitsFactory } from '@vuesri/shared/helper/ctx'
 export const props = {
   ...layerCtx.props,
   defaultOptions: {
