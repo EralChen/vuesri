@@ -5,6 +5,25 @@ import { MitterEvents as FeatureLayerMitterEvents } from '@vuesri/components/cli
 import { Emitter } from 'mitt'
 declare global {
   namespace __esri {
+    interface PictureLayerProperties {
+      url: string,
+      view?:__esri.MapView | __esri.SceneView,
+      extent?:  __esri.Extent,
+      image?:  HTMLImageElement,
+      canvas?: HTMLCanvasElement,
+      spatialReference?: __esri.SpatialReferenceProperties,
+    }
+
+    interface PictureLayer extends Layer {
+      url: string,
+      view:__esri.MapView | __esri.SceneView,
+      extent:  __esri.Extent,
+      image:  HTMLImageElement,
+      canvas: HTMLCanvasElement,
+      spatialReference: __esri.SpatialReferenceProperties,
+    }
+
+
     interface View {
       [sMitter]: Emitter<MitterEvents>
     }
@@ -13,6 +32,13 @@ declare global {
     }
     interface FeatureLayer {
       [sMitter]: Emitter<FeatureLayerMitterEvents>
+    }
+    interface ClassDefinition<T extends  Record<string, any>> {
+      properties: T,
+      getImageUrl: (this: T,  extend:__esri.Extent, width: number, height: number) => string
+    }
+    interface BaseDynamicLayerConstructor {
+      createSubclass: <T extends Record<string, any>>(options: Partial<ClassDefinition<T>>) => LayerConstructor
     }
   }
 }

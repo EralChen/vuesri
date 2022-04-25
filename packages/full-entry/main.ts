@@ -53,3 +53,5 @@ export * from '@vuesri/components/tree-layer-group'
 export * from '@vuesri/components/tree-layer-item'
 
 export * from '@vuesri/components/geojson-layer'
+
+// export * from '@vuesri/components/picture-layer'
