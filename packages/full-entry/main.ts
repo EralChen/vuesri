@@ -55,3 +55,5 @@ export * from '@vuesri/components/tree-layer-item'
 export * from '@vuesri/components/geojson-layer'
 
 // export * from '@vuesri/components/picture-layer'
+
+export * from '@vuesri/components/masking-layer'
