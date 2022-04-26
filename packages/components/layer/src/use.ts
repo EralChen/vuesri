@@ -49,6 +49,7 @@ export function useSetLayerOptions (
   | __esri.GeoJSONLayer
   | __esri.VectorTileLayer
   | __esri.TileLayer
+  | __esri.MaskingLayer
   ,
   props: {
   visible: boolean

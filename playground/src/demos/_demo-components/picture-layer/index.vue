@@ -19,18 +19,18 @@ const symbol = new SimpleFillSymbol({
 })
 </script>
 <template>
-<VaSceneView>
+<VaMapView>
   <VaSkyBasemap :spatial-reference="{wkid: 3857}" :type="'vec_w'"></VaSkyBasemap>
   <VaPictureLayer :url="url"
     :extent="extent"
     :default-options="{
       maxScale: levelToScale[10],
-       minScale: levelToScale[9]
+      minScale: levelToScale[9]
     }"
   ></VaPictureLayer>
 
   <!-- <VaGraphic :symbol="symbol" :geometry="extent"> 
 
  </VaGraphic> -->
-</VaSceneView>
+</VaMapView>
 </template>

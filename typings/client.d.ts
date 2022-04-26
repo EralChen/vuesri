@@ -3,7 +3,7 @@ import { sCursor, sMitter } from '@vuesri/shared/symbol'
 import { MitterEvents } from '@vuesri/components/view/src/types'
 import { MitterEvents as FeatureLayerMitterEvents } from '@vuesri/components/client-feature-layer/src/types'
 import { Emitter } from 'mitt'
-import { AnyFunc, AnyObject } from 'vunk/shared/types'
+import { AnyObject } from 'vunk/shared/types'
 
 declare global {
   namespace __esri {
@@ -94,11 +94,13 @@ declare global {
 
     interface LayerClassDefinition<T extends AnyObject> extends ClassDefinition<T> {
       tileInfo: __esri.TileInfoProperties,
+      implement: (l:__esri.LayerConstructor) => __esri.LayerConstructor
       createLayerView: (this: __esri.Layer, view: __esri.View) => __esri.LayerView | undefined,
     }
     interface LayerConstructor {
       createSubclass: <T extends AnyObject>(options: Partial<LayerClassDefinition<T>>) => unknown
     }
+
 
     /* custom end */
 
@@ -109,6 +111,7 @@ declare global {
 
     interface MaskingLayerView2D extends __esri.LayerView {
       view: __esri.View
+
     }
     interface MaskingLayerView2DProperties extends __esri.LayerViewProperties {
       view: __esri.View,
@@ -122,13 +125,13 @@ declare global {
 
     /* MaskingLayer */
 
-    interface MaskingLayer extends __esri.Layer {
+    interface MaskingLayer extends __esri.Layer, __esri.ScaleRangeLayer  {
       tileInfo: __esri.TileInfo
       geometry: __esri.Geometry,
       color: number[],
       distance: number
     }
-    interface MaskingLayerProperties extends __esri.LayerProperties {
+    interface MaskingLayerProperties extends __esri.LayerProperties, __esri.ScaleRangeLayerProperties {
       geometry?: __esri.Geometry,
       color?: number[],
       distance?: number
@@ -137,8 +140,13 @@ declare global {
       new(options?: MaskingLayerProperties): MaskingLayer
     }
 
+
     /* MaskingLayer end */
 
     /* custom class end */
   }
+
+  
 }
+
+

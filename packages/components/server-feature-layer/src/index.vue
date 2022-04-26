@@ -8,6 +8,7 @@ import { useSetFeatureLayerOptions, useSetFeatureLayerSpatialReference } from '@
 import FeatureLayer from 'esri/layers/FeatureLayer'
 import { sMitter } from '@vuesri/shared/symbol'
 import mitt from 'mitt'
+
 export default defineComponent({
   name: 'VaServerFeatureLayer',
   components: {

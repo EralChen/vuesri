@@ -2,7 +2,7 @@
 import { props, emits } from './ctx'
 import { defineComponent, watchEffect } from 'vue'
 import { MaskingLayer } from './MaskingLayer'
-import { useAddLayer } from '@vuesri/components/layer/src/use'
+import { useAddLayer, useSetLayerOptions } from '@vuesri/components/layer/src/use'
 import { useView } from '@vuesri/shared/use'
 export default defineComponent({
   name: 'VaMaskingLayer',
@@ -17,7 +17,6 @@ export default defineComponent({
       color: props.color,
       distance: props.distance,
       geometry: props.geometry,
-      
     })
     watchEffect(() => {
       layer.geometry = props.geometry as __esri.Geometry
@@ -28,7 +27,8 @@ export default defineComponent({
     watchEffect(() => {
       layer.distance = props.distance
     })
-    console.log(layer)
+
+    useSetLayerOptions(layer, props)
     useAddLayer(map, layer, props)
 
     emit('load', { view, layer })
