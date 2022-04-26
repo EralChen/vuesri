@@ -15,6 +15,10 @@ export const props = {
     type: Number,
     default: 0,
   },
+  tileInfo: {
+    type: Object as PropType<__esri.TileInfo>,
+    default: undefined,
+  },
 }
 
 export const emits = {

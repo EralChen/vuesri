@@ -11,7 +11,7 @@ export default defineComponent({
   setup (props, { emit }) {
     const view = useView()
     const map = view.map
-
+    const baseLayer = view.map.basemap.baseLayers.getItemAt(0) as __esri.TileLayer
     // core
     const layer = new MaskingLayer({
       color: props.color,
@@ -27,6 +27,14 @@ export default defineComponent({
     watchEffect(() => {
       layer.distance = props.distance
     })
+    
+    watchEffect(() => {
+
+      view.when(() => {
+        layer.tileInfo = props.tileInfo ? props.tileInfo : baseLayer.tileInfo
+      })
+      // layer.tileInfo = props.tileInfo
+    }) 
 
     useSetLayerOptions(layer, props)
     useAddLayer(map, layer, props)

@@ -27,6 +27,12 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
     const layer = layerView.layer
 
     this.watchHandles.add([
+      
+      watchUtils.init(this, 'layer.tileInfo', () => {
+        layerView.needsImageUpdate = true
+        layerView.requestRender()
+      }),
+
       watchUtils.init(this, 'layer.geometry', () => {
         if (!layer.geometry) {
           layerView.projectedGeometry = null
@@ -58,6 +64,8 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
         layerView.needsImageUpdate = true
         layerView.requestRender()
       }),
+
+
     ])
   },
 
