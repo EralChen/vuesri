@@ -20,7 +20,7 @@ export default defineComponent({
     })
     console.log(layer)
     useAddLayer(map, layer, props)
-    emit('load', { view })
+    emit('load', { })
     return {}
   },
 })

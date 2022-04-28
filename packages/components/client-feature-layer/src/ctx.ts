@@ -2,6 +2,7 @@ import { PropType } from 'vue'
 import { ChangeEvent, LoadEvent } from './types'
 import * as featureLayerCtx from '@vuesri/components/feature-layer/src/ctx'
 import { onEmitsFactory } from '@vuesri/shared/helper/ctx'
+
 export const props = {
   ...featureLayerCtx.props,
   source: {

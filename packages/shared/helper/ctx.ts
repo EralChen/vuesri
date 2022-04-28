@@ -1,5 +1,4 @@
 import { computed } from 'vue'
-import { AnyFunc } from 'vunk/shared/types'
 
 export const bindPropsFactory = <
   T1 extends Record<string, any>,
@@ -21,7 +20,7 @@ export const onEmitsFactory = <
   T1 extends Record<string, any>,
 >(emitsOption: T1) => {
   return <
-    T2 extends AnyFunc, 
+    T2 extends (...args:any) => any, 
     EX extends (keyof T1)[],
     K extends keyof T1
   >
