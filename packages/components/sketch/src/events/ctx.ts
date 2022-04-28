@@ -17,6 +17,8 @@ export const createBindProps = bindPropsFactory(props)
 export const emits = {
   'update:modelValue': (e: __esri.Collection<__esri.Graphic> | __esri.Graphic[]) => e,
   'complete': (e:  __esri.SketchCreateEvent | __esri.SketchUpdateEvent) => e,
+  'update': (e: __esri.SketchUpdateEvent) => true || e,
+  'create': (e: __esri.SketchCreateEvent) => true || e,
 }
 
 export const createOnEmits = onEmitsFactory(emits)

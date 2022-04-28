@@ -11,6 +11,7 @@ export default defineComponent({
 
     /* create */
     const createHandle = sketch.on('create', (e) => {
+      emit('create', e)
       if (e.state === 'start') {
 
         if (!props.multiple) { // 仅绘制单面
@@ -38,6 +39,7 @@ export default defineComponent({
 
     /* update */
     const updateHandle = sketch.on('update', (e) => {
+      emit('update', e)
       if (e.state === 'complete') {
         emit('update:modelValue', layer.graphics)
         emit('complete', e)

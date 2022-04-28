@@ -115,7 +115,7 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass<{
     // area and the beginning of the shaded area.
     const unmaskTerm = 3 / this.layer.distance
 
-    // 在不与现有画布内容重叠的地方绘制新图形。
+    // 现有内容保持在新图形不重叠的地方。
     ctx.globalCompositeOperation = 'destination-out'
 
     if (
@@ -137,6 +137,7 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass<{
       const transformed = rings.map((ring) => {
         // bounds 是当前瓦片地理的四边
         // width 是当前瓦片长度
+        
         return ring.map((coords) => {
           return [
             Math.round(
@@ -330,6 +331,7 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass<{
       )
 
     }
+
   },
 
   // Destroy the shader program, the buffers and all the tile images.
