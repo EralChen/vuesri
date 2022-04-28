@@ -15,8 +15,6 @@ export const MaskingLayer = ScaleRangeLayer(Layer).createSubclass({
     }),
   },
 
-
-
   constructor () {
     // this.color = [0, 0, 0, 1]
     // this.distance = 10

@@ -55,14 +55,20 @@ declare global {
       createSubclass: <T extends AnyObject>(options: Partial<BaseDynamicLayerClassDefinition<T>>) => LayerConstructor
     }
 
-
+    interface RenderState {
+      rotation: number
+      pixelRatio: number
+      size: [number, number]
+      resolution: number
+      toScreenNoRotation: (out: number[], from:number[]) => void
+    }
     interface BaseLayerView2DClassDefinition<T extends AnyObject> extends ClassDefinition<T> {
 
       /* Called when the layer is added to the map. */
       attach: (this: T & __esri.BaseLayerView2D &{ layer: __esri.Layer } & BaseLayerView2DClassDefinition<T>) => void
 
       // Called to regenerate a tile.
-      drawGeometry: (ctx: CanvasRenderingContext2D, bounds: number[]) => void
+      drawGeometry: (this: T, ctx: CanvasRenderingContext2D, bounds: number[]) => void
 
       // Creates the images for new tiles that don't have a texture yet, and destroys the images
       // of tiles that are not on screen anymore.
@@ -77,7 +83,7 @@ declare global {
           context: CanvasRenderingContext2D,
           globalOpacity: number,
           pixelRatio: number,
-          state: any,
+          state: RenderState,
           stationary: boolean
         }  
       ) => void

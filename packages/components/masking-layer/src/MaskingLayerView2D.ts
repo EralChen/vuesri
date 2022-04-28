@@ -4,7 +4,16 @@ import Polygon from 'esri/geometry/Polygon'
 import * as projection from 'esri/geometry/projection'
 import BaseLayerView2D from 'esri/views/2d/layers/BaseLayerView2D'
 
-export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
+export const MaskingLayerView2D = BaseLayerView2D.createSubclass<{
+  watchHandles: Handles
+  needsImageUpdate: boolean
+  tileContexts: Map<string, CanvasRenderingContext2D>
+
+  projectedGeometry: any
+
+  layer: __esri.MaskingLayer
+}>({
+
   constructor () {
     // Maps from tile id to the image used by that tile.
     this.tileContexts = new window.Map()
@@ -21,10 +30,13 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
   },
 
   // Called when the layer is added to the map.
+  // 当图层挂载时候
   attach () {
     const projectionPromise = projection.load()
+    
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const layerView = this
-    const layer = layerView.layer
+    const layer = layerView.layer as __esri.MaskingLayer
 
     this.watchHandles.add([
       
@@ -42,6 +54,8 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
         }
 
         projectionPromise.then(() => {
+
+          // 转坐标系
           layerView.projectedGeometry = projection.project(
             layer.geometry,
             layer.tileInfo.spatialReference,
@@ -50,8 +64,11 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
               layer.tileInfo.spatialReference,
             ),
           )
+
           layerView.needsImageUpdate = true
+            
           layerView.requestRender()
+
         })
       }),
 
@@ -97,6 +114,8 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
     // Lower values would cause a visible discontinuity between the fully illuminated
     // area and the beginning of the shaded area.
     const unmaskTerm = 3 / this.layer.distance
+
+    // 在不与现有画布内容重叠的地方绘制新图形。
     ctx.globalCompositeOperation = 'destination-out'
 
     if (
@@ -108,14 +127,16 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
       // and a single fill operation at the end.
 
       // All geometry types are treated as rings.
-      const rings =
+      const rings: number[][][] =
         this.projectedGeometry.type === 'extent'
           ? Polygon.fromExtent(this.projectedGeometry).rings
           : this.projectedGeometry.rings ||
             this.projectedGeometry.paths
 
-      // Rings are transformed to tile coordinates.
+      // Rings are transformed to tile coordinates. 返回 tile坐标
       const transformed = rings.map((ring) => {
+        // bounds 是当前瓦片地理的四边
+        // width 是当前瓦片长度
         return ring.map((coords) => {
           return [
             Math.round(
@@ -128,7 +149,9 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
             ),
           ]
         })
+
       })
+
 
       // The rings are drawn as increasingly thinner lines; this produces
       // a blurred edge around the unmasked area, so that transition from
@@ -218,8 +241,8 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
 
   // Creates the images for new tiles that don't have a texture yet, and destroys the images
   // of tiles that are not on screen anymore.
+  // 管理TileImage
   manageTileImages () {
-    const gl = this.context
 
     const tileIdSet = new Set()
 
@@ -238,10 +261,11 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
         const canvas = document.createElement('canvas')
         canvas.width = this.layer.tileInfo.size[0]
         canvas.height = this.layer.tileInfo.size[1]
-        ctx = canvas.getContext('2d')
+        ctx = canvas.getContext('2d')!
         this.tileContexts.set(tile.id, ctx)
         this.drawGeometry(ctx, tile.bounds)
       }
+
     }
 
     // Destroys unneeded images.
@@ -256,6 +280,8 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
 
   // Example of a render implementation that draws tile boundaries.
   render (renderParameters) {
+
+    // 将在 tileContexts 中存放 瓦片信息
     this.manageTileImages()
 
     const tileSize = this.layer.tileInfo.size[0]
@@ -287,11 +313,14 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
     for (let i = 0; i < this.tiles.length; ++i) {
       // Retrieve the current tile and its associated texture.
       const tile = this.tiles[i]
-      const ctx = this.tileContexts.get(tile.id)
+      const ctx = this.tileContexts.get(tile.id)!
 
       const screenScale =
         (tile.resolution / state.resolution) * pixelRatio
+
       state.toScreenNoRotation(coords, tile.coords)
+
+      /* 将瓦片画在当前的地图 canvas 上 */
       context.drawImage(
         ctx.canvas,
         coords[0],
@@ -299,6 +328,7 @@ export const MaskingLayerView2D = BaseLayerView2D.createSubclass({
         tileSize * screenScale,
         tileSize * screenScale,
       )
+
     }
   },
 
