@@ -5,7 +5,7 @@ export const props = {
   ...layerCtx.props,
   color: {
     type: Array as PropType<number[]>,
-    default: () => [0, 0, 0, 0.3],
+    default: () => [0, 0, 0, 0.7],
   },
   geometry: {
     type: Object as PropType<__esri.Geometry>,
@@ -13,7 +13,7 @@ export const props = {
   },
   distance: {
     type: Number,
-    default: 0,
+    default: 24,
   },
   tileInfo: {
     type: Object as PropType<__esri.TileInfo>,

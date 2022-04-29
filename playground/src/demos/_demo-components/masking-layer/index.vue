@@ -42,8 +42,8 @@ const change = () => {
   <VaMaskingLayer
     :max-scale="levelToScale[9]"
     :min-scale="levelToScale[2]"
-    :color="[0, 0, 0, 0.2]"
-    :distance="0.6"
+    :color="[0, 0, 0, 0.7]"
+    :distance="24"
     :geometry="geometry"
     :index="99"
   ></VaMaskingLayer>
