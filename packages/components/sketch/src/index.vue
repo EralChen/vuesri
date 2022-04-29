@@ -30,8 +30,22 @@ export default defineComponent({
       layer.addMany(gs)
     }
 
-    watch(() => props.modelValue, (v) => {
-      replaceLayerGraphics([...v])
+    watch(() => props.modelValue, (v, ov) => {
+      
+      let update = true
+      if (v.length === ov.length) {
+        for (let i = 0; i < v.length; i++) {
+          if (v[i] !== ov[i]) {
+            update = false
+            break
+          }
+        }
+      }
+
+      if (update) {
+        replaceLayerGraphics([...v])
+      }
+     
     })
 
     if (props.modelValueInitFrom === 'layerGraphics') {

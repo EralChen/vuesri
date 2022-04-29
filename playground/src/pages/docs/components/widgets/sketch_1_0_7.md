@@ -1,7 +1,8 @@
 <route>
 {
   meta: {
-    title: "Sketch"
+    title: "Sketch1.0.7",
+    hidden: true
   }
 }
 </route>
@@ -16,11 +17,20 @@
 _demo-components/sketch/index.vue
 :::
 
-### Save graphics In graphicsLayer
+### In graphicsLayer
 
-+ 在已有 graphicsLayer 上 添加绘制
-+ 可在 graphicsLayer 添加默认值
-+ 绘制组件可开启/关闭
+在已有的GraphicsLayer上创建Sketch
+
+:::demo
+_demo-components/sketch/graphics-layer.vue
+:::
+
++ `:model-value-init-from="'layerGraphics'"` 可以在初始化时，根据layer上的数据，同步数据到 modelValue。 <br> `:model-value-init-from="'modelValue'"`则会根据modelValue覆盖layer上的值，此时已挂载的graphic将被隐式的移除。
+
++ 通过sketch工具修改的graphic.geometry, 并不会直接同步到 VaGraphic 绑定的 geometry中<br> 修改VaGraphic中geometry属性，会直接影响到 Vasketch v-model的值（如果这个要素仍在图层中） <br> 所以获取更新后的值要从 VaSketch v-model 中得到
+
+
+### Save graphics
 
 :::demo
 _demo-components/sketch/save-graphics.vue

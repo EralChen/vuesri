@@ -5,19 +5,34 @@ import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 import { ref, shallowRef } from 'vue'
 import { VaViewUi } from '@vuesri/components/view-ui'
 import { VaGraphicsLayer } from '@vuesri/components/graphics-layer'
-import { VaGraphic } from '@vuesri/components/graphic'
-import { Polygon } from 'esri/geometry'
 import { SimpleFillSymbol } from 'esri/symbols'
 import Graphic from 'esri/Graphic'
-const graphics = shallowRef<__esri.Graphic[]>([])
-const sketchIf = ref(true)
+import Polygon from 'esri/geometry/Polygon'
+const symbol = new SimpleFillSymbol({
+  color: 'red',
+})
+const defaultGraphics = shallowRef<__esri.Graphic[]>([
+  new Graphic({
+    geometry: new Polygon({
+      rings: [
+        [
+          [125, 18],
+          [88, 18],
+          [88, 50],
+          [125, 18],
+        ],
+      ],
+    }),
+    symbol,
+  }),
+])
+const graphics = shallowRef<__esri.Graphic[]>(defaultGraphics.value)
+const sketchIf = ref(false)
+
 const log = () => {
-  console.log(graphics.value, graphics)
+  console.log('当前graphics',graphics.value)
 }
 const setSymbol = (e: __esri.SketchCreateEvent|__esri.SketchUpdateEvent) => {
-  const symbol =  new SimpleFillSymbol({
-    color: 'red',
-  })
   if (e.type === 'create')   {
     e.graphic.symbol = symbol
   } else {
@@ -30,13 +45,12 @@ const setSymbol = (e: __esri.SketchCreateEvent|__esri.SketchUpdateEvent) => {
 <template>
 <VaMapView>
   <VaViewUi :position="'top-leading'">
-    <button @click="log">log</button>
-    <button @click="sketchIf = !sketchIf">change</button>
+    <button @click="log">打印</button>
+    <button @click="sketchIf = !sketchIf">{{ sketchIf ? '结束' : '开始' }}</button>
   </VaViewUi>
   <VaSkyBasemap></VaSkyBasemap>  
 
-  <VaGraphicsLayer>
-
+  <VaGraphicsLayer :graphics="defaultGraphics">
     <VaSketch
       :available-creature-tools="['polygon']"
       v-model="graphics"

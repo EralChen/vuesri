@@ -28,7 +28,7 @@ export default defineComponent({
           layer.remove(layer.graphics.getItemAt(0))
         }
         
-        emit('update:modelValue', layer.graphics)
+        emit('update:modelValue', [...layer.graphics])
         emit('complete', e)
       }
     })
@@ -41,7 +41,7 @@ export default defineComponent({
     const updateHandle = sketch.on('update', (e) => {
       emit('update', e)
       if (e.state === 'complete') {
-        emit('update:modelValue', layer.graphics)
+        emit('update:modelValue', [...layer.graphics])
         emit('complete', e)
       }
     })
