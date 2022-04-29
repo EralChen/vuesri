@@ -5,7 +5,7 @@ import { useView } from '@vuesri/shared/use'
 import MapImageLayer from 'esri/layers/MapImageLayer'
 import { useSetLayerOptions, useAddLayer } from '@vuesri/components/layer/src/use'
 import { VaLayerWhen } from '@vuesri/components/layer-when'
-import ProvideSubLayers from './when/sublayers.vue'
+import { ProvideSubLayers } from '@vuesri/components/sublayer'
 export default defineComponent({
   name: 'VaMapImageLayer',
   components: {
