@@ -16,7 +16,7 @@ export default defineComponent({
     const view = useView()
     const layer = useLayer() as __esri.FeatureLayer | __esri.GeoJSONLayer
     const MitterToggleHandler = useMitterToggleHandler(view[sMitter])
-    const LayerMitterToggleHandler = useMitterToggleHandler(layer[sMitter])
+
     // core
     const _visible = ref(true)
     const visible = computed(() => props.visible ?? _visible.value)
@@ -61,17 +61,24 @@ export default defineComponent({
     })
     /* watchScale end*/
 
-    /* source change */
-    const sourceChage = new LayerMitterToggleHandler('change', async () => {
-      features.value = []
-      await nextTick()
-      await setFeatures()
-    })
-    sourceChage.add()
-    onUnmounted(() => {
-      sourceChage.remove()
-    })
-    /* source change end */
+
+    if (layer[sMitter]) {
+      
+      const LayerMitterToggleHandler = useMitterToggleHandler(layer[sMitter])
+
+      /* source change */
+      const sourceChage = new LayerMitterToggleHandler('change', async () => {
+        features.value = []
+        await nextTick()
+        await setFeatures()
+      })
+      sourceChage.add()
+      onUnmounted(() => {
+        sourceChage.remove()
+      })
+      /* source change end */
+
+    }
 
 
     return {

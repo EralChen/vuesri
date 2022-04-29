@@ -4,14 +4,19 @@ import { defineComponent, provide, watchEffect } from 'vue'
 import { useView } from '@vuesri/shared/use'
 import MapImageLayer from 'esri/layers/MapImageLayer'
 import { useSetLayerOptions, useAddLayer } from '@vuesri/components/layer/src/use'
+import { VaLayerWhen } from '@vuesri/components/layer-when'
+import ProvideSubLayers from './when/sublayers.vue'
 export default defineComponent({
   name: 'VaMapImageLayer',
+  components: {
+    VaLayerWhen,
+    ProvideSubLayers,
+  },
   emits,
   props,
   setup (props, { emit }) {
     const view = useView()
     const map = view.map
-    
     // core
     const layer = new MapImageLayer({ ...props.defaultOptions })
     watchEffect(() => {
@@ -26,12 +31,19 @@ export default defineComponent({
     useAddLayer(map, layer, props)
     provide('vaLayer', layer)
     provide('vaMapImageLayer', layer)
-
+    
+   
     emit('load', { view, layer })
-    return {}
+    return {
+    }
   },
 })
 </script>
 <template>
   <slot></slot>
+  <VaLayerWhen>
+    <ProvideSubLayers>
+      <slot name="when"></slot>
+    </ProvideSubLayers>
+  </VaLayerWhen>
 </template>

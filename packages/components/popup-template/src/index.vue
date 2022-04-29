@@ -12,7 +12,9 @@ export default defineComponent({
   props,
   setup (props, { emit }) {
     const view = useView()
-    const instance = inject<{ popupTemplate: __esri.PopupTemplate } | null>('vaLayer', null)
+    const instance = inject<{ popupTemplate: __esri.PopupTemplate } | null>('vaSublayer', null) 
+    || inject<{ popupTemplate: __esri.PopupTemplate } | null>('vaLayer', null)
+    
     const o = instance?.popupTemplate
     // core
     const graphicToNode = ref<GraphicToNode>(new Map())

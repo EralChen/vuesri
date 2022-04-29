@@ -57,3 +57,5 @@ export * from '@vuesri/components/geojson-layer'
 // export * from '@vuesri/components/picture-layer'
 
 export * from '@vuesri/components/masking-layer'
+
+export * from '@vuesri/components/sublayer'
