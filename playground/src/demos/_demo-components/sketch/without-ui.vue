@@ -2,69 +2,90 @@
 import { VaSketch, __VaSketch } from '@vuesri/components/sketch'
 import { VaMapView } from '@vuesri/components/map-view'
 import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
-import { ref, shallowRef } from 'vue'
+import { nextTick, ref, shallowRef } from 'vue'
 import { VaViewUi } from '@vuesri/components/view-ui'
 import { VaGraphicsLayer } from '@vuesri/components/graphics-layer'
-import { VaGraphic } from '@vuesri/components/graphic'
 import { Polygon } from 'esri/geometry'
 import { SimpleFillSymbol } from 'esri/symbols'
-import { Deferred } from 'vunk/shared/utils-promise'
-const geometry = shallowRef(new Polygon({
-  rings: [
-    [
-      [125, 18],
-      [88, 18],
-      [88, 50],
-      [125, 18],
-    ],
-  ],
-})) 
+import Graphic from 'esri/Graphic'
+type SkethInit = 'create'|'update'|''
 const symbol = new SimpleFillSymbol({
   color: 'red',
 })
-const graphicDef = new Deferred<__esri.Graphic>()
+const defaultGraphics = shallowRef<__esri.Graphic[]>([
+  new Graphic({
+    geometry: new Polygon({
+      rings: [
+        [
+          [125, 18],
+          [88, 18],
+          [88, 50],
+          [125, 18],
+        ],
+      ],
+    }),
+    symbol,
+  }),
+])
+const graphics = shallowRef<__esri.Graphic[]>(defaultGraphics.value)
 
-const graphics = shallowRef<__esri.Graphic[]>([])
-const updateFlag = ref(false)
-const sketchLoad:__VaSketch.OnLoad = async ({ sketch }) => {
-  const g = await graphicDef.promise
-  sketch.update(g)
+const skethInit = ref<SkethInit>('')
+const setSkethInit = async (type: SkethInit) => {
+  if (skethInit.value && skethInit.value !== type) {
+    skethInit.value = ''
+    await nextTick()
+  }
+  skethInit.value = type
 }
+const sketchLoad = async ({ sketch }: __VaSketch.LoadEvent, type: SkethInit) => {
+  const layer = sketch.layer
+
+  if (type === 'update') {
+    sketch.update(layer.graphics.at(-1))
+  }
+
+  if (type === 'create') {
+    sketch.create('polygon')
+  }
+
+
+}
+
 const sketchComplete = async () => {
-  const g = await graphicDef.promise
-  const ng = graphics.value.find(item => item === g)
-  // 建立 定义时geometry  和视图上 geometry 的引用关系
-  if (ng?.geometry && ng.geometry !== geometry.value) geometry.value = ng.geometry as __esri.Polygon
+  defaultGraphics.value = graphics.value
+  if (skethInit.value === 'create') {
+    skethInit.value = '' 
+  }
 
 }
+
 const log = () => {
-  // console.log(graphics.value[0].geometry === geometry.value)
-  console.log(graphics.value.at(0)?.geometry, geometry.value.rings)
+  console.log(defaultGraphics.value)
 }
 
 </script>
 <template>
 <VaMapView>
   <VaViewUi :position="'top-leading'">
-    <button @click="updateFlag = !updateFlag">updateFlag {{updateFlag}}</button>
-    <button @click="log">log</button>
+    <el-button @click="log">打印</el-button>
+    <el-button :disabled="skethInit === 'update'" @click="setSkethInit('update')"> 编辑</el-button>
+    <el-button :disabled="skethInit === 'create'" @click="setSkethInit('create')"> 创建</el-button>
+    <el-button :disabled="!skethInit" @click="setSkethInit('')"> 结束</el-button>
   </VaViewUi>
+
   <VaSkyBasemap></VaSkyBasemap>  
 
-  <VaGraphicsLayer>
-    <VaGraphic 
-      :geometry="geometry" :symbol="symbol"
-      @load="(e) => graphicDef.resolve(e.graphic)"
-    ></VaGraphic>
+  <VaGraphicsLayer :graphics="defaultGraphics">
+
     <VaSketch
       v-show="false"
-      :modelValueInitFrom="'layerGraphics'"
       :orphan="true"
-      v-if="updateFlag"
+      v-if="skethInit"
       v-model="graphics"
-      @load="sketchLoad"
+      @load="(e) => sketchLoad(e, skethInit)"
       @complete="sketchComplete"
     ></VaSketch>
+
   </VaGraphicsLayer>
 </VaMapView>
 </template>
