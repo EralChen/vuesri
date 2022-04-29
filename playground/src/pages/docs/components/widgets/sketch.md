@@ -46,3 +46,11 @@ _demo-components/sketch/without-ui.vue
 |v-show|-|-|-|
 |modelValueInitFrom|'modelValue'\|'layerGraphics'|'modelValue'|初始化时，modelValue来源|
 |orphan	| Boolean	| false |	若为true, 则实例将未挂载到 view.ui |
+
+## Emits
+|事件|类型|参数|描述|
+|-|-|-|-|
+|load|__VaSketch.OnLoad|view: \__esri.View <br> sketch: __esri.Sketch |Sketch实例加载后|
+|complete|  __esri.SketchCreateEvent \| __esri.SketchUpdateEvent |-|在更新或者创建完成后|
+|[create](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html#event-create)|__esri.SketchCreateEvent|-|sketch.on('create')|
+|[update](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html#event-update)|__esri.SketchUpdateEvent|-|sketch.on('update')|
