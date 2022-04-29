@@ -6,8 +6,8 @@ import windowEnv from './build/plugins/window-env'
 import { getEnv } from './utils/env'
 import path from 'path'
 import { srcRoot, workRoot } from './config/path'
-import legacy from '@vitejs/plugin-legacy'
-import { viteExternalsPlugin } from 'vite-plugin-externals'
+// import legacy from '@vitejs/plugin-legacy'
+// import { viteExternalsPlugin } from 'vite-plugin-externals'
 import pages from 'vite-plugin-pages'
 import markdown from 'vite-plugin-md'
 import markdownAnchor from 'markdown-it-anchor'
@@ -104,13 +104,13 @@ export default defineConfig(({ mode }) => {
         // markdownItUses: [mdDemoPlugin],
       }),
       
-      legacy({
-        modernPolyfills: ['esnext.array.at'],
-      }),
+      // legacy({
+      //   modernPolyfills: ['esnext.array.at'],
+      // }),
       windowEnv(),
-      viteExternalsPlugin({
+      // viteExternalsPlugin({
 
-      }),
+      // }),
       createSvgIconsPlugin({
         // Specify the icon folder to be cached
         iconDirs: [path.resolve(srcRoot, './icons/svg')],

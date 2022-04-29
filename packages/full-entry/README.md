@@ -5,7 +5,7 @@
 - 类型友好
 
 ## 链接
-+ [在线文档](https://gis.zjsophon.com/vuesri/docs/components/view/map-view/map-view)
++ [在线文档](http://112.16.181.129:13000/vuesri/docs/components/view/map-view/map-view)
 + [ArcGIS for JavaScript](https://developers.arcgis.com/javascript/latest/)
 ## 快速开始
 
