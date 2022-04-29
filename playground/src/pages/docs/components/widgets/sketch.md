@@ -39,10 +39,10 @@ _demo-components/sketch/without-ui.vue
 ## Props
 |属性|类型|默认值|描述|
 |-|-|-|-|
+|v-model*|__esri.Graphic[]\|__esri.Collection<__esri.Graphic>| [] | 绘制图层中的layer.graphics|
 |[defaultOptions](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html#constructors-summary)|__esri.SketchProperties|{}|构造函数参数|
 |:[position](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-ui-UI.html#add)|__VaSketch.UiAddPosition|'top-right'|ui控件被添加的位置|
 |:[availableCreatureTools](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html#availableCreateTools)|__VaSketch.AvailableCreatureTool[]|-|可用工具|
-|v-model|__esri.Graphic[]\|__esri.Collection<__esri.Graphic>| [] | 绘制图层中的layer.graphics|
 |v-show|-|-|-|
 |modelValueInitFrom|'modelValue'\|'layerGraphics'|'modelValue'|初始化时，modelValue来源|
 |orphan	| Boolean	| false |	若为true, 则实例将未挂载到 view.ui |
