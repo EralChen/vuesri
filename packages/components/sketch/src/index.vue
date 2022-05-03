@@ -31,7 +31,7 @@ export default defineComponent({
     }
 
     watch(() => props.modelValue, (v, ov) => {
-      
+    
       let update = true
       if (v.length === ov.length) {
         for (let i = 0; i < v.length; i++) {
