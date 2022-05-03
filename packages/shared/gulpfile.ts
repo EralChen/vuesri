@@ -19,6 +19,7 @@ const getOutputFile = (filePath: string) => path.resolve(
 
 
 export default series(
+  
   taskWithName('bundleSharedJs', async () => {
     const filePaths = await glob('**/*', {
       cwd: path.resolve(__dirname, './'),
@@ -37,6 +38,7 @@ export default series(
     })
 
   }),
+
   taskWithName('genSharedType', async () => {
     genTypes({
       filesRoot: path.resolve(__dirname, './'),

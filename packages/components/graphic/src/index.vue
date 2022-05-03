@@ -31,7 +31,7 @@ export default defineComponent({
       // 如果 是 polygon,polygon.rings.length < 3 会被忽略
       graphic.geometry = props.geometry as __esri.Geometry
 
-      !hasSpatial && view.when(() => {
+      !hasSpatial && graphic.geometry && view.when(() => {
         graphic.geometry.spatialReference = (props.spatialReference || view.spatialReference) as __esri.SpatialReference
       })
 

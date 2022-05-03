@@ -1,5 +1,5 @@
 import { Emitter } from 'mitt'
-import { EmitterValue } from '@vuesri/shared/types'
+import { EmitterValue } from '../types'
 import { ToggleHandler } from 'vunk/shared/utils-class/ToggleHandler'
 import { AnyFunc } from 'vunk/shared/types'
 

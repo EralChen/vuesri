@@ -7,7 +7,7 @@ import fs from 'fs/promises'
 import * as vueCompiler from '@vue/compiler-sfc'
 import { green, red, yellow } from '../../utils/log'
 import { bold } from 'chalk'
-import {fixPath} from  '../../build/utils'
+import { fixPath } from  './tools'
 
 export async function genTypes (opts: {
   filesRoot: string

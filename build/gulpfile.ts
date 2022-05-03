@@ -3,8 +3,9 @@ import {run, taskWithName} from '../utils/task'
 import concat from 'gulp-concat'
 import fs from 'fs/promises'
 import path from 'path'
-import {outDir} from '../config/path'
+import {outDir, workRoot} from '../config/path'
 import { sync } from 'fast-glob'
+import { fixPath } from './utils/tools'
 // 打包vue组件
 const mainTask = series(
   taskWithName('clean', async () => run('rm -rf ./dist')),
@@ -31,6 +32,12 @@ const mainTask = series(
     fs.cp(path.resolve(outDir, 'types'), path.resolve(outDir), {
       recursive: true,
     })
+  }),
+
+  taskWithName('copyClientTypes', async () => {
+    const text = await fs.readFile(path.resolve(workRoot, './typings/client.d.ts'))
+    await fs.writeFile(path.resolve(outDir, './client.d.ts'), fixPath(text.toString()))
+    
   }),
 )
 export default mainTask

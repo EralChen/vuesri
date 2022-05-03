@@ -2,15 +2,14 @@ import {series, parallel} from 'gulp'
 import {taskWithName} from '../../utils/task'
 import {libExternal} from '../../config/build'
 import path from 'path'
-import {mainRoot,outDir} from '../../config/path'
+import {mainRoot,outDir, workRoot} from '../../config/path'
 import fs from 'fs/promises'
 import { rollupFile } from '../../build/utils/rollup'
 import { fixPath } from '../../build/utils'
 
-
-
 export default series(
-  taskWithName('bundleFullEntry', async ()=> {
+
+  taskWithName('bundleFullEntry', async () => {
     rollupFile({
       external: libExternal,
       inputFile: path.resolve(mainRoot, './main.ts'),
@@ -18,6 +17,7 @@ export default series(
       format: 'esm',
     })
   }),
+
   parallel(
     taskWithName('genEntryTypes', async () => { // 生成入口 .d.ts
       const mainPath = path.resolve(mainRoot, './main.ts')
@@ -31,5 +31,6 @@ export default series(
     }),
 
   ),
+
 
 )
