@@ -20,6 +20,11 @@ export default defineComponent({
     })
     watchEffect(() => {
       layer.geometry = props.geometry as __esri.Geometry
+      if (props.geometry && !props.geometry.spatialReference) {
+        view.when(() => {
+          layer.geometry.spatialReference = (props.spatialReference || view.spatialReference) as __esri.SpatialReference
+        })
+      }
     })
     watchEffect(() => {
       layer.color = props.color

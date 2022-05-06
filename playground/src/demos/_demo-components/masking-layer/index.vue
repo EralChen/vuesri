@@ -18,7 +18,7 @@ const geometry2 = new Polygon({
     ],
   ],
 })
-const geometry = shallowRef(new Polygon({
+const geometry1 = new Polygon({
   rings: [
     [
       [125, 18],
@@ -27,8 +27,11 @@ const geometry = shallowRef(new Polygon({
       [125, 18],
     ],
   ],
-})) 
-
+})
+const geometry = shallowRef<__esri.Polygon>() 
+setTimeout(() => {
+  geometry.value = geometry1
+}, 3000)
 const change = () => {
   geometry.value = geometry2
 }
@@ -40,8 +43,6 @@ const change = () => {
 
 
   <VaMaskingLayer
-    :max-scale="levelToScale[9]"
-    :min-scale="levelToScale[2]"
     :color="[0, 0, 0, 0.7]"
     :distance="24"
     :geometry="geometry"

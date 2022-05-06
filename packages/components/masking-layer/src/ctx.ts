@@ -9,7 +9,7 @@ export const props = {
   },
   geometry: {
     type: Object as PropType<__esri.Geometry>,
-    required: true,
+    default: undefined,
   },
   distance: {
     type: Number,
@@ -17,6 +17,10 @@ export const props = {
   },
   tileInfo: {
     type: Object as PropType<__esri.TileInfo>,
+    default: undefined,
+  },
+  spatialReference: {
+    type: Object as PropType<__esri.SpatialReferenceProperties>,
     default: undefined,
   },
 }
