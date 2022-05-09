@@ -23,6 +23,12 @@ _demo-components/popup-template/graphic/index.vue
 _demo-components/popup-template/graphic/AddToGraphic.vue
 :::
 
+### 弹窗内容懒加载
+:::demo
+_demo-components/popup-template/popup-lazy/index.vue
+:::
+
+
 ## Props
 |属性|类型|默认值|描述|
 |-|-|-|-|
