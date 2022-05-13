@@ -15,6 +15,10 @@ export const props = {
     type: Object as PropType<__esri.Renderer>,
     default: undefined,
   },
+  definitionExpression: {
+    type: String,
+    default: '1=1',
+  },
 }
 
 export const emits = {

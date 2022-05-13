@@ -24,6 +24,9 @@ export default defineComponent({
       if (props.renderer === undefined) return
       sublayer.renderer = props.renderer
     })
+    watchEffect(() => {
+      sublayer.definitionExpression = props.definitionExpression
+    })
  
     useSetLayerOptions(sublayer, props)
     useAddLayer(sublayers, sublayer, props)
