@@ -1,6 +1,6 @@
 <script lang="ts">
 import { props, emits } from './ctx'
-import { computed, defineComponent, nextTick, onUnmounted, ref, shallowRef } from 'vue'
+import { computed, defineComponent, nextTick, onUnmounted, ref, shallowRef, watch } from 'vue'
 import { useLayer, useView } from '@vuesri/shared/use'
 import { VaGeoViewUi } from '@vuesri/components/geo-view-ui'
 import { sMitter } from '@vuesri/shared/symbol'
@@ -41,6 +41,18 @@ export default defineComponent({
       })
     })
     /* load end */
+
+    /* change */
+    watch(() => ({...props.query}), () => {
+      setFeatures().then(featureSet => {
+        emit('change', {
+          featureSet,
+          view, 
+          layer,
+        })
+      })
+    })
+    /* changed */
     
     /* watchScale */
     const watchScale = new MitterToggleHandler('watch:scale', ([v]) => {
@@ -60,6 +72,7 @@ export default defineComponent({
       watchScale.remove()
     })
     /* watchScale end*/
+    
 
 
     if (layer[sMitter]) {
