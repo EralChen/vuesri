@@ -14,6 +14,7 @@ import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import esriConfig from '@arcgis/core/config'
 esriConfig.assetsPath = import.meta.env.VITE_BASE_URL + '/Esri'
+esriConfig.apiKey = 'AAPKb14837d0d1fd48c2a9e834966b090d71jkWd8RL_697p0sRB9s87pEWRaefvBwcC_pdbOKwZd3Ka8xiulyqbHPassAKuHBxH'
 
 createApp(App)
   .use(router)
