@@ -1,11 +1,12 @@
 <script lang="ts" setup>
 import { VaMapView } from '@vuesri/components/map-view'
-import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
+// import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 import Map from 'esri/Map'
 import { VaGraphic } from '@vuesri/components/graphic'
 import Circle from 'esri/geometry/Circle'
 import { Point } from 'esri/geometry'
 import { SimpleFillSymbol } from 'esri/symbols'
+
 const map:__esri.Map = new Map({
   basemap: 'arcgis-imagery',
 })

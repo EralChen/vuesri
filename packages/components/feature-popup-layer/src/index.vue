@@ -7,6 +7,7 @@ import { sMitter } from '@vuesri/shared/symbol'
 import { useMitterToggleHandler } from '@vuesri/shared/helper/mitter'
 export default defineComponent({
   name: 'VaFeaturePopupLayer',
+  inheritAttrs: false,
   components: {
     VaGeoViewUi,
   },
@@ -107,6 +108,7 @@ export default defineComponent({
     :key="item.getObjectId()"
     :visible="visible"
     :geometry="item.geometry"
+    v-bind="$attrs"
   >
       <slot 
         :attributes="item.attributes"
