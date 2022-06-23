@@ -10,7 +10,7 @@ import { fixPath } from './utils/tools'
 const mainTask = series(
   taskWithName('clean', async () => run('rm -rf ./dist')),
   // 并行打包 packages 下的内容
-  taskWithName('buildPackages', async () => run('pnpm run --filter ./packages --parallel build')),
+  taskWithName('buildPackages', async () => run('pnpm run --filter "./packages/**" --parallel build')),
 
   // 合并所有css到入口
   taskWithName('buildCss', async () => {
