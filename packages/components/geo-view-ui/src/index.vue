@@ -1,6 +1,6 @@
 <script lang="ts">
 import { props, emits } from './ctx'
-import { computed, defineComponent, onUnmounted, ref, shallowRef } from 'vue'
+import { computed, defineComponent, onUnmounted, ref, shallowRef, watch } from 'vue'
 import { VaViewUi } from '@vuesri/components/view-ui'
 import { useView } from '@vuesri/shared/use'
 import { sMitter } from '@vuesri/shared/symbol'
@@ -44,7 +44,7 @@ export default defineComponent({
     /* data init end */
 
     /* ScreenPoint end */
-    const extentVisible = ref(true)
+    const _visiable = ref(true)
     const screenPoint = shallowRef<__esri.MapViewScreenPoint>()
     const setScreenPoint = () => {
       let p: __esri.MapViewScreenPoint = center.value ? view.toScreen(center.value) :  {
@@ -61,19 +61,22 @@ export default defineComponent({
       if (!props.visible) return
       if (!center.value) return
       if (!v.contains(center.value)) { 
-        return extentVisible.value = false
+        return _visiable.value = false
       }
       setScreenPoint()
-      extentVisible.value = true
+      _visiable.value = true
     })
     wathExtent.add()
     onUnmounted(() => {
       wathExtent.remove()
     })
+    watch(() => center.value, () => {
+      setScreenPoint()
+    })
     /* watch extent end */
 
-    // 如果外层传 true 则根据 extentVisible ， 如果外层传 false 则是 false
-    const visible = computed(() => props.visible ? extentVisible.value : false)
+    // 如果外层传 true 则根据 _visiable ， 如果外层传 false 则是 false
+    const visible = computed(() => props.visible ? _visiable.value : false)
 
     return {
       screenPoint,
