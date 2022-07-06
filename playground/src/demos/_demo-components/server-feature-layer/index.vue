@@ -19,6 +19,7 @@ const renderer = new SimpleRenderer({
   symbol: new SimpleMarkerSymbol({
     size: 10,
     color: 'green',
+    
   }),
 })
 

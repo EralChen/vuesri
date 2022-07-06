@@ -61,3 +61,5 @@ export * from '@vuesri/components/masking-layer'
 export * from '@vuesri/components/sublayer'
 
 export * from '@vuesri/components/print'
+
+export * from '@vuesri/components/wms-layer'
