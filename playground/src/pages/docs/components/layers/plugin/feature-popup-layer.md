@@ -14,9 +14,19 @@
 
 > 在服务端渲染时`layer.queryFeatures()`实际上是调用`query`接口，最多返回1000个要素
 
+## Demo
+
+### Base
 
 :::demo
 _demo-components/feature-popup-layer/index.vue
+:::
+
+
+### 动态查询
+
+:::demo
+_demo-components/feature-popup-layer/query.vue
 :::
 
 

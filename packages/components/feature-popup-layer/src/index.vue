@@ -21,7 +21,7 @@ export default defineComponent({
     // core
     const _visible = ref(true)
     const visible = computed(() => props.visible ?? _visible.value)
-    const features = shallowRef<__esri.Graphic[]>([])
+    const features = shallowRef<(__esri.Graphic & {uid?: number})[]>([])
     const setFeatures = async () => {
       const featureSet = await layer.queryFeatures({
         returnGeometry: true,
@@ -30,6 +30,7 @@ export default defineComponent({
         ...props.query,
       })
       features.value = featureSet.features
+      console.log(features.value[0])
       return featureSet
     }
 
@@ -45,6 +46,7 @@ export default defineComponent({
 
     /* change */
     watch(() => ({...props.query}), () => {
+
       setFeatures().then(featureSet => {
         emit('change', {
           featureSet,
@@ -52,6 +54,7 @@ export default defineComponent({
           layer,
         })
       })
+
     })
     /* changed */
     
@@ -94,26 +97,28 @@ export default defineComponent({
 
     }
 
-
     return {
       visible,
       features,
+      layer,
     }
   },
 })
 </script>
 <template>
+
   <VaGeoViewUi
-    v-for="item of features"
-    :key="item.getObjectId()"
+    v-for="(item, index) of features"
     :visible="visible"
     :geometry="item.geometry"
     v-bind="$attrs"
+    :key="item.uid || index"
   >
       <slot 
         :attributes="item.attributes"
         :geometry="item.geometry"
       ></slot>
-
   </VaGeoViewUi>
+
+
 </template>
