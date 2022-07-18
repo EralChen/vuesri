@@ -1,6 +1,6 @@
 {
   "name": "vuesri",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Vue3.x components for @arcgis/core",
   "module": "index.esm.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "author": "eral-chen",
   "license": "ISC",
   "devDependencies": {
-    "@arcgis/core": "^4.23.7",
+    "@arcgis/core": "^4.24.7",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.3",

@@ -21,7 +21,6 @@ export function useAddLayer (map, layer, props) {
   const reorder = (ni: number) => {
     
     const layers = map instanceof EsriMap ? map.layers : map
-    
     layers.forEach(item => {
       // [TODO] 排序
       if (item[sIndex] > ni) {
