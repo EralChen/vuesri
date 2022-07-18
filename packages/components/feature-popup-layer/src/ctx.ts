@@ -3,7 +3,7 @@ import { LoadEvent } from './types'
 
 export const props = {
   query: {
-    type: Object as PropType<__esri.supportQuery | __esri.supportQueryProperties | undefined>,
+    type: Object as PropType<__esri.QueryProperties | undefined>,
     default: {},
   },
   visible: {

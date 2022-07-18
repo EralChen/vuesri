@@ -14,7 +14,8 @@ export default defineComponent({
 
     /* click mitter */
     const clickMitter = new MitterToggleHandler('click', (e) => {
-      const { hitTestResult: { results } } = e
+      const { hitTestResult } = e
+      const results = hitTestResult.results as __esri.GraphicHit[]
       const result = results.find(item => item.graphic.layer === layer)
       emit('click', { ...e, result, layer })
     })
@@ -26,7 +27,8 @@ export default defineComponent({
 
     /* pointer move mitter */
     const pinterMoveMitter = new MitterToggleHandler('pointer-move', (e) => {
-      const { hitTestResult: { results } } = e
+      const { hitTestResult } = e
+      const results = hitTestResult.results as __esri.GraphicHit[]
       const result = results.find(item => item.graphic.layer === layer)
       emit('pointerMove', { ...e, result, layer })
     })
