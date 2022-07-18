@@ -14,7 +14,7 @@ importers:
       '@types/qs': ^6.9.7
       '@typescript-eslint/eslint-plugin': ^5.12.1
       '@typescript-eslint/parser': ^5.12.1
-      '@vue/compiler-sfc': ^3.2.31
+      '@vue/compiler-sfc': ^3.2.37
       '@vuesri/components': workspace:*
       '@vuesri/shared': workspace:*
       chalk: 4.1.2
@@ -91,7 +91,7 @@ importers:
       '@types/qs': ^6.9.7
       '@typescript-eslint/eslint-plugin': ^5.12.1
       '@typescript-eslint/parser': ^5.12.1
-      '@vue/compiler-sfc': ^3.2.31
+      '@vue/compiler-sfc': ^3.2.37
       chalk: 4.1.2
       esbuild: ^0.14.23
       eslint: ^8.10.0
@@ -164,7 +164,7 @@ importers:
       '@vitejs/plugin-legacy': ^1.7.1
       '@vitejs/plugin-vue': ^2.2.4
       '@vitejs/plugin-vue-jsx': ^1.3.8
-      '@vue/compiler-sfc': ^3.2.31
+      '@vue/compiler-sfc': ^3.2.37
       '@vueuse/core': ^8.2.0
       chalk: ^5.0.0
       element-plus: ^2.1.6
