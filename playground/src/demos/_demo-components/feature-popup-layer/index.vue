@@ -10,7 +10,7 @@ console.log(version)
 // setTimeout(() => {
 //   where.value = '1=1'
 // }, 3000)
-const url = 'http://119.3.132.67:6080/arcgis/rest/services/MLLH/MLLH2/MapServer/21'
+const url = ref('http://119.3.132.67:6080/arcgis/rest/services/ZSQCSJJ/ZSZHGC5/MapServer/8') 
 </script>
 <template>
 <VaMapView>
@@ -23,8 +23,8 @@ const url = 'http://119.3.132.67:6080/arcgis/rest/services/MLLH/MLLH2/MapServer/
     <VaFeaturePopupLayer :query="{
       where: where
     }">
-      <template v-slot="{attributes}">
-        {{ attributes.objectid_1 }}
+      <template #default="{attributes}">
+        {{ attributes }}
       </template>
     </VaFeaturePopupLayer>
   </VaServerFeatureLayer>
