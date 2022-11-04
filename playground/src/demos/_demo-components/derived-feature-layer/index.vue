@@ -6,6 +6,7 @@ import { SimpleRenderer } from 'esri/renderers'
 import { SimpleMarkerSymbol } from 'esri/symbols'
 import { VaDerivedFeatureLayer, __VaDerivedFeatureLayer } from '@vuesri/components/derived-feature-layer'
 import { ref, shallowReactive } from 'vue'
+
 const layerClick: __VaDerivedFeatureLayer.OnClick = async (e) => {
   const { result } = e
   if (result) {
@@ -21,7 +22,9 @@ const renderer = new SimpleRenderer({
 const visible = ref(true)
 const query = shallowReactive({
   where: '1=1',
-} as __esri.QueryProperties) 
+} as __esri.QueryProperties)
+// const query = ref({})
+
 </script>
 <template>
 <VaMapView>

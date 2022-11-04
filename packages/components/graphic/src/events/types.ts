@@ -3,6 +3,6 @@ import { ReturnVoid } from 'vunk/shared/types'
 
 export interface ClickEvent extends ViewClickEvent {
   graphic: __esri.Graphic
-  result: __esri.HitTestResultResults | undefined
+  result: __esri.GraphicHit | undefined
 }
 export type OnClick = (e:ClickEvent) => ReturnVoid

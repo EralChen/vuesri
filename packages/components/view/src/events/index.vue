@@ -20,7 +20,7 @@ export default defineComponent({
         this.handler = handler
       }
       add () {
-        const hr = view.on(this.eventName, this.handler)
+        const hr = view.on(this.eventName as any, this.handler)
         this.removeHandler = hr.remove
       }
     }
@@ -43,7 +43,7 @@ export default defineComponent({
       throttle(
         async (event) => {
           const hitTestResult = await view.hitTest(event)
-          const feature = hitTestResult.results[0]
+          const feature = hitTestResult.results[0] as __esri.GraphicHit
           const ownLayer = feature?.graphic.layer
           // 根据第一个要素layer上指明的 cursor 改变鼠标样式
           if (ownLayer) {

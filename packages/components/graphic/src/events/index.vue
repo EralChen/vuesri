@@ -14,8 +14,9 @@ export default defineComponent({
 
     /* click mitter */
     const clickMitter = new MitterToggleHandler('click', (e) => {
-      const { hitTestResult: { results } } = e
-      let result: __esri.HitTestResultResults|undefined
+      const { hitTestResult } = e
+      const results = hitTestResult.results as __esri.GraphicHit[]
+      let result: __esri.GraphicHit|undefined
       if (results[0]?.graphic === graphic) {
         result = results[0]
       }

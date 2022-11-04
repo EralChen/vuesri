@@ -22,16 +22,16 @@ export default defineComponent({
     const _visible = ref(true)
     const visible = computed(() => props.visible ?? _visible.value)
     const features = shallowRef<(__esri.Graphic & {uid?: number})[]>([])
-    const setFeatures = async () => {
-      const featureSet = await layer.queryFeatures({
+    const setFeatures = () => {
+      return layer.queryFeatures({
         returnGeometry: true,
         outFields: ['*'],
         where: '1=1',
         ...props.query,
+      }).then((featureSet) => {
+        features.value = featureSet.features
+        return featureSet
       })
-      features.value = featureSet.features
-      console.log(features.value[0])
-      return featureSet
     }
 
     /* load */
