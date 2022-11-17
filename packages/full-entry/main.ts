@@ -63,3 +63,5 @@ export * from '@vuesri/components/sublayer'
 export * from '@vuesri/components/print'
 
 // export * from '@vuesri/components/wms-layer'
+
+export * from '@vuesri/components/scene-layer'

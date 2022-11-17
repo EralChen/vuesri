@@ -4,9 +4,10 @@ import { sCursor, sIndex } from '@vuesri/shared/symbol'
 import { useSetVisible } from '@vuesri/shared/use'
 import { onUnmounted, watch } from 'vue'
 
-export function useAddLayer (map: __esri.Map|__esri.Collection<__esri.Layer>, layer: __esri.Layer, props: {
-  index?: number
-  orphan?: boolean
+export function useAddLayer (map: __esri.Map|__esri.Collection<__esri.Layer>,
+   layer: __esri.Layer, props: {
+    index?: number
+    orphan?: boolean
 }): void
 export function useAddLayer (map: __esri.Collection<__esri.Sublayer>, layer: __esri.Sublayer, props: {
   index?: number
@@ -57,6 +58,7 @@ export function useSetLayerOptions (
   | __esri.TileLayer
   | __esri.MaskingLayer
   | __esri.Sublayer
+  | __esri.SceneLayer
   ,
   props: {
   visible: boolean

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { VaSceneView, __VaSceneView } from '@vuesri/components/scene-view'
+import { VaSceneView } from '@vuesri/components/scene-view'
 import { VaSkyBasemap } from '@vuesri/components/sky-basemap'
 
 export default defineComponent({
@@ -17,7 +17,6 @@ export default defineComponent({
         background: {
           type: 'color',
           color: [0, 0, 0, 0],
-
         },
       },
       alphaCompositingEnabled: true,
