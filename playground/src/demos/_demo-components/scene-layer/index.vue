@@ -17,7 +17,7 @@ const layerLoad:__VaSceneLayer.OnLoad = async ({
   }"></VaSkyBasemap>
 
   <VaSceneLayer
-    :url="'http://116.63.63.191:6080/geoscene/rest/services/Hosted/zh_jzw_test/SceneServer'"
+    :url="'http://116.63.63.191:6080/arcgis/rest/services/Hosted/gxq3857_1/SceneServer'"
     @load="layerLoad"
   ></VaSceneLayer>
 </VaSceneView>
