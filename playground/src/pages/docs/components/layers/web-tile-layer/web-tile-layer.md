@@ -13,7 +13,7 @@
 
 ## Demo
 
-### 天地图
+<!-- ### 天地图
 :::demo
 _demo-components/web-tile-layer/index.vue
 :::
@@ -21,7 +21,13 @@ _demo-components/web-tile-layer/index.vue
 ### 自定义4490坐标
 :::demo
 _demo-components/web-tile-layer/spatial-reference.vue
+::: -->
+
+### 其他wmts服务
+:::demo
+_demo-components/web-tile-layer/nb.vue
 :::
+
 
 ## Props
 
