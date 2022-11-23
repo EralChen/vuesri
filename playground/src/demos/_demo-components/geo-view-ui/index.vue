@@ -11,7 +11,7 @@ const point = new Point({
 <template>
 <VaMapView>
   <VaSkyBasemap :type="'vec_c'"></VaSkyBasemap>
-  <VaGeoViewUi :geometry="point">
+  <VaGeoViewUi :geometry="point" class="abc">
     name
   </VaGeoViewUi>
 </VaMapView>
