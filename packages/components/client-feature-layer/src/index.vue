@@ -44,44 +44,46 @@ export default defineComponent({
 
     useAddLayer(map, layer, props)
 
-    watch(() => props.source, async (v, ov) => {
-      await nextTick() // 让defaultFields生成
-      const updateFeatures: Graphic[] = []
-      // 从 v中减去 ov中有的id
-      // 从 ov中减去 v中有的id
-      const addMap = (v as Graphic[]).reduce((a, c) => {
-        const id = c.attributes[props.objectIdField]
-        a[id] = c
-        return a
-      }, {} as Record<string, Graphic>)
-
-      const delMap = (ov as Graphic[]).reduce((a, c) => {
-        const id = c.attributes[props.objectIdField]
-        if (Reflect.has(addMap, id)) {
-          updateFeatures.push(c)
-          Reflect.deleteProperty(addMap, id)
-        } else {
+    watch(() => props.source, (v, ov) => {
+      nextTick().then(() => {  // 让defaultFields生成
+        const updateFeatures: Graphic[] = []
+        // 从 v中减去 ov中有的id
+        // 从 ov中减去 v中有的id
+        const addMap = (v as Graphic[]).reduce((a, c) => {
+          const id = c.attributes[props.objectIdField]
           a[id] = c
+          return a
+        }, {} as Record<string, Graphic>)
+
+        const delMap = (ov as Graphic[]).reduce((a, c) => {
+          const id = c.attributes[props.objectIdField]
+          if (Reflect.has(addMap, id)) {
+            updateFeatures.push(c)
+            Reflect.deleteProperty(addMap, id)
+          } else {
+            a[id] = c
         
+          }
+          return a
+        }, {} as Record<string, Graphic>)
+
+
+        const addFeatures: Graphic[] = []
+        const deleteFeatures: Graphic[] = []
+        for (const key in addMap) {
+          addFeatures.push(addMap[key])
         }
-        return a
-      }, {} as Record<string, Graphic>)
+        for (const key in delMap) {
+          deleteFeatures.push(delMap[key])
+        }
 
-
-      const addFeatures: Graphic[] = []
-      const deleteFeatures: Graphic[] = []
-      for (const key in addMap) {
-        addFeatures.push(addMap[key])
-      }
-      for (const key in delMap) {
-        deleteFeatures.push(delMap[key])
-      }
-
-      // 获取需要删除的点
-      layer.applyEdits({
-        addFeatures,
-        deleteFeatures,
-        updateFeatures,
+        return {
+          addFeatures,
+          deleteFeatures,
+          updateFeatures,
+        }
+      }).then((editObj) => {
+        return layer.applyEdits(editObj)
       }).then(() => {
         // [TODO] 为了刷新某些renderer
         if (props.forceUpdate) {
