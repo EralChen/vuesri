@@ -65,3 +65,5 @@ export * from '@vuesri/components/print'
 // export * from '@vuesri/components/wms-layer'
 
 export * from '@vuesri/components/scene-layer'
+
+export * from '@vuesri/components/imagery-tile-layer'

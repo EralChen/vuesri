@@ -10,10 +10,16 @@
 
 初始化 [MapImageLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-MapImageLayer.html) 实例
 
-## Demo
+<!-- ## Demo
 
 :::demo
 _demo-components/map-image-layer/index.vue
+::: -->
+
+## FlowRenderer
+
+:::demo
+_demo-components/map-image-layer/flow-renderer.vue
 :::
 
 
