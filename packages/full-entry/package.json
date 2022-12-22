@@ -1,6 +1,6 @@
 {
   "name": "vuesri",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Vue3.x components for @arcgis/core",
   "module": "index.esm.js",
   "scripts": {
