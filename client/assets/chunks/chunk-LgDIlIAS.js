@@ -1,0 +1,1 @@
+import{O as t}from"./chunk-0qLlCJLm.js";import"./chunk-x2EARIDc.js";import"./chunk-8J0p1hu6.js";import"./chunk-EUQwHdIv.js";import"./chunk-v6EOeNTY.js";function a(r){return(0,t[r.operation])(...r.parameters)}export{a as executeGEOperation};

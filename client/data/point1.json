@@ -1,0 +1,48 @@
+[
+  {
+    "industryName": "照明灯具制造",
+    "centerPoints": [
+      {
+        "probabilityDensity": 0.1585118561325443,
+        "ranking": 1,
+        "centerPoint": [
+          121.1149337,
+          30.04523957
+        ]
+      },
+      {
+        "probabilityDensity": 0.15845239503602235,
+        "ranking": 2,
+        "centerPoint": [
+          121.0964554516,
+          30.0280127588
+        ]
+      },
+      {
+        "probabilityDensity": 0.15844514531809153,
+        "ranking": 3,
+        "centerPoint": [
+          121.11972,
+          30.02716
+        ]
+      },
+      {
+        "probabilityDensity": 0.15844100940636197,
+        "ranking": 4,
+        "centerPoint": [
+          121.1184996247,
+          30.0258186467
+        ]
+      },
+      {
+        "probabilityDensity": 0.15843410477720932,
+        "ranking": 5,
+        "centerPoint": [
+          121.1112797293,
+          30.0227709186
+        ]
+      }
+    ],
+    "industryCode": "3872"
+  }
+]

@@ -1,0 +1,1 @@
+const e={text:"View",children:[{link:"/map-view",text:"MapView"},{link:"/scene-view",text:"SceneView"},{link:"/view",text:"View"},{link:"/view-when",text:"ViewWhen"}]},i={view:e};export{i as default,e as view};

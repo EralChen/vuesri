@@ -1,0 +1,1 @@
+import{R as r}from"./chunk-KpbMssn-.js";const t="http://192.168.110.250:8080/geoserver",s=new r({baseURL:t,setRequestInit(e){return e.headers,e}}),n=e=>s.request(e),a=()=>n({method:"GET",url:"/rest/layers.json"}).then(e=>e.layers.layer);export{t as g,a as r};

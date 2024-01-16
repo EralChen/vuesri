@@ -1,0 +1,171 @@
+@mixin featureForm() {
+  $group-border-width: 3px;
+  $panel-background-color: var(--calcite-ui-background);
+
+  .esri-feature-form {
+    background-color: $panel-background-color;
+    padding: var(--esri-widget-padding);
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__centered-button {
+      align-self: center;
+    }
+
+    &__description-text {
+      color: $interactive-font-color;
+      font-size: $font-size--small;
+    }
+
+    &__list-observer {
+      position: relative;
+      bottom: 20px;
+      z-index: 2;
+      text-align: center;
+    }
+
+    &__related-records {
+      &_header {
+        display: flex;
+        margin-bottom: $cap-spacing--half;
+
+        span {
+          flex-grow: 1;
+        }
+      }
+
+      &_label {
+        calcite-notice,
+        .esri-feature-form__description-text {
+          margin-bottom: $cap-spacing--half;
+        }
+      }
+
+      &_list {
+        margin-bottom: $cap-spacing--half;
+        min-height: 40px;
+      }
+    }
+  }
+
+  label.esri-feature-form__label {
+    gap: 0.5em;
+    margin-bottom: $cap-spacing;
+  }
+
+  .esri-feature-form__label {
+    @include wordbreak();
+
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+      opacity 250ms,
+      margin 250ms;
+    opacity: 1;
+    margin-bottom: $cap-spacing--half;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-text-content {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .esri-feature-form__form-header {
+    margin-bottom: $cap-spacing;
+
+    .esri-feature-form__description-text ~ .esri-widget__heading {
+      margin-bottom: 0;
+    }
+  }
+
+  .esri-feature-form__input {
+    width: 100%;
+
+    &:focus {
+      outline: 2px solid var(--calcite-ui-brand);
+      outline-offset: -2px;
+    }
+  }
+
+  textarea.esri-feature-form__input {
+    resize: vertical;
+  }
+
+  .esri-feature-form__input--disabled {
+    background-color: var(--calcite-ui-background);
+    font-weight: var(--calcite-font-weight-medium);
+  }
+
+  .esri-feature-form__input--invalid {
+    border: 1px solid $border-color--error;
+  }
+
+  .esri-feature-form__field-error-message {
+    padding: $side-spacing--half 0;
+    font-size: $font-size--small;
+  }
+
+  .esri-feature-form__date-input-container {
+    display: flex;
+    flex-direction: column;
+
+    .esri-feature-form__input {
+      margin-bottom: $cap-spacing--quarter;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .esri-feature-form__input--radio-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .esri-feature-form__input--radio-label {
+    display: flex;
+    align-items: center;
+  }
+
+  .esri-feature-form__input--switch {
+    margin: $side-spacing--half 0;
+  }
+
+  .esri-feature-form__group {
+    margin: 0 0 $cap-spacing 0;
+    margin-inline: -10px; // offset to align FeatureForm elements
+    background-color: inherit;
+  }
+
+  .esri-feature-form__group--sequential {
+    border-bottom: none;
+    border-inline-start: $group-border-width solid $border-color;
+  }
+
+  .esri-feature-form__group--active {
+    border-inline-start-color: $border-color--active;
+  }
+
+  [dir="rtl"] {
+    .esri-feature-form__date-input-part {
+      &:first-child .esri-feature-form__input {
+        border-right: 1px solid $border-color;
+        border-left: none;
+      }
+    }
+  }
+}
+
+@if $include_FeatureForm == true {
+  @include featureForm();
+}
