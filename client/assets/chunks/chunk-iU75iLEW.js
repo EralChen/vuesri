@@ -1,1 +1,0 @@
-import{eO as e,eP as n}from"./chunk-8J0p1hu6.js";import{a as m}from"./chunk-yHrRVOxu.js";import"./chunk-EUQwHdIv.js";async function f(o,t,r){const a=e(o);return(await m(a,n.from(t),{...r})).data.count}export{f as executeForTopCount};
