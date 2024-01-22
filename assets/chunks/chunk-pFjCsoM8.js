@@ -1,0 +1,1 @@
+import{eO as e,eP as s}from"./chunk-AGUgPSYp.js";import{m}from"./chunk-5tjqKKc2.js";import"./chunk-oVLQlo07.js";async function n(o,t,r){const a=e(o);return(await m(a,s.from(t),{...r})).data.objectIds}export{n as executeForTopIds};

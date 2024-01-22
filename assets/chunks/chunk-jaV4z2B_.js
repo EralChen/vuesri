@@ -1,0 +1,1 @@
+import{u as a}from"./chunk-MdhcL4Zw.js";import{gp as r,gs as t,gD as o,gF as n,gu as l}from"./chunk-AGUgPSYp.js";const _=r({__name:"sublayer-log",setup(p){const s=a().map(e=>e.title).join(" | ");return(e,c)=>(t(),o("p",null,n(l(s)),1))}});export{_};

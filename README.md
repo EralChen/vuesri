@@ -32,6 +32,7 @@
 - 💪 全面拥抱 Vue 3 生态
 - 🔥 完整的 TypeScript 类型定义文件
 - 🌏 组件化方式快速构建地图
+- 📄 [在线文档](https://eralchen.github.io/vuesri) 示例丰富
 
 
 ## 安装

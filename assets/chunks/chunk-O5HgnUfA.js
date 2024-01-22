@@ -1,0 +1,1 @@
+import{go as t}from"./chunk-AGUgPSYp.js";const o=e=>class extends t{name;handler;cacheData;constructor(a,r){super(),this.name=a,this.handler=r}add(){e.on(this.name,this.handler),this.removeHandler=()=>e.off(this.name,this.handler)}};export{o as c};
