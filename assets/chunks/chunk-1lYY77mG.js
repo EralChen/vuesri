@@ -1,0 +1,1 @@
+import{bH as p}from"./chunk-ERvgPDZ8.js";const f=(m,t)=>!(t.maxScale&&m<t.maxScale||t.minScale&&m>=t.minScale);function s(m,t,x=10){const n={xmin:t.x-x,ymin:t.y-x,xmax:t.x+x,ymax:t.y+x},i={x:n.xmin,y:n.ymin},o={x:n.xmax,y:n.ymax},a=m.toMap(i),e=m.toMap(o);return new p({xmin:a.x,ymin:e.y,xmax:e.x,ymax:a.y,spatialReference:m.spatialReference})}export{s as e,f as i};

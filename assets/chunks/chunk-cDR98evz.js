@@ -1,0 +1,7 @@
+const v="modulepreload",f=function(t){return"/vuesri/"+t},u={},m=function(l,a,d){let c=Promise.resolve();if(a&&a.length>0){const r=document.getElementsByTagName("link");c=Promise.all(a.map(e=>{if(e=f(e),e in u)return;u[e]=!0;const s=e.endsWith(".css"),h=s?'[rel="stylesheet"]':"";if(!!d)for(let o=r.length-1;o>=0;o--){const i=r[o];if(i.href===e&&(!s||i.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${e}"]${h}`))return;const n=document.createElement("link");if(n.rel=s?"stylesheet":v,s||(n.as="script",n.crossOrigin=""),n.href=e,document.head.appendChild(n),s)return new Promise((o,i)=>{n.addEventListener("load",o),n.addEventListener("error",()=>i(new Error(`Unable to preload CSS for ${e}`)))})}))}return c.then(()=>l()).catch(r=>{const e=new Event("vite:preloadError",{cancelable:!0});if(e.payload=r,window.dispatchEvent(e),!e.defaultPrevented)throw r})},g=[{label:"中文",value:"zh-CN",glob:Object.assign({"./zh-CN/pages/component.json":()=>m(()=>import("./chunk-WRLioZu-.js"),__vite__mapDeps([]))})},{label:"英文",value:"en-US",glob:Object.assign({"./en-US/pages/component.json":()=>m(()=>import("./chunk-uNtYK9Sk.js"),__vite__mapDeps([]))})}];g.reduce((t,l)=>(t[l.value]=l,t),{});var p=(t=>(t.component="pages/component.json",t))(p||{});export{g as C,m as _,p as a};
+function __vite__mapDeps(indexes) {
+  if (!__vite__mapDeps.viteFileDeps) {
+    __vite__mapDeps.viteFileDeps = []
+  }
+  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
+}
