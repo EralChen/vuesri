@@ -1,1 +1,0 @@
-import{eR as n,eS as m,bH as s}from"./chunk-ERvgPDZ8.js";import{d as c}from"./chunk-BSY_JhCK.js";import"./chunk-cDR98evz.js";async function u(o,a,e){const r=n(o),t=await c(r,m.from(a),{...e});return{count:t.data.count,extent:s.fromJSON(t.data.extent)}}export{u as executeForTopExtents};

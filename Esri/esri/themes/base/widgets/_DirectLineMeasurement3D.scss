@@ -1,7 +1,0 @@
-/* stylelint-disable-next-line block-no-empty */
-@mixin directLineMeasurement3D() {
-}
-
-@if $include_DirectLineMeasurement3D == true {
-  @include directLineMeasurement3D();
-}

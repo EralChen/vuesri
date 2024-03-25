@@ -1,7 +1,0 @@
-/* stylelint-disable-next-line block-no-empty */
-@mixin distanceMeasurement2D() {
-}
-
-@if $include_DistanceMeasurement2D == true {
-  @include distanceMeasurement2D();
-}

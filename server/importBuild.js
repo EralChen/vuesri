@@ -1,0 +1,2 @@
+globalThis.__serverEntryImportPromise = import('./entry.mjs');
+console.warn("[Warning] The server entry has been renamed from dist/server/importBuild.{cjs,mjs,js} to dist/server/entry.{cjs,mjs,js} — update your import('../path/to/dist/server/importBuild.{cjs,mjs,js}') accordingly.");

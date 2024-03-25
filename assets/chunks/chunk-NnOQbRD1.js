@@ -1,1 +1,0 @@
-import{go as o,gr as s,bG as r}from"./chunk-ERvgPDZ8.js";class n extends s{interceptor;constructor(e){super(),this.interceptor=e}add(){r.request.interceptors||(r.request.interceptors=[]),r.request.interceptors?.unshift(this.interceptor)}}const i=t=>{const e=new n(t);return o(()=>{e.remove()}),{interceptorToggle:e}};export{i as u};

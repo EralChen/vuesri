@@ -1,1 +1,0 @@
-import{er as l,at as a}from"./chunk-ERvgPDZ8.js";function u(e,t=l(e)){return t.mode!=="on-the-ground"&&!(e.geometry==null||!e.geometry.hasZ)}function m(e,t){let r=null;const o=e.events.on("grab-changed",n=>{r!=null&&(r.remove(),r=null),n.action==="start"&&(r=e.disableDisplay()),t&&t(n)});return a(()=>{r?.remove(),o.remove()})}export{u as n,m as t};

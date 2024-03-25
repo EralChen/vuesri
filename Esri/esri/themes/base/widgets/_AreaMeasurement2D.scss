@@ -1,7 +1,0 @@
-/* stylelint-disable-next-line block-no-empty */
-@mixin areaMeasurement2D() {
-}
-
-@if $include_AreaMeasurement2D == true {
-  @include areaMeasurement2D();
-}
