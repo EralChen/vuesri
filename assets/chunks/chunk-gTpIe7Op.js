@@ -1,0 +1,1 @@
+import{f0 as a,at as l}from"./chunk-gZYsZ36N.js";function m(t,e=a(t)){return e.mode!=="on-the-ground"&&!(t.geometry==null||!t.geometry.hasZ)}function s(t,e){let r=null;const o=t.events.on("grab-changed",n=>{r!=null&&(r.remove(),r=null),n.action==="start"&&(r=t.disableDisplay()),e&&e(n)});return l(()=>{r?.remove(),o.remove()})}export{m as n,s as t};
