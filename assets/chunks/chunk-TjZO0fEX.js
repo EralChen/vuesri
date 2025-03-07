@@ -1,0 +1,1 @@
+import{bl as a,ar as l}from"./chunk-CNvQLzuQ.js";function i(r,e){return u(r?.data.coordinateHelper.hasZ(),e)}function u(r,e){return!!r&&e.mode!=="on-the-ground"&&!a(e)}function s(r,e){let n=null;const t=r.events.on("grab-changed",o=>{n!=null&&(n.remove(),n=null),o.action==="start"&&(n=r.disableDisplay())});return l(()=>{n?.remove(),t.remove()})}export{i as o,s as r};

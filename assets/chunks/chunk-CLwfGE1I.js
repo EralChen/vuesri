@@ -1,1 +1,0 @@
-import{u as s}from"./chunk-CNtoRp8i.js";import{gO as a,lz as o,lE as n,h1 as t}from"./chunk-CMhy9c9G.js";const l=a({name:"VaSublayersProvider",setup(){const e=s();return o("vaSublayers",e.sublayers),{}}});function p(e,u,c,i,d,m){return t(e.$slots,"default")}const r=n(l,[["render",p]]);r.install=e=>{e.component(r.name,r)};export{r as V};
