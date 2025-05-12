@@ -1,0 +1,1 @@
+import{gJ as i}from"./chunk-q0pxKx5Y.js";function o(){const e=i("vaView");if(!e)throw new Error("The component which use useView() must be in a View component");return e}export{o as u};

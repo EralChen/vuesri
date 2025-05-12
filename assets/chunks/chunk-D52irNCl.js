@@ -1,0 +1,1 @@
+import{gJ as r}from"./chunk-q0pxKx5Y.js";function a(){const e=r("vaFeatureLayer");if(!e)throw new Error("The component which use useFeatureLayer() must be in a FeatureLayer component");return e}export{a as u};
