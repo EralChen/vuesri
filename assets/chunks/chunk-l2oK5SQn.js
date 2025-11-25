@@ -1,0 +1,1 @@
+import{js as d,jv as o,ju as s,jt as r}from"./chunk-xsho5EA6.js";const f=(a,t,e)=>{e.orphan||(d(()=>{a.add(t,e.position)}),o(()=>{a.remove(t)}),s(()=>{a.add(t,e.position)}),r(()=>{a.remove(t)}))};export{f as u};

@@ -1,0 +1,1 @@
+import{dd as e}from"./chunk-xsho5EA6.js";const f=e().vec3f("position").freeze(),v=e().vec3f("position").vec2f16("uv0").freeze(),c=e().vec3f("position").vec4u8("color").freeze(),i=e().vec3f("position").vec2f("uv0").freeze(),r=e().vec3f("position").vec2f("uv0").vec4u8("olidColor").freeze();export{r as c,v as f,f as o,i as r,c as v};

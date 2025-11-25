@@ -1,0 +1,1 @@
+import{ak as a,al as r,an as i}from"./chunk-xsho5EA6.js";const d=t=>{const l=t;let e=class extends l{get availableFields(){return this.layer.fieldsIndex.fields.map(s=>s.name)}};return a([r()],e.prototype,"layer",void 0),a([r({readOnly:!0})],e.prototype,"availableFields",null),e=a([i("esri.views.layers.OGCFeatureLayerView")],e),e};export{d as s};
